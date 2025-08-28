@@ -1,0 +1,116 @@
+---
+import testi1 from "../assets/testi-1.svg";
+import testi2 from "../assets/testi-2.svg";
+import testi3 from "../assets/testi-3.svg";
+import testi4 from "../assets/testi-4.svg";
+import testiAva1 from "../assets/testi-ava-1.jpg";
+import testiAva2 from "../assets/testi-ava-2.jpg";
+import testiComp1 from "../assets/testi-comp-1.jpg";
+import testiComp2 from "../assets/testi-comp-2.jpg";
+---
+
+<section class="grid grid-cols-2 mx-6 pt-12 border-t border-neutral-600 mt-12">
+    <h6 class="text-orange-500 text-xl col-span-2 mb-6">Expertise</h6>
+    <div class="space-y-6">
+        <h3 class="text-stone-50 text-5xl">
+            Entrusted by The Expert, Enterprise, and Government.
+        </h3>
+        <p class="text-neutral-400 text-lg block">
+            We have mapped and navigated in multiple parts of the globe across
+            various fields and industries as a testament of how universal
+            geospatial technology is.
+        </p>
+        <div class="flex space-x-2">
+            <span
+                class="rounded-lg border border-neutral-600 text-xs text-neutral-400 py-2 px-3 flex space-x-1"
+            >
+                <img src={testi1.src} />
+                <p>Retail and Real Estate</p>
+            </span>
+            <span
+                class="rounded-lg border border-neutral-600 text-xs text-neutral-400 py-2 px-3 flex space-x-1"
+            >
+                <img src={testi2.src} />
+                <p>Oil, Mining, and Gas</p>
+            </span>
+            <span
+                class="rounded-lg border border-neutral-600 text-xs text-neutral-400 py-2 px-3 flex space-x-1"
+            >
+                <img src={testi3.src} />
+                <p>Logistics and Fleet</p>
+            </span>
+            <span
+                class="rounded-lg border border-neutral-600 text-xs text-neutral-400 py-2 px-3 flex space-x-1"
+            >
+                <img src={testi4.src} />
+                <p>Agriculture</p>
+            </span>
+        </div>
+    </div>
+    <div class="space-y-16">
+        <div>
+            <p class="text-neutral-500 border-b border-neutral-600 pb-1">01/</p>
+            <p class="text-white text-lg mt-3 mb-6">
+                "Our collaboration with PT Braga Teknologi Nusantara in the
+                development of the Bhumi geoportal web has been highly
+                beneficial. The Bhumi geoportal application has provided
+                advantages to both internal and external stakeholders. With the
+                Bhumi Geoportal, users can view the location of their land
+                parcels and obtain general information related to the location,
+                type of rights, and area of the land. Thank you to the Braga
+                team for their technical assistance, which has significantly
+                enhanced our services to the public."
+            </p>
+            <div class="flex space-x-6">
+                <div id="avatar list" class="flex items-center">
+                    <img
+                        src={testiAva1.src}
+                        alt=""
+                        class="rounded-full w-14 h-14"
+                    />
+                    <img
+                        src={testiComp1.src}
+                        alt=""
+                        class="rounded-full w-14 h-14 -ml-3"
+                    />
+                </div>
+                <div>
+                    <h6 class="text-stone-50">
+                        Gunawan Wibisono - Head of Information System
+                    </h6>
+                    <p class="text-neutral-400">
+                        Ministry of Agrarian Affairs and Spatial
+                        Planning/National Land Agency (ATR/BPN)
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <p class="text-neutral-500 border-b border-neutral-600 pb-1">02/</p>
+            <p class="text-white text-lg mt-3 mb-6">
+                “Braga allows us to generate business intelligence uniquely with
+                mapping approach, taking precise actions quickly and accurately
+                has never been this easier.”
+            </p>
+            <div class="flex space-x-6">
+                <div id="avatar list" class="flex items-center">
+                    <img
+                        src={testiAva2.src}
+                        alt=""
+                        class="rounded-full w-14 h-14"
+                    />
+                    <img
+                        src={testiComp2.src}
+                        alt=""
+                        class="rounded-full w-14 h-14 -ml-3"
+                    />
+                </div>
+                <div>
+                    <h6 class="text-stone-50">Alma Ariestantin - CEO</h6>
+                    <p class="text-neutral-400">Tech Support Pro, Startup</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
