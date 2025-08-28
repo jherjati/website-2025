@@ -1,0 +1,13 @@
+{
+  // Auto Save settings
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000, // in ms, here = 1 second
+
+  // Format on Save
+  "editor.formatOnSave": true,
+
+  // Optional: organize imports on save
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  }
+}
