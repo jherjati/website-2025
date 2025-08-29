@@ -4,12 +4,36 @@ import geo2 from "../assets/geo-2.svg";
 import geo3 from "../assets/geo-3.svg";
 import geoBlur from "../assets/geo-blur.png";
 import geoG from "../assets/geo-g.svg";
+import geoG2 from "../assets/geo-g2.svg";
 import geoSS from "../assets/geo-ss.png";
 import geodashboardLogo from "../assets/geodashboard-logo.svg";
 ---
 
-<section class="px-16 pb-16 pt-20 relative border border-neutral-700 rounded-sm overflow-hidden">
-    <div class="w-1/3 space-y-6">
+<section
+    class="sm:px-16 sm:pb-16 relative border border-neutral-700 rounded-sm overflow-hidden"
+>
+    <img
+        src={geoG2.src}
+        alt="geodashboard screenshot"
+        class="sm:hidden w-full"
+    />
+    <img
+        src={geoG.src}
+        alt="geodashboard screenshot"
+        class="absolute right-0 top-0 -z-3 hidden sm:block"
+    />
+    <img
+        src={geoSS.src}
+        alt="geodashboard screenshot"
+        class="absolute right-0 top-60 sm:bottom-0 -z-2 sm:block"
+    />
+    <img
+        src={geoBlur.src}
+        alt="geodashboard screenshot"
+        class="absolute left-0 bottom-0 -z-1 hidden sm:block"
+    />
+
+    <div class="px-4 w-full sm:w-1/3 space-y-6 pt-9 sm:pt-20">
         <img src={geodashboardLogo.src} />
         <h5 class="text-stone-50 text-5xl">
             From Seeing Where to Understand Why.
@@ -23,7 +47,7 @@ import geodashboardLogo from "../assets/geodashboard-logo.svg";
         >
     </div>
 
-    <div class="w-1/3 mt-16 space-y-8">
+    <div class="px-4 pb-4 w-full sm:w-1/3 mt-16 space-y-8">
         <div class="relative">
             <h6 class="text-stone-50 mb-3">Spatial Range Calculation</h6>
             <p class="text-neutral-400">
@@ -49,20 +73,4 @@ import geodashboardLogo from "../assets/geodashboard-logo.svg";
             <img src={geo3.src} alt="" class="absolute top-0 right-0" />
         </div>
     </div>
-
-    <img
-        src={geoG.src}
-        alt="geodashboard screenshot"
-        class="absolute right-0 bottom-0 -z-3"
-    />
-    <img
-        src={geoSS.src}
-        alt="geodashboard screenshot"
-        class="absolute right-0 bottom-0 -z-2"
-    />
-    <img
-        src={geoBlur.src}
-        alt="geodashboard screenshot"
-        class="absolute left-0 bottom-0 -z-1"
-    />
 </section>
