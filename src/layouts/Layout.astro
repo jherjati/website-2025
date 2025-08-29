@@ -3,17 +3,18 @@ import "../styles/global.css";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="w-full">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, viewport-fit=cover"
+		/>
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Braga Website</title>
 	</head>
-	<body
-		class="w-screen h-screen overflow-y-scroll bg-neutral-900 font-montserrat"
-	>
+	<body class="w-full bg-neutral-900 font-montserrat">
 		<slot />
 	</body>
 </html>
