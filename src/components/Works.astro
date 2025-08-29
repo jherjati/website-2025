@@ -7,6 +7,7 @@ import work5 from "../assets/work-5.jpg";
 import work6 from "../assets/work-6.jpg";
 import work7 from "../assets/work-7.jpg";
 import work8 from "../assets/work-8.jpg";
+import workDecor from "../assets/work-decor.svg";
 
 const works = [
     {
@@ -65,11 +66,17 @@ const works = [
     </div>
 
     <div
-        class="mt-16 grid grid-cols-4 gap-4 p-6 border border-neutral-800 rounded-sm"
+        class="mt-16 grid grid-cols-4 gap-4 p-6 border border-neutral-800 rounded-sm relative"
     >
+        <img
+            src={workDecor.src}
+            alt=""
+            srcset=""
+            class="absolute top-0 left-0 -z-1"
+        />
         {
             works.map(({ title, image, description }) => (
-                <div class="p-4 space-y-4 border border-neutral-800 rounded-sm">
+                <div class="p-4 space-y-4 border border-neutral-800 rounded-sm bg-black/10">
                     <h5 class="text-2xl text-stone-50">{title}</h5>
                     <img src={image.src} class="rounded-sm w-full" />
                     <div class="flex justify-between space-x-2">

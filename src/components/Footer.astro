@@ -1,0 +1,61 @@
+---
+import navigate from "../assets/navigate.svg";
+---
+
+<section class="grid grid-cols-6 bg-neutral-800 p-10 mx-6 rounded-lg">
+    <div class="col-span-4 space-x-30 flex article">
+        <div>
+            <h6>Product</h6>
+            <p>Geodashboard</p>
+            <p>Logbook</p>
+            <p>Poin</p>
+
+            <h6 class="mt-4">Service</h6>
+            <p>Data Service</p>
+            <p>Software Development</p>
+        </div>
+
+        <div>
+            <h6>Company</h6>
+            <p>About</p>
+            <p>Culture</p>
+            <p>Career</p>
+
+            <h6 class="mt-4">Contact us</h6>
+        </div>
+    </div>
+    <div class="col-span-2">
+        <p class="text-neutral-500">
+            Indonesia’s Leading Geospatial Technology that optimize analytics
+            and performance, moving the world one map at a time.
+        </p>
+        <span class="flex space-x-4 mt-4">
+            <button
+                class="border border-orange-500 text-orange-500 rounded-full py-1 w-36"
+                >LinkedIn</button
+            >
+            <button
+                class="border border-orange-500 text-orange-500 rounded-full py-1 w-36"
+                >Youtube</button
+            ></span
+        >
+    </div>
+    <img src={navigate.src} alt="" class="col-span-6 mt-30 mb-12" />
+    <p class="col-span-3 text-neutral-500">© Braga Technologies 2024</p>
+    <span class="col-span-3 flex justify-between text-neutral-500"
+        ><p>Back to top &uarr;</p>
+        <p>Information Security Policy</p>
+        <p>Terms and Condition</p></span
+    >
+</section>
+
+<style>
+    .article h6 {
+        color: var(--color-stone-50);
+    }
+
+    .article p {
+        color: var(--color-neutral-400);
+        margin-top: calc(var(--spacing) * 1);
+    }
+</style>

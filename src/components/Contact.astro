@@ -1,14 +1,16 @@
 ---
 import contactDecor from "../assets/contact-decor.svg";
+import ctaDecor from "../assets/cta-decor.svg";
 ---
 
 <section
-    class="flex justify-center items-center py-30"
+    class="flex justify-center items-center pt-30 pb-56"
     style={`background: url(${contactDecor.src});`}
 >
     <div
-        class="rounded-lg p-12 flex flex-col items-center text-center w-1/2 test"
+        class="rounded-lg p-12 flex flex-col items-center text-center w-1/2 test relative overflow-hidden"
     >
+        <img src={ctaDecor.src} alt="" class="absolute top-0 left-0 "/>
         <h5 class="text-stone-100 text-6xl">Get started today</h5>
         <p class="text-stone-50 text-xl mt-3 mb-6">
             Find out how you can maximize the value from data and strengthen
