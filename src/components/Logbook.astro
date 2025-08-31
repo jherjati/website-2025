@@ -6,9 +6,15 @@ import logbookLogo from "../assets/logbook-logo.svg";
 ---
 
 <section
-    class="px-16 pb-16 pt-20 relative border border-neutral-700 rounded-sm overflow-hidden"
+    class="sm:pb-16 relative border border-neutral-700 rounded-sm overflow-hidden bg-teal-950 sm:bg-transparent"
 >
-    <div class="w-1/3 space-y-6">
+    <img
+        src={logbook.src}
+        alt="logbook screenshot"
+        class="sm:absolute h-full w-full object-cover object-top-left top-0 left-0 -z-10"
+    />
+
+    <div class="pl-4 sm:pl-20 pr-4 pt-9 sm:pt-20 w-full sm:w-1/3 space-y-6">
         <img src={logbookLogo.src} />
         <h5 class="text-amber-50 text-5xl">
             Log Your Journey, Endless Possibility
@@ -23,7 +29,9 @@ import logbookLogo from "../assets/logbook-logo.svg";
         >
     </div>
 
-    <div class="w-1/3 mt-30 space-y-8">
+    <div
+        class="pl-4 sm:pl-20 pr-4 pb-4 w-full sm:w-1/3 mt-16 sm:mt-30 space-y-8"
+    >
         <div class="relative">
             <h6 class="text-lime-300 mb-3">Simplify storytelling</h6>
             <p class="text-neutral-400">
@@ -43,10 +51,4 @@ import logbookLogo from "../assets/logbook-logo.svg";
             <img src={log2.src} alt="" class="absolute top-0 right-0" />
         </div>
     </div>
-
-    <img
-        src={logbook.src}
-        alt="logbook screenshot"
-        class="absolute right-0 bottom-0 w-full -z-1"
-    />
 </section>
