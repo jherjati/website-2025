@@ -55,7 +55,7 @@ const works = [
 
 <section class="mx-6 pt-12 pb-24 border-t border-neutral-600">
     <h6 class="text-orange-500 text-xl mb-2">Our Work</h6>
-    <div class="grid grid-cols-2">
+    <div class="sm:grid grid-cols-2 space-y-6">
         <h3 class="text-stone-50 text-5xl w-2/3">
             Braga Solutions, Integrated to You.
         </h3>
@@ -66,7 +66,7 @@ const works = [
     </div>
 
     <div
-        class="mt-16 grid grid-cols-4 gap-4 p-6 border border-neutral-800 rounded-sm relative"
+        class="mt-16 flex overflow-x-scroll sm:grid grid-cols-4 gap-4 sm:p-6 sm:border border-neutral-800 rounded-sm relative"
     >
         <img
             src={workDecor.src}
@@ -76,7 +76,7 @@ const works = [
         />
         {
             works.map(({ title, image, description }) => (
-                <div class="p-4 space-y-4 border border-neutral-800 rounded-sm bg-black/10">
+                <div class="p-4 space-y-4 border border-neutral-800 rounded-sm bg-black/10 min-w-72">
                     <h5 class="text-2xl text-stone-50">{title}</h5>
                     <img src={image.src} class="rounded-sm w-full" />
                     <div class="flex justify-between space-x-2">
