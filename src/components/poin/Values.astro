@@ -1,0 +1,50 @@
+---
+import value1 from "../../assets/poin/value-1.svg";
+import value2 from "../../assets/poin/value-2.svg";
+import value3 from "../../assets/poin/value-3.svg";
+
+const values = [
+    {
+        image: value1,
+        title: "Widest Audience",
+        subtitle: "Minimum Investment, Maximize Impact.",
+        description:
+            "Our data targeting expertise ensures you reach the most relevant audience, from industry thought leaders to everyday consumers, regardless of project scale or budget. We provide cost-effective solutions tailored to your specific needs, maximizing the impact of your data.",
+    },
+    {
+        image: value2,
+        title: "Quality Assurance",
+        subtitle: "Expert Moderation, Unmatched Data Quality.",
+        description:
+            "We assemble dedicated moderation teams with specialized skill sets tailored to your unique data. Through intensive training and multi-layered validation, we ensure consistently high-quality data delivery.",
+    },
+    {
+        image: value3,
+        title: "Deeper Insights",
+        subtitle: "Precision Insights: Data Tailored to Your Needs.",
+        description:
+            "We unlock the full potential of your property data by customizing content to your specific requirements. Our tailor-made approach allows you to gain deeper insights, informing better decision-making.",
+    },
+];
+---
+
+<section class="mx-6 mt-12 pt-6 border-t border-stone-200">
+    <h4 class="text-rose-500 text-xl">Poin Services at Braga</h4>
+    <h2 class="text-neutral-800 text-3xl sm:text-5xl w-full sm:w-1/2">
+        How Working with Data is Optimized at Braga Technologies.
+    </h2>
+    <div class="sm:grid grid-cols-3 py-9 gap-x-6 space-y-9">
+        {
+            values.map(({ image, title, subtitle, description }) => (
+                <div class="space-y-3">
+                    <img src={image.src} alt={title} class="w-full" />
+                    <h5 class="text-neutral-500 border-b border-neutral-600 text-sm sm:text-base">
+                        {title}
+                    </h5>
+                    <h6 class="text-rose-500 text-2xl sm:text-3xl">{subtitle}</h6>
+                    <p class="text-neutral-800 text-sm sm:text-lg">{description}</p>
+                </div>
+            ))
+        }
+    </div>
+</section>
