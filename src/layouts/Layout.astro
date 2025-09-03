@@ -5,7 +5,15 @@ import bragaLogo from "../assets/braga.svg";
 import burgerIcon from "../assets/burger-icon.svg";
 
 const { theme } = Astro.props;
-console.log(theme);
+
+const navs = [
+	{ href: "/", label: "Home" },
+	{ href: "/products/poin", label: "Products" },
+	{ href: "/service", label: "Services" },
+	{ href: "/company", label: "Company" },
+	{ href: "/initiatives", label: "Initiatives" },
+	{ href: "/blogs", label: "Blog" },
+];
 ---
 
 <!doctype html>
@@ -39,42 +47,16 @@ console.log(theme);
 				</div>
 
 				<nav class="grow hidden sm:flex space-x-3 text-center text-xs">
-					<a
-						class="w-20 hover:text-neutral-600 dark:hover:text-neutral-200 hover:border border-neutral-300 dark:border-neutral-700 rounded-sm h-9 flex justify-center items-center"
-						href="/"
-					>
-						Home</a
-					>
-					<a
-						class="w-20 hover:text-neutral-200 hover:border border-neutral-700 rounded-sm h-9 flex justify-center items-center"
-						href="/products/poin"
-					>
-						Products</a
-					>
-					<a
-						class="w-20 hover:text-neutral-200 hover:border border-neutral-700 rounded-sm h-9 flex justify-center items-center"
-						href="/service"
-					>
-						Services</a
-					>
-					<a
-						class="w-20 hover:text-neutral-200 hover:border border-neutral-700 rounded-sm h-9 flex justify-center items-center"
-						href="/company"
-					>
-						Company</a
-					>
-					<a
-						class="w-20 hover:text-neutral-200 hover:border border-neutral-700 rounded-sm h-9 flex justify-center items-center"
-						href="/initiatives"
-					>
-						Initiatives</a
-					>
-					<a
-						class="w-20 hover:text-neutral-200 hover:border border-neutral-700 rounded-sm h-9 flex justify-center items-center"
-						href="/blogs"
-					>
-						Blog</a
-					>
+					{
+						navs.map(({ href, label }) => (
+							<a
+								class="w-20 dark:hover:text-neutral-200 hover:border border-stone-200 dark:border-neutral-700 rounded-sm h-9 flex justify-center items-center"
+								href={href}
+							>
+								{label}
+							</a>
+						))
+					}
 				</nav>
 				<div
 					class="border p-2 border-stone-200 dark:border-neutral-800 rounded-sm flex items-center space-x-2 text-xs"

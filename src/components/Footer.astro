@@ -1,9 +1,17 @@
 ---
 import navigate from "../assets/navigate.svg";
+
+const { theme } = Astro.props;
 ---
 
-<section class="grid grid-cols-6 bg-neutral-800 p-10 mx-6 rounded-lg">
-    <div class="col-span-6 sm:col-span-4 sm:space-x-30 flex article order-1">
+<section
+    class={theme +
+        " grid grid-cols-6 bg-stone-200 dark:bg-neutral-800 p-10 mx-6 rounded-lg"}
+>
+    <div
+        class={theme +
+            " col-span-6 sm:col-span-4 sm:space-x-30 flex article order-1"}
+    >
         <div>
             <h6>Product</h6>
             <p>Geodashboard</p>
@@ -43,7 +51,7 @@ import navigate from "../assets/navigate.svg";
     <img
         src={navigate.src}
         alt=""
-        class="col-span-6 mt-30 mb-12 order-2 sm:order-3"
+        class="col-span-6 mt-30 mb-12 order-2 sm:order-3 invert dark:invert-0"
     />
 
     <p class="col-span-6 sm:col-span-3 text-neutral-500 order-5 sm:order-4">
@@ -58,12 +66,20 @@ import navigate from "../assets/navigate.svg";
 </section>
 
 <style>
-    .article h6 {
+    .article.dark h6 {
         color: var(--color-stone-50);
     }
 
-    .article p {
+    .article.dark p {
         color: var(--color-neutral-400);
         margin-top: calc(var(--spacing) * 1);
+    }
+
+    .article.light h6 {
+        color: #161414;
+    }
+
+    .article.light p {
+        color: #4f4d4a; /* Dark mode color */
     }
 </style>
