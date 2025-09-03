@@ -3,12 +3,41 @@ import "../styles/global.css";
 
 import bragaLogo from "../assets/braga.svg";
 import burgerIcon from "../assets/burger-icon.svg";
+import geodImage from "../assets/layout/geod.png";
+import logbookImage from "../assets/layout/logbook.png";
+import poinImage from "../assets/layout/poin.png";
 
 const { theme } = Astro.props;
 
 const navs = [
 	{ href: "/", label: "Home" },
-	{ href: "/products/poin", label: "Products" },
+	{
+		href: "/products",
+		label: "Products",
+		dropdowns: [
+			{
+				title: "GeoDashboard",
+				subtitle:
+					"Visualize spatial data, exercise spatial analysis, and gather insights.",
+				href: "/products/poin",
+				image: geodImage,
+			},
+			{
+				title: "LogBook",
+				subtitle:
+					"Engaging map creator for your map-based storytelling",
+				href: "/products/poin",
+				image: logbookImage,
+			},
+			{
+				title: "Poin",
+				subtitle:
+					"Innovative solutions for geospatial and ground surveys.",
+				href: "/products/poin",
+				image: poinImage,
+			},
+		],
+	},
 	{ href: "/service", label: "Services" },
 	{ href: "/company", label: "Company" },
 	{ href: "/initiatives", label: "Initiatives" },
@@ -48,14 +77,49 @@ const navs = [
 
 				<nav class="grow hidden sm:flex space-x-3 text-center text-xs">
 					{
-						navs.map(({ href, label }) => (
-							<a
-								class="w-20 dark:hover:text-neutral-200 hover:border border-stone-200 dark:border-neutral-700 rounded-sm h-9 flex justify-center items-center"
-								href={href}
-							>
-								{label}
-							</a>
-						))
+						navs.map(({ href, label, dropdowns }) =>
+							dropdowns?.length ? (
+								<div class="dropdown z-10 relative">
+									<button class="cursor-pointer w-20 dark:hover:text-neutral-200 hover:border border-stone-200 dark:border-neutral-700 rounded-sm h-9 flex justify-center items-center">
+										{label}
+									</button>
+									<div class="content p-3 space-x-3 bg-stone-100 dark:bg-neutral-900/50 shadow-md rounded-lg border border-stone-300 dark:border-neutral-700 absolute left-0 top-9">
+										{dropdowns.map(
+											({
+												image,
+												href,
+												title,
+												subtitle,
+											}) => (
+												<a
+													href={href}
+													class="w-56 text-xs text-left cursor-pointer bg-stone-50 hover:bg-white dark:bg-transparent hover:dark:bg-neutral-900 border border-stone-200 dark:border-none p-2 rounded-lg"
+												>
+													<img
+														src={image.src}
+														alt=""
+														class="w-full"
+													/>
+													<h6 class="text-neutral-800 dark:text-stone-200 my-2 font-semibold">
+														{title}
+													</h6>
+													<p class="text-neutral-700 dark:text-neutral-400">
+														{subtitle}
+													</p>
+												</a>
+											),
+										)}
+									</div>
+								</div>
+							) : (
+								<a
+									class="w-20 dark:hover:text-neutral-200 hover:border border-stone-200 dark:border-neutral-700 rounded-sm h-9 flex justify-center items-center"
+									href={href}
+								>
+									{label}
+								</a>
+							),
+						)
 					}
 				</nav>
 				<div
@@ -77,4 +141,14 @@ const navs = [
 	</body>
 </html>
 
-<style></style>
+<style>
+	.dropdown {
+		display: inline-block;
+	}
+	.dropdown .content {
+		display: none;
+	}
+	.dropdown:hover .content {
+		display: flex;
+	}
+</style>
