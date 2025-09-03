@@ -1,0 +1,82 @@
+---
+import powered1 from "../../assets/poin/powered-1.svg";
+import powered2 from "../../assets/poin/powered-2.svg";
+import powered3 from "../../assets/poin/powered-3.svg";
+import powered4 from "../../assets/poin/powered-4.svg";
+
+const pillars = [
+    {
+        image: powered1,
+        title: "Flexibility",
+        description: `Select the model that fits your business: inhouse or on-site.`,
+    },
+    {
+        image: powered2,
+        title: "Expertise on Demand",
+        description: `Access professionals with proven experience.`,
+    },
+    {
+        image: powered3,
+        title: "Cost Efficiency",
+        description: `Scale resources without long-term overhead.`,
+    },
+    {
+        image: powered4,
+        title: "Seamless Integration",
+        description: `Talent that adapts to your workflows and culture.`,
+    },
+];
+---
+
+<section
+    class="mx-6 mt-6 pt-6 border-t border-stone-200 sm:grid grid-cols-12 gap-x-3"
+>
+    <div class="col-span-3">
+        <h5 class="text-rose-500 text-2xl">Managed Service Solutions</h5>
+        <h2 class="text-3xl sm:text-4xl">
+            Flexible expertise, tailored to your needs
+        </h2>
+    </div>
+    <div class="col-span-9">
+        <p class="mb-24 sm:mb-12 text-lg pt-8">
+            Braga’s Managed Service offers companies the freedom to choose how
+            projects are delivered. Whether handled fully by our inhouse team or
+            through manpower placement within your organization, we provide the
+            right talent to meet your operational and development needs. This
+            approach ensures efficiency, seamless execution, and reduced
+            overhead—so you can focus on outcomes, not resourcing challenges.
+        </p>
+        <h4 class="text-4xl mb-6">Value Pillars</h4>
+        <div class="space-y-6 gap-x-6 sm:grid grid-cols-4">
+            {
+                pillars.map(({ image, title, description }) => (
+                    <div>
+                        <img src={image.src} alt="" class="w-12 h-12" />
+                        <div class="sm:h-20 my-3 border-b border-rose-500 pb-3">
+                            <h6 class="text-rose-500 text-3xl">{title}</h6>
+                        </div>
+                        <p class="">{description}</p>
+                    </div>
+                ))
+            }
+        </div>
+
+        <h4 class="text-4xl mb-6 mt-12">Comparison Model</h4>
+        <div class="space-y-6 sm:grid grid-cols-2">
+            <div class="space-y-3">
+                <h6 class="text-rose-500 text-3xl pb-2">Inhouse Braga Team</h6>
+                <p class="">Project fully managed by Braga</p>
+                <p class="">End-to-end responsibility</p>
+                <p class="">Centralized delivery and oversight</p>
+            </div>
+            <div class="space-y-3">
+                <h6 class="text-rose-500 text-3xl pb-2">
+                    On-Site Manpower Placement
+                </h6>
+                <p class="">Talent embedded within client’s team</p>
+                <p class="">Works under client’s direction</p>
+                <p class="">Scales quickly to match project needs</p>
+            </div>
+        </div>
+    </div>
+</section>
