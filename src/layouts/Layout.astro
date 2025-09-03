@@ -59,11 +59,18 @@ const navs = [
 	</head>
 	<body
 		class={theme +
-			" w-full bg-stone-100 dark:bg-neutral-900 font-montserrat"}
+			" relative w-full bg-stone-100 dark:bg-neutral-900 font-montserrat"}
 	>
-		<div class={theme + " px-6 pt-6 w-full"}>
+		<div class="fixed w-full h-full -z-10 grid grid-cols-4 gap-6 px-6">
+			<div class="border dark:border-neutral-800 border-stone-200"></div>
+			<div class="border dark:border-neutral-800 border-stone-200"></div>
+			<div class="border dark:border-neutral-800 border-stone-200"></div>
+			<div class="border dark:border-neutral-800 border-stone-200"></div>
+		</div>
+
+		<div class={theme + " px-6 pt-6 w-full sticky top-0 z-10 "}>
 			<div
-				class="w-full flex items-center justify-between border border-stone-200 dark:border-neutral-800 p-2 rounded-sm text-neutral-800 dark:text-neutral-400 space-x-2 bg-stone-50 dark:bg-transparent"
+				class="w-full flex items-center justify-between border border-stone-200 dark:border-neutral-800 p-2 rounded-sm text-neutral-800 dark:text-neutral-400 space-x-2 bg-stone-50 dark:bg-black/8 backdrop-blur-md"
 			>
 				<div
 					class="border border-stone-200 dark:border-neutral-800 p-3 rounded-sm"
@@ -137,6 +144,7 @@ const navs = [
 				</div>
 			</div>
 		</div>
+
 		<slot />
 	</body>
 </html>
