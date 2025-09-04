@@ -49,7 +49,7 @@ import testiComp2 from "../assets/testi-comp-2.jpg";
             </span>
         </div>
     </div>
-    <div class="space-y-16 mt-12 sm:mt-0 max-h-[75vh] overflow-y-scroll mb-24">
+    <div class="space-y-16 mt-12 sm:-mt-6 max-h-[75vh] overflow-y-scroll mb-12 py-6 fadeout-vertical">
         <div>
             <p class="text-neutral-500 border-b border-neutral-600 pb-1">01/</p>
             <p class="text-white text-lg mt-3 mb-6">
@@ -246,3 +246,14 @@ import testiComp2 from "../assets/testi-comp-2.jpg";
         </div>
     </div>
 </section>
+<style>
+    .fadeout-vertical {
+        mask-image: linear-gradient(
+            to bottom,
+            transparent,
+            black 5rem,
+            black calc(100% - 5rem),
+            transparent
+        );
+    }
+</style>
