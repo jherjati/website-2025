@@ -11,13 +11,26 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout theme="dark">
-	<Hero />
-	<Service />
-	<Geodashboard />
-	<Logbook />
-	<Testimoni />
-	<Works />
-	<Contact />
-	<Footer theme="dark" />
-	<div class="w-full h-6"></div>
+	<div class="typo-landing">
+		<Hero />
+		<Service />
+		<Geodashboard />
+		<Logbook />
+		<Testimoni />
+		<Works />
+		<Contact />
+		<Footer theme="dark" />
+		<div class="w-full h-6"></div>
+	</div>
 </Layout>
+
+<style is:global>
+	.typo-landing h1,
+	.typo-landing h2,
+	.typo-landing h3,
+	.typo-landing h4,
+	.typo-landing h5,
+	.typo-landing h6 {
+		font-family: "Host-Grotesk", sans-serif;
+	}
+</style>

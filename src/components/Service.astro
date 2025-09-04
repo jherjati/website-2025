@@ -1,8 +1,34 @@
 ---
-import service1 from "../assets/service-1.svg";
-import service2 from "../assets/service-2.svg";
-import service3 from "../assets/service-3.svg";
-import service4 from "../assets/service-4.svg";
+const services = [
+    {
+        title: "Big Data Processing",
+        tagline: "Powerful",
+        description:
+            "Technologies that integrate, process, analyze, and visualize big data for your collective’s solution.",
+        isShort: false,
+    },
+    {
+        title: "IoT and AI Integration",
+        tagline: "Dynamic",
+        description:
+            "Connect to IoT and AI tools, models, or hardwares for furhterly advanced and integrated problem solving.",
+        isShort: false,
+    },
+    {
+        title: "Rich Analytics",
+        tagline: "Advanced",
+        description:
+            "Advanced tools that Braga provides helps to come up with analytics that beneficial to tackle various challanges.",
+        isShort: true,
+    },
+    {
+        title: "Data Services",
+        tagline: "Global",
+        description:
+            "Not bounded by space and time, we help in multiple platforms, adapting to different conditions and terrains.",
+        isShort: true,
+    },
+];
 ---
 
 <section class="mx-6 pt-12 pb-24 border-t border-neutral-600">
@@ -17,80 +43,74 @@ import service4 from "../assets/service-4.svg";
             to help you today, tomorrow and for many years to come.
         </p>
     </div>
-    <div class="flex overflow-x-scroll sm:grid grid-cols-4 gap-x-6 mt-12">
-        <div class="min-w-80 border border-neutral-800 p-4 space-y-4">
-            <div class="grid grid-cols-2">
-                <h5 class="text-2xl text-stone-50">Big Data Processing</h5>
-                <div class="relative">
-                    <span
-                        class="rounded-full border border-neutral-600 text-xs text-neutral-400 py-1 px-2 absolute right-0 bottom-0"
-                    >
-                        Powerful
-                    </span>
-                </div>
-            </div>
-            <img src={service1.src} alt="Big Data Processing" class="w-full" />
-            <p class="text-neutral-400 text-sm">
-                Technologies that integrate, process, analyze, and visualize big
-                data for your collective’s solution.
-            </p>
-        </div>
+    <div
+        class="w-full flex overflow-x-scroll sm:grid grid-cols-4 gap-x-6 mt-12"
+    >
+        {
+            services.map(({ title, tagline, description, isShort }, idx) => (
+                <div class="min-w-72 group bg-neutral-800 hover:bg-gradient-to-b from-orange-700/0 to-orange-600 p-[1px] rounded-sm">
+                    <div class="p-4 space-y-4 transition-colors bg-neutral-900 group-hover:bg-neutral-950 rounded-sm">
+                        <div class="grid grid-cols-2">
+                            <h5
+                                class={
+                                    "text-2xl text-stone-50 " +
+                                    (isShort ? "w-1/3" : "")
+                                }
+                            >
+                                {title}
+                            </h5>
+                            <div class="relative">
+                                <span class="rounded-full border border-neutral-600 group-hover:border-stone-200 text-xs text-neutral-400 group-hover:text-stone-200 py-1 px-2 absolute right-0 bottom-0">
+                                    {tagline}
+                                </span>
+                            </div>
+                        </div>
+                        <div
+                            id={"canvas-" + (idx + 1)}
+                            class="w-full aspect-[298/204] rounded-sm overflow-hidden bg-neutral-800"
+                        />
 
-        <div class="min-w-80 border border-neutral-800 p-4 space-y-4">
-            <div class="grid grid-cols-2">
-                <h5 class="text-2xl text-stone-50">IoT and AI Integration</h5>
-                <div class="relative">
-                    <span
-                        class="rounded-full border border-neutral-600 text-xs text-neutral-400 py-1 px-2 absolute right-0 bottom-0"
-                    >
-                        Dynamic
-                    </span>
+                        <p class="text-neutral-400 text-sm">{description}</p>
+                    </div>
                 </div>
-            </div>
-            <img
-                src={service2.src}
-                alt="IoT and AI Integration"
-                class="w-full"
-            />
-            <p class="text-neutral-400 text-sm">
-                Connect to IoT and AI tools, models, or hardwares for furhterly
-                advanced and integrated problem solving.
-            </p>
-        </div>
-
-        <div class="min-w-80 border border-neutral-800 p-4 space-y-4">
-            <div class="grid grid-cols-2">
-                <h5 class="text-2xl text-stone-50">Rich Analytics</h5>
-                <div class="relative">
-                    <span
-                        class="rounded-full border border-neutral-600 text-xs text-neutral-400 py-1 px-2 absolute right-0 bottom-0"
-                        >Advanced
-                    </span>
-                </div>
-            </div>
-            <img src={service3.src} alt="Rich Analytics" class="w-full" />
-            <p class="text-neutral-400 text-sm">
-                Advanced tools that Braga provides helps to come up with
-                analytics that beneficial to tackle various challanges.
-            </p>
-        </div>
-
-        <div class="min-w-80 border border-neutral-800 p-4 space-y-4">
-            <div class="grid grid-cols-2">
-                <h5 class="text-2xl text-stone-50">Data Services</h5>
-                <div class="relative">
-                    <span
-                        class="rounded-full border border-neutral-600 text-xs text-neutral-400 py-1 px-2 absolute right-0 bottom-0"
-                    >
-                        Global
-                    </span>
-                </div>
-            </div>
-            <img src={service4.src} alt="Data Services" class="w-full" />
-            <p class="text-neutral-400 text-sm">
-                Not bounded by space and time, we help in multiple platforms,
-                adapting to different conditions and terrains.
-            </p>
-        </div>
+            ))
+        }
     </div>
 </section>
+
+<script is:inline client:load>
+    const script = document.createElement("script");
+    script.src =
+        "https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.13.0/lottie.min.js";
+    script.onload = () => {
+        window.lottie.loadAnimation({
+            container: document.getElementById("canvas-1"),
+            renderer: "canvas", // svg / canvas / html
+            loop: true,
+            autoplay: true,
+            path: "/animation/service-1.json",
+        });
+        window.lottie.loadAnimation({
+            container: document.getElementById("canvas-2"),
+            renderer: "canvas", // svg / canvas / html
+            loop: true,
+            autoplay: true,
+            path: "/animation/service-2.json",
+        });
+        window.lottie.loadAnimation({
+            container: document.getElementById("canvas-3"),
+            renderer: "canvas", // svg / canvas / html
+            loop: true,
+            autoplay: true,
+            path: "/animation/service-3.json",
+        });
+        window.lottie.loadAnimation({
+            container: document.getElementById("canvas-4"),
+            renderer: "canvas", // svg / canvas / html
+            loop: true,
+            autoplay: true,
+            path: "/animation/service-4.json",
+        });
+    };
+    document.body.appendChild(script);
+</script>

@@ -9,11 +9,24 @@ import Layout from "../../layouts/Layout.astro";
 ---
 
 <Layout theme="light">
-    <Hero />
-    <Values />
-    <Powered />
-    <Managed />
-    <CTA />
-    <Footer theme="light" />
-    <div class="w-full h-6"></div>
+    <div class="typo-poin">
+        <Hero />
+        <Values />
+        <Powered />
+        <Managed />
+        <CTA />
+        <Footer theme="light" />
+        <div class="w-full h-6"></div>
+    </div>
 </Layout>
+
+<style is:global>
+    .typo-poin h1,
+    .typo-poin h2,
+    .typo-poin h3,
+    .typo-poin h4,
+    .typo-poin h5,
+    .typo-poin h6 {
+        font-family: "Montserrat", sans-serif;
+    }
+</style>

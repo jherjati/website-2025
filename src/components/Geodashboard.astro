@@ -2,38 +2,20 @@
 import geo1 from "../assets/geo-1.svg";
 import geo2 from "../assets/geo-2.svg";
 import geo3 from "../assets/geo-3.svg";
-import geoBlur from "../assets/geo-blur.png";
-import geoG from "../assets/geo-g.svg";
-import geoG2 from "../assets/geo-g2.svg";
-import geoSS from "../assets/geo-ss.png";
+import geoBG from "../assets/geo-bg.png";
 import geodashboardLogo from "../assets/geodashboard-logo.svg";
 ---
 
 <section
-    class="sm:px-16 sm:pb-16 relative border border-neutral-700 rounded-sm overflow-hidden z-10"
+    class="sm:pb-16 relative border border-neutral-700 rounded-sm overflow-hidden z-0"
 >
     <img
-        src={geoG2.src}
+        src={geoBG.src}
         alt="geodashboard screenshot"
-        class="sm:hidden w-full"
-    />
-    <img
-        src={geoG.src}
-        alt="geodashboard screenshot"
-        class="absolute right-0 top-0 -z-3 hidden sm:block"
-    />
-    <img
-        src={geoSS.src}
-        alt="geodashboard screenshot"
-        class="absolute right-0 top-60 sm:top-auto sm:bottom-0 -z-2 sm:block"
-    />
-    <img
-        src={geoBlur.src}
-        alt="geodashboard screenshot"
-        class="absolute left-0 bottom-0 -z-1 hidden sm:block"
+        class="sm:absolute h-full w-full object-cover object-bottom-right top-0 left-0 -z-10"
     />
 
-    <div class="px-4 w-full sm:w-1/3 space-y-6 pt-9 sm:pt-20">
+    <div class="pl-4 sm:pl-20 pr-4 w-full sm:w-1/3 space-y-6 pt-9 sm:pt-20">
         <img src={geodashboardLogo.src} />
         <h5 class="text-stone-50 text-5xl">
             From Seeing Where to Understand Why.
@@ -47,7 +29,7 @@ import geodashboardLogo from "../assets/geodashboard-logo.svg";
         >
     </div>
 
-    <div class="px-4 pb-4 w-full sm:w-1/3 mt-16 space-y-8">
+    <div class="pl-4 sm:pl-20 pr-4 pb-4 w-full sm:w-1/3 mt-16 space-y-8">
         <div class="relative">
             <h6 class="text-stone-50 mb-3">Spatial Range Calculation</h6>
             <p class="text-neutral-400">
