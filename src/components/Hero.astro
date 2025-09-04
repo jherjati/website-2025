@@ -27,53 +27,69 @@ const partners = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 			</button>
 		</div>
 
-		<div class="wrapper">
-			{
-				partners.map((order, index) => (
-					<div
-						class="item flex justify-center items-center"
-						style={`animation-delay: calc(30s / ${partners.length} * (${partners.length} - ${index + 1}) * -1);`}
-					>
-						<img src={`/partners/logo-${order}.svg`} />
+		<div class="center-content">
+			<div class="wrapper pt-9 pb-24">
+				<div class="marquee-text fadeout-horizontal">
+					<div class="marquee-text-track">
+						{
+							partners.map((order, index) => (
+								<img src={`/partners/logo-${order}.svg`} />
+							))
+						}
+						{
+							partners.map((order, index) => (
+								<img
+									src={`/partners/logo-${order}.svg`}
+									aria-hidden="true"
+								/>
+							))
+						}
 					</div>
-				))
-			}
+				</div>
+			</div>
 		</div>
 	</div>
 </section>
 
 <style>
+	.center-content {
+		min-height: 100%;
+		display: flex;
+		align-items: center;
+	}
+
 	.wrapper {
-		width: 90%;
-		margin-inline: auto;
-		position: relative;
-		height: 108px;
-		overflow: hidden;
+		width: 100%;
+		color: white;
+		font-size: 4rem;
+	}
+
+	.marquee-text {
+		overflow: clip;
+	}
+
+	.fadeout-horizontal {
 		mask-image: linear-gradient(
 			to right,
-			rgba(0, 0, 0, 0),
-			rgba(0, 0, 0, 1) 20%,
-			rgba(0, 0, 0, 1) 80%,
-			rgba(0, 0, 0, 0)
+			transparent,
+			black 5rem,
+			black calc(100% - 5rem),
+			transparent
 		);
 	}
 
-	.wrapper:hover .item {
-		animation-play-state: paused;
+	.marquee-text-track {
+		display: flex;
+		padding-left: 4.8rem;
+		gap: 4.8rem;
+		width: max-content;
+		animation: marquee-move-text var(--speed, 10s) linear infinite
+			var(--direction, forwards);
 	}
 
-	@keyframes scrollLeft {
+	@keyframes marquee-move-text {
 		to {
-			left: -175px;
+			transform: translateX(-50%);
 		}
-	}
-
-	.item {
-		position: absolute;
-		left: max(calc(175px * 10), 100%);
-		animation-name: scrollLeft;
-		animation-duration: 30s;
-		animation-timing-function: linear;
-		animation-iteration-count: infinite;
 	}
 </style>
