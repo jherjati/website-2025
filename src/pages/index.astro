@@ -33,4 +33,32 @@ import Layout from "../layouts/Layout.astro";
 	.typo-landing h6 {
 		font-family: "Host-Grotesk", sans-serif;
 	}
+
+	.gradient-border-1 {
+		position: relative;
+		border-radius: 4px;
+	}
+
+	.gradient-border-1::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		padding: 1px;
+		background: #232221;
+		border-radius: inherit;
+		mask:
+			linear-gradient(#000 0 0) content-box,
+			linear-gradient(#000 0 0);
+		mask-composite: xor;
+		-webkit-mask-composite: xor;
+		transition: background 0.3s ease; /* Smooth transition */
+	}
+
+	.gradient-border-1:hover::before {
+		background: linear-gradient(
+			180deg,
+			rgba(205, 84, 27, 0),
+			rgb(243, 106, 29)
+		);
+	}
 </style>

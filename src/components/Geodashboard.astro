@@ -4,6 +4,27 @@ import geo2 from "../assets/geo-2.svg";
 import geo3 from "../assets/geo-3.svg";
 import geoBG from "../assets/geo-bg.png";
 import geodashboardLogo from "../assets/geodashboard-logo.svg";
+
+const geos = [
+    {
+        title: "Spatial Range Calculation",
+        description:
+            "Visualize multiple layers both vector and raster to perform a detailed, precise, and insightful analysis.",
+        image: geo1,
+    },
+    {
+        title: "Multi-Format Data Visualization",
+        description:
+            "Easily visualize data in point, polygon and polyline format. Inspect rich data display for each attribute.",
+        image: geo2,
+    },
+    {
+        title: "Bootstrap Approach Global",
+        description:
+            "Created in no time through bootstrap. Get all the desired features, tailored to your needs.",
+        image: geo3,
+    },
+];
 ---
 
 <section
@@ -29,30 +50,21 @@ import geodashboardLogo from "../assets/geodashboard-logo.svg";
         >
     </div>
 
-    <div class="pl-4 sm:pl-20 pr-4 pb-4 w-full sm:w-1/3 mt-16 space-y-8">
-        <div class="relative">
-            <h6 class="text-stone-50 mb-3">Spatial Range Calculation</h6>
-            <p class="text-neutral-400">
-                Visualize multiple layers both vector and raster to perform a
-                detailed, precise, and insightful analysis.
-            </p>
-            <img src={geo1.src} alt="" class="absolute top-0 right-0" />
-        </div>
-        <div class="relative">
-            <h6 class="text-stone-50 mb-3">Multi-Format Data Visualization</h6>
-            <p class="text-neutral-400">
-                Easily visualize data in point, polygon and polyline format.
-                Inspect rich data display for each attribute.
-            </p>
-            <img src={geo2.src} alt="" class="absolute top-0 right-0" />
-        </div>
-        <div class="relative">
-            <h6 class="text-stone-50 mb-3">Bootstrap Approach Global</h6>
-            <p class="text-neutral-400">
-                Created in no time through bootstrap. Get all the desired
-                features, tailored to your needs.
-            </p>
-            <img src={geo3.src} alt="" class="absolute top-0 right-0" />
-        </div>
+    <div class="pl-4 sm:pl-20 pr-4 pb-4 w-full sm:w-[36rem] mt-16 space-y-4">
+        {
+            geos.map(({ title, description, image }) => (
+                <div class="gradient-border-1 rounded-sm group">
+                    <div class="relative p-4 group-hover:bg-black/16 rounded-sm">
+                        <h6 class="text-stone-50 mb-3">{title}</h6>
+                        <p class="text-neutral-400">{description} </p>
+                        <img
+                            src={image.src}
+                            alt=""
+                            class="absolute top-4 right-4"
+                        />
+                    </div>
+                </div>
+            ))
+        }
     </div>
 </section>

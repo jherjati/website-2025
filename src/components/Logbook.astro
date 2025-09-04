@@ -3,6 +3,21 @@ import log1 from "../assets/log-1.svg";
 import log2 from "../assets/log-2.svg";
 import logbook from "../assets/logbook-bg.png";
 import logbookLogo from "../assets/logbook-logo.svg";
+
+const logs = [
+    {
+        title: "Simplify storytelling",
+        description:
+            "Streamline your storytelling process with our intuitive tools, enabling you to convey your message effectively.",
+        image: log1,
+    },
+    {
+        title: "Craft maps that reflect your style and identity",
+        description:
+            "Express your individuality through meticulously crafted maps tailored to your personal style and identity.",
+        image: log2,
+    },
+];
 ---
 
 <section
@@ -30,25 +45,22 @@ import logbookLogo from "../assets/logbook-logo.svg";
     </div>
 
     <div
-        class="pl-4 sm:pl-20 pr-4 pb-4 w-full sm:w-1/3 mt-16 sm:mt-30 space-y-8"
+        class="pl-4 sm:pl-20 pr-4 pb-4 w-full sm:w-1/3 mt-16 sm:mt-30 space-y-4"
     >
-        <div class="relative border border-neutral-800 rounded-sm p-4">
-            <h6 class="text-lime-300 mb-3">Simplify storytelling</h6>
-            <p class="text-neutral-400">
-                Streamline your storytelling process with our intuitive tools,
-                enabling you to convey your message effectively.
-            </p>
-            <img src={log1.src} alt="" class="absolute top-4 right-4" />
-        </div>
-        <div class="relative border border-neutral-800 rounded-sm p-4">
-            <h6 class="text-lime-300 mb-3 w-4/5">
-                Craft maps that reflect your style and identity
-            </h6>
-            <p class="text-neutral-400">
-                Express your individuality through meticulously crafted maps
-                tailored to your personal style and identity.
-            </p>
-            <img src={log2.src} alt="" class="absolute top-4 right-4" />
-        </div>
+        {
+            logs.map(({ title, description, image }) => (
+                <div class="gradient-border-1 rounded-sm group">
+                    <div class="relative rounded-sm p-4 group-hover:bg-black/16">
+                        <h6 class="text-lime-300 mb-3">{title}</h6>
+                        <p class="text-neutral-400">{description} </p>
+                        <img
+                            src={image.src}
+                            alt=""
+                            class="absolute top-4 right-4"
+                        />
+                    </div>
+                </div>
+            ))
+        }
     </div>
 </section>
