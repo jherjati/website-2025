@@ -8,6 +8,7 @@ import work6 from "../assets/work-6.jpg";
 import work7 from "../assets/work-7.jpg";
 import work8 from "../assets/work-8.jpg";
 import workDecor from "../assets/work-decor.svg";
+import workTop from "../assets/work-top.svg";
 
 const works = [
     {
@@ -64,9 +65,9 @@ const works = [
             the geospatial tech delivery to your hands.
         </p>
     </div>
-
+    <img src={workTop.src} alt="" class="w-full mt-9 hidden sm:block" />
     <div
-        class="bg-neutral-900 mt-16 flex overflow-x-scroll sm:grid grid-cols-4 gap-4 sm:p-6 sm:border border-neutral-800 rounded-sm relative"
+        class="bg-neutral-900 mt-12 sm:mt-0 flex overflow-x-scroll sm:grid grid-cols-4 gap-4 sm:p-6 sm:border border-neutral-800 rounded-sm relative"
     >
         <img
             src={workDecor.src}

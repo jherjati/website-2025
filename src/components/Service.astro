@@ -32,8 +32,10 @@ const services = [
 ---
 
 <section class="mx-6 pt-12 pb-24 border-t border-neutral-600">
-    <h6 class="text-orange-500 text-xl mb-2">Powered by Braga</h6>
-    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+    <h6 class="text-orange-500 text-xl mb-2 service-fade-in">
+        Powered by Braga
+    </h6>
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 service-fade-in">
         <h3 class="text-stone-50 text-5xl">
             Sustainably Accelerating through Geospatial Tech.
         </h3>
@@ -44,7 +46,7 @@ const services = [
         </p>
     </div>
     <div
-        class="w-full flex overflow-x-scroll sm:grid grid-cols-4 gap-x-6 mt-12"
+        class="w-full flex overflow-x-scroll sm:grid grid-cols-4 gap-x-6 mt-12 service-fade-in-up"
     >
         {
             services.map(({ title, tagline, description, isShort }, idx) => (
@@ -113,4 +115,56 @@ const services = [
         });
     };
     document.body.appendChild(script);
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                }
+            });
+        },
+        { threshold: 0.1 },
+    );
+
+    // Observe all animated elements
+    document
+        .querySelectorAll(".service-fade-in, .service-fade-in-up")
+        .forEach((el) => observer.observe(el));
 </script>
+
+<style>
+    /* Initial hidden state */
+    .service-fade-in-up {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    /* Animation when visible */
+    .service-fade-in-up.visible {
+        animation: serviceFadeInUp 0.6s ease-out forwards 1.2s;
+    }
+
+    @keyframes serviceFadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Initial hidden state */
+    .service-fade-in {
+        opacity: 0;
+    }
+
+    /* Animation when visible */
+    .service-fade-in.visible {
+        animation: serviceFadeIn 0.6s ease-out forwards 0.6s;
+    }
+
+    @keyframes serviceFadeIn {
+        to {
+            opacity: 1;
+        }
+    }
+</style>

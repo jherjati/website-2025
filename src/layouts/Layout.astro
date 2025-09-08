@@ -61,14 +61,16 @@ const navs = [
 		class={theme +
 			" relative w-full bg-stone-100 dark:bg-neutral-900 font-inter"}
 	>
-		<div class="fixed w-full h-full -z-10 grid grid-cols-4 gap-6 px-6">
+		<div
+			class="fixed w-full h-full -z-10 grid grid-cols-4 gap-6 px-6 fade-in"
+		>
 			<div class="border dark:border-neutral-800 border-stone-200"></div>
 			<div class="border dark:border-neutral-800 border-stone-200"></div>
 			<div class="border dark:border-neutral-800 border-stone-200"></div>
 			<div class="border dark:border-neutral-800 border-stone-200"></div>
 		</div>
 
-		<div class={theme + " px-6 pt-6 w-full sticky top-0 z-10 "}>
+		<div class={theme + " px-6 pt-6 w-full sticky top-0 z-10 fade-in-down"}>
 			<div
 				class="w-full flex items-center justify-between border border-stone-200 dark:border-neutral-800 p-2 rounded-sm text-neutral-800 dark:text-neutral-400 space-x-2 bg-stone-50 dark:bg-black/8 backdrop-blur-md"
 			>
@@ -158,5 +160,36 @@ const navs = [
 	}
 	.dropdown:hover .content {
 		display: flex;
+	}
+
+	@keyframes fadeInDown {
+		0% {
+			opacity: 0;
+			transform: translateY(-20px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.fade-in-down {
+		animation: fadeInDown 0.6s ease-out;
+	}
+
+	@keyframes fadeIn {
+		0% {
+			opacity: 0;
+		}
+		50% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+
+	.fade-in {
+		animation: fadeIn 1.8s ease-out;
 	}
 </style>
