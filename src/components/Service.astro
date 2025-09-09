@@ -32,10 +32,16 @@ const services = [
 ---
 
 <section class="mx-6 pt-12 pb-24 border-t border-neutral-600">
-    <h6 class="text-orange-500 text-xl mb-2 service-fade-in">
+    <h6
+        class="text-orange-500 text-xl mb-2 fade-in"
+        style="animation-delay: 750ms;"
+    >
         Powered by Braga
     </h6>
-    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 service-fade-in">
+    <div
+        class="grid grid-cols-1 gap-6 sm:grid-cols-2 fade-in"
+        style="animation-delay: 750ms;"
+    >
         <h3 class="text-stone-50 text-5xl">
             Sustainably Accelerating through Geospatial Tech.
         </h3>
@@ -46,7 +52,8 @@ const services = [
         </p>
     </div>
     <div
-        class="w-full flex overflow-x-scroll sm:grid grid-cols-4 gap-x-6 mt-12 service-fade-in-up"
+        class="w-full flex overflow-x-scroll sm:grid grid-cols-4 gap-x-6 mt-12 fade-in-up"
+        style="animation-delay: 1500ms;"
     >
         {
             services.map(({ title, tagline, description, isShort }, idx) => (
@@ -79,92 +86,3 @@ const services = [
         }
     </div>
 </section>
-
-<script is:inline client:load>
-    const script = document.createElement("script");
-    script.src =
-        "https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.13.0/lottie.min.js";
-    script.onload = () => {
-        window.lottie.loadAnimation({
-            container: document.getElementById("canvas-1"),
-            renderer: "canvas", // svg / canvas / html
-            loop: true,
-            autoplay: true,
-            path: "/animation/service-1.json",
-        });
-        window.lottie.loadAnimation({
-            container: document.getElementById("canvas-2"),
-            renderer: "canvas", // svg / canvas / html
-            loop: true,
-            autoplay: true,
-            path: "/animation/service-2.json",
-        });
-        window.lottie.loadAnimation({
-            container: document.getElementById("canvas-3"),
-            renderer: "canvas", // svg / canvas / html
-            loop: true,
-            autoplay: true,
-            path: "/animation/service-3.json",
-        });
-        window.lottie.loadAnimation({
-            container: document.getElementById("canvas-4"),
-            renderer: "canvas", // svg / canvas / html
-            loop: true,
-            autoplay: true,
-            path: "/animation/service-4.json",
-        });
-    };
-    document.body.appendChild(script);
-
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("visible");
-                }
-            });
-        },
-        { threshold: 0.1 },
-    );
-
-    // Observe all animated elements
-    document
-        .querySelectorAll(".service-fade-in, .service-fade-in-up")
-        .forEach((el) => observer.observe(el));
-</script>
-
-<style>
-    /* Initial hidden state */
-    .service-fade-in-up {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    /* Animation when visible */
-    .service-fade-in-up.visible {
-        animation: serviceFadeInUp 0.6s ease-out forwards 1.2s;
-    }
-
-    @keyframes serviceFadeInUp {
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    /* Initial hidden state */
-    .service-fade-in {
-        opacity: 0;
-    }
-
-    /* Animation when visible */
-    .service-fade-in.visible {
-        animation: serviceFadeIn 0.6s ease-out forwards 0.6s;
-    }
-
-    @keyframes serviceFadeIn {
-        to {
-            opacity: 1;
-        }
-    }
-</style>

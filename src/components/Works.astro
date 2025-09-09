@@ -55,8 +55,16 @@ const works = [
 ---
 
 <section class="mx-6 pt-12 pb-24 border-t border-neutral-600">
-    <h6 class="text-orange-500 text-xl mb-2">Our Work</h6>
-    <div class="sm:grid grid-cols-2 space-y-6">
+    <h6
+        class="text-orange-500 text-xl mb-2 fade-in"
+        style="animation-delay: 750ms;"
+    >
+        Our Work
+    </h6>
+    <div
+        class="sm:grid grid-cols-2 space-y-6 fade-in"
+        style="animation-delay: 750ms;"
+    >
         <h3 class="text-stone-50 text-5xl w-2/3">
             Braga Solutions, Integrated to You.
         </h3>
@@ -65,9 +73,15 @@ const works = [
             the geospatial tech delivery to your hands.
         </p>
     </div>
-    <img src={workTop.src} alt="" class="w-full mt-9 hidden sm:block" />
+    <img
+        src={workTop.src}
+        alt=""
+        class="w-full mt-9 hidden sm:block fade-in-up"
+        style="animation-delay: 1300ms;"
+    />
     <div
-        class="bg-neutral-900 mt-12 sm:mt-0 flex overflow-x-scroll sm:grid grid-cols-4 gap-4 sm:p-6 sm:border border-neutral-800 rounded-sm relative"
+        class="bg-neutral-900 mt-12 sm:mt-0 flex overflow-x-scroll sm:grid grid-cols-4 gap-4 sm:p-6 sm:border border-neutral-800 rounded-sm relative fade-in-up"
+        style="animation-delay: 1300ms;"
     >
         <img
             src={workDecor.src}

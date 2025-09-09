@@ -62,7 +62,7 @@ const navs = [
 			" relative w-full bg-stone-100 dark:bg-neutral-900 font-inter"}
 	>
 		<div
-			class="fixed w-full h-full -z-10 grid grid-cols-4 gap-6 px-6 fade-in"
+			class="fixed w-full h-full -z-10 grid grid-cols-4 gap-6 px-6 stroke-fade-in"
 		>
 			<div class="border dark:border-neutral-800 border-stone-200"></div>
 			<div class="border dark:border-neutral-800 border-stone-200"></div>
@@ -177,7 +177,7 @@ const navs = [
 		animation: fadeInDown 0.6s ease-out;
 	}
 
-	@keyframes fadeIn {
+	@keyframes strokeFadeIn {
 		0% {
 			opacity: 0;
 		}
@@ -189,7 +189,7 @@ const navs = [
 		}
 	}
 
-	.fade-in {
-		animation: fadeIn 1.8s ease-out;
+	.stroke-fade-in {
+		animation: strokeFadeIn 1.8s ease-out;
 	}
 </style>

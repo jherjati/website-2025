@@ -24,6 +24,59 @@ import Layout from "../layouts/Layout.astro";
 	</div>
 </Layout>
 
+<script is:inline client:load>
+	const script = document.createElement("script");
+	script.src =
+		"https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.13.0/lottie.min.js";
+	script.onload = () => {
+		window.lottie.loadAnimation({
+			container: document.getElementById("canvas-1"),
+			renderer: "canvas", // svg / canvas / html
+			loop: true,
+			autoplay: true,
+			path: "/animation/service-1.json",
+		});
+		window.lottie.loadAnimation({
+			container: document.getElementById("canvas-2"),
+			renderer: "canvas", // svg / canvas / html
+			loop: true,
+			autoplay: true,
+			path: "/animation/service-2.json",
+		});
+		window.lottie.loadAnimation({
+			container: document.getElementById("canvas-3"),
+			renderer: "canvas", // svg / canvas / html
+			loop: true,
+			autoplay: true,
+			path: "/animation/service-3.json",
+		});
+		window.lottie.loadAnimation({
+			container: document.getElementById("canvas-4"),
+			renderer: "canvas", // svg / canvas / html
+			loop: true,
+			autoplay: true,
+			path: "/animation/service-4.json",
+		});
+	};
+	document.body.appendChild(script);
+
+	const observer = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add("visible");
+				}
+			});
+		},
+		{ threshold: 0.1 },
+	);
+
+	// Observe all animated elements
+	document
+		.querySelectorAll(".fade-in, .fade-in-up")
+		.forEach((el) => observer.observe(el));
+</script>
+
 <style is:global>
 	.typo-landing h1,
 	.typo-landing h2,
@@ -60,5 +113,39 @@ import Layout from "../layouts/Layout.astro";
 			rgba(205, 84, 27, 0),
 			rgb(243, 106, 29)
 		);
+	}
+
+	/* Initial hidden state */
+	.fade-in-up {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+
+	/* Animation when visible */
+	.fade-in-up.visible {
+		animation: fadeInUp 0.75s ease-out forwards;
+	}
+
+	@keyframes fadeInUp {
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	/* Initial hidden state */
+	.fade-in {
+		opacity: 0;
+	}
+
+	/* Animation when visible */
+	.fade-in.visible {
+		animation: fadeIn 0.75s ease-out forwards;
+	}
+
+	@keyframes fadeIn {
+		to {
+			opacity: 1;
+		}
 	}
 </style>

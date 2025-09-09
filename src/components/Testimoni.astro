@@ -12,8 +12,13 @@ import testiComp2 from "../assets/testi-comp-2.jpg";
 <section
     class="sm:grid grid-cols-2 gap-x-6 mx-6 py-12 border-t border-neutral-600 mt-12"
 >
-    <h6 class="text-orange-500 text-xl col-span-2 mb-6">Expertise</h6>
-    <div class="space-y-6">
+    <h6
+        class="text-orange-500 text-xl col-span-2 mb-6 fade-in-right"
+        style="animation-delay: 750ms;"
+    >
+        Expertise
+    </h6>
+    <div class="space-y-6 fade-in-right" style="animation-delay: 750ms;">
         <h3 class="text-stone-50 text-5xl">
             Entrusted by The Expert, Enterprise, and Government.
         </h3>
@@ -49,7 +54,10 @@ import testiComp2 from "../assets/testi-comp-2.jpg";
             </span>
         </div>
     </div>
-    <div class="space-y-16 mt-12 sm:-mt-6 max-h-[75vh] overflow-y-scroll mb-12 py-6 fadeout-vertical">
+    <div
+        class="space-y-16 mt-12 sm:-mt-6 max-h-[75vh] overflow-y-scroll mb-12 py-6 fadeout-vertical fade-in-left"
+        style="animation-delay: 750ms;"
+    >
         <div>
             <p class="text-neutral-500 border-b border-neutral-600 pb-1">01/</p>
             <p class="text-white text-lg mt-3 mb-6">
@@ -256,4 +264,58 @@ import testiComp2 from "../assets/testi-comp-2.jpg";
             transparent
         );
     }
+
+    /* Initial hidden state */
+    .fade-in-left {
+        opacity: 0;
+        transform: translateX(90px);
+    }
+
+    /* Animation when visible */
+    .fade-in-left.visible {
+        animation: fadeInLeft 0.75s ease-out forwards;
+    }
+
+    @keyframes fadeInLeft {
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    /* Initial hidden state */
+    .fade-in-right {
+        opacity: 0;
+        transform: translateX(-90px);
+    }
+
+    /* Animation when visible */
+    .fade-in-right.visible {
+        animation: fadeInRight 0.75s ease-out forwards;
+    }
+
+    @keyframes fadeInRight {
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
 </style>
+
+<script>
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                }
+            });
+        },
+        { threshold: 0.1 },
+    );
+
+    // Observe all animated elements
+    document
+        .querySelectorAll(".fade-in-left, .fade-in-right")
+        .forEach((el) => observer.observe(el));
+</script>
