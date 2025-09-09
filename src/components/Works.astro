@@ -54,7 +54,7 @@ const works = [
 ];
 ---
 
-<section class="mx-6 pt-12 pb-24 border-t border-neutral-600">
+<section class="mx-6 pt-12 pb-24 border-t border-neutral-700">
     <h6
         class="text-orange-500 text-xl mb-2 fade-in"
         style="animation-delay: 750ms;"
@@ -91,7 +91,7 @@ const works = [
         />
         {
             works.map(({ title, image, description }) => (
-                <div class="p-4 space-y-4 border border-neutral-800 rounded-sm bg-black/10 min-w-72 z-10">
+                <div class="p-4 space-y-4 border border-neutral-800 rounded-sm bg-black/10 hover:bg-black/16 min-w-72 z-10 gradient-border-1">
                     <h5 class="text-2xl text-stone-50">{title}</h5>
                     <img src={image.src} class="rounded-sm w-full" />
                     <div class="flex justify-between space-x-2">
