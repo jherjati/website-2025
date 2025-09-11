@@ -1,0 +1,70 @@
+---
+import consult from "../../assets/service/consult.svg";
+import data from "../../assets/service/data-analysis.svg";
+import interop from "../../assets/service/interoperability.svg";
+import managed from "../../assets/service/managed-service.svg";
+import platform from "../../assets/service/platform-development.svg";
+
+import consultation from "../../assets/service/consultation.svg";
+import design from "../../assets/service/design.svg";
+import revamp from "../../assets/service/revamp.svg";
+import workshop from "../../assets/service/workshop.svg";
+
+const techDes = [
+    {
+        title: "Technology",
+        description:
+            "Ensure technology implementation in synergy to industry specific needs",
+        topics: [
+            { icon: consult, label: "Technology Consultation" },
+            { icon: platform, label: "Multi Platform development" },
+            { icon: managed, label: "Managed Service" },
+            { icon: interop, label: "Interoperability" },
+            { icon: data, label: "Data analysis & visualization" },
+        ],
+    },
+    {
+        title: "Design",
+        description:
+            "Product design specifically tailor made to solve your problems.",
+        topics: [
+            { icon: consultation, label: "Design Consultation" },
+            { icon: design, label: "Digital Product Design" },
+            { icon: workshop, label: "Design Workshop" },
+            { icon: revamp, label: "Design Revamp" },
+        ],
+    },
+];
+---
+
+<section class="mx-6 my-12 py-9 border-t border-neutral-400">
+    <h6 class="text-orange-500 text-xl">Expertise</h6>
+    <div class="sm:grid grid-cols-4 gap-x-6 space-y-8 sm:space-y-0">
+        <div class="col-span-2">
+            <h3 class="text-neutral-800 text-5xl mt-2 mb-3">
+                Robust Tech Stack and Interoperability
+            </h3>
+            <p class="text-neutral-700 text-lg">
+                Our robust software development tech stacks ensures everything
+                is smoothly integrated to your newly developed or existing
+                system for a more seamless experience for you and your users.
+            </p>
+        </div>
+        {
+            techDes.map(({ title, description, topics }) => (
+                <div class="space-y-3">
+                    <h5 class="text-neutral-800 text-4xl">{title}</h5>
+                    <p class="text-neutral-600 text-lg">{description}</p>
+                    <div class="space-y-2">
+                        {topics.map(({ icon, label }) => (
+                            <div class="flex w-fit items-center border border-stone-300 rounded-lg py-2 pl-2 pr-3 space-x-2">
+                                <img src={icon.src} alt="" />
+                                <p class="text-neutral-700 text-xs">{label}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+</section>
