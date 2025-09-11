@@ -6,6 +6,7 @@ import burgerIcon from "../assets/burger-icon.svg";
 import geodImage from "../assets/layout/geod.png";
 import logbookImage from "../assets/layout/logbook.png";
 import poinImage from "../assets/layout/poin.png";
+import Footer from "../components/Footer.astro";
 
 const { theme } = Astro.props;
 
@@ -148,6 +149,9 @@ const navs = [
 		</div>
 
 		<slot />
+
+		<Footer theme={theme} />
+		<div class="w-full h-6"></div>
 	</body>
 </html>
 
