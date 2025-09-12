@@ -1,0 +1,60 @@
+---
+import platform from "../../assets/service/process-decor.svg";
+---
+
+<section class="mx-6 my-12 py-9 border-t border-orange-500 relative">
+    <img
+        src={platform.src}
+        alt=""
+        class="absolute top-0 right-0 h-full pt-16 hidden sm:block"
+    />
+    <h6 class="text-orange-500 text-xl">Process</h6>
+    <div class="sm:grid grid-cols-4 gap-x-6 space-y-8 sm:space-y-0">
+        <div class="col-span-2">
+            <h3 class="text-neutral-800 text-5xl mt-2 mb-3">
+                We adapt our process to each project’s unique needs.
+            </h3>
+            <p class="text-neutral-700 text-lg">
+                For your time to be valued, and make sure every feedback is
+                listened. We treat each project uniquely to its needs by
+                utilizing the best aspects of agile, lean, and waterfall methods
+                to deliver the services at its maximum potential.
+            </p>
+        </div>
+    </div>
+    <div class="grid sm:grid-cols-2 mt-30 gap-y-40 mb-96">
+        {
+            [
+                {
+                    title: "Facilitate",
+                    list: "Consultancy<br />Interview and Survey.<br /> Research<br /> Benchmarking<br /> Workshop<br /><br />Analysis<br /> User Stories<br /> Timeline and Scope<br />PRD",
+                },
+                {
+                    title: "Design",
+                    list: "UX Design<br />UI Design<br />Visual Design<br />Mockup<br />Prototype",
+                },
+                {
+                    title: "Development",
+                    list: "Front End <br />Function, and Optimization<br />Back End, <br />Database and Security<br />Integration<br />Testing<br />EnE Cost, Unit Test, UAT<br />QA",
+                },
+                {
+                    title: "Delivery",
+                    list: "Deployment<br />Product Handoff <br />(Kit, System, Guides, etc)<br />Monitoring & Control",
+                },
+            ].map(({ title, list }) => (
+                <>
+                    <>
+                        <div class="flex justify-end space-x-6">
+                            <h6 class="text-neutral-800 text-2xl">{title}</h6>
+                            <p
+                                class="text-neutral-900 text-xl w-72"
+                                set:html={list}
+                            />
+                        </div>
+                        <div />
+                    </>
+                </>
+            ))
+        }
+    </div>
+</section>
