@@ -41,10 +41,10 @@ const techDes = [
     <h6 class="text-orange-500 text-xl">Expertise</h6>
     <div class="sm:grid grid-cols-4 gap-x-6 space-y-8 sm:space-y-0">
         <div class="col-span-2">
-            <h3 class="text-neutral-800 text-5xl mt-2 mb-3">
+            <h3 class="text-neutral-800 text-4xl sm:text-5xl mt-2 mb-3">
                 Robust Tech Stack and Interoperability
             </h3>
-            <p class="text-neutral-700 text-lg">
+            <p class="text-neutral-700 text-sm sm:text-lg">
                 Our robust software development tech stacks ensures everything
                 is smoothly integrated to your newly developed or existing
                 system for a more seamless experience for you and your users.
@@ -53,8 +53,8 @@ const techDes = [
         {
             techDes.map(({ title, description, topics }) => (
                 <div class="space-y-3">
-                    <h5 class="text-neutral-800 text-4xl">{title}</h5>
-                    <p class="text-neutral-600 text-lg">{description}</p>
+                    <h5 class="text-neutral-800 text-3xl sm:text-4xl">{title}</h5>
+                    <p class="text-neutral-600 text-base sm:text-lg">{description}</p>
                     <div class="space-y-2">
                         {topics.map(({ icon, label }) => (
                             <div class="flex w-fit items-center border border-stone-300 rounded-lg py-2 pl-2 pr-3 space-x-2">

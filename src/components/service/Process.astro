@@ -11,10 +11,10 @@ import platform from "../../assets/service/process-decor.svg";
     <h6 class="text-orange-500 text-xl">Process</h6>
     <div class="sm:grid grid-cols-4 gap-x-6 space-y-8 sm:space-y-0">
         <div class="col-span-2">
-            <h3 class="text-neutral-800 text-5xl mt-2 mb-3">
+            <h3 class="text-neutral-800 text-4xl sm:text-5xl mt-2 mb-3">
                 We adapt our process to each project’s unique needs.
             </h3>
-            <p class="text-neutral-700 text-lg">
+            <p class="text-neutral-700 text-sm sm:text-lg">
                 For your time to be valued, and make sure every feedback is
                 listened. We treat each project uniquely to its needs by
                 utilizing the best aspects of agile, lean, and waterfall methods
@@ -22,7 +22,9 @@ import platform from "../../assets/service/process-decor.svg";
             </p>
         </div>
     </div>
-    <div class="grid sm:grid-cols-2 mt-30 gap-y-40 mb-96">
+    <div
+        class="grid sm:grid-cols-2 mt-24 sm:mt-30 gap-y-8 sm:gap-y-40 sm:mb-96 overflow-x-hidden"
+    >
         {
             [
                 {
@@ -45,9 +47,11 @@ import platform from "../../assets/service/process-decor.svg";
                 <>
                     <>
                         <div class="flex justify-end space-x-6">
-                            <h6 class="text-neutral-800 text-2xl">{title}</h6>
+                            <h6 class="text-neutral-800 text-base sm:text-2xl">
+                                {title}
+                            </h6>
                             <p
-                                class="text-neutral-900 text-xl w-72"
+                                class="text-neutral-900 text-xs sm:text-xl w-72"
                                 set:html={list}
                             />
                         </div>
