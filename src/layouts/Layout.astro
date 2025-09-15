@@ -7,10 +7,11 @@ import geodImage from "../assets/layout/geod.png";
 import logbookImage from "../assets/layout/logbook.png";
 import poinImage from "../assets/layout/poin.png";
 import Footer from "../components/home/Footer.astro";
+import type { NavigationItem, LayoutProps } from "../types/navigation";
 
-const { theme } = Astro.props;
+const { theme }: LayoutProps = Astro.props;
 
-const navs = [
+const navs: NavigationItem[] = [
 	{ href: "/", label: "Home" },
 	{
 		href: "/products",
@@ -20,14 +21,14 @@ const navs = [
 				title: "GeoDashboard",
 				subtitle:
 					"Visualize spatial data, exercise spatial analysis, and gather insights.",
-				href: "/products/poin",
+				href: "/products/geodashboard",
 				image: geodImage,
 			},
 			{
 				title: "LogBook",
 				subtitle:
 					"Engaging map creator for your map-based storytelling",
-				href: "/products/poin",
+				href: "/products/logbook",
 				image: logbookImage,
 			},
 			{
