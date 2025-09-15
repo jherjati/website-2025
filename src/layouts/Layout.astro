@@ -152,8 +152,66 @@ const navs = [
 
 		<Footer theme={theme} />
 		<div class="w-full h-6"></div>
+		<!-- <div
+			class="fixed top-0 left-0 w-screen h-screen bg-neutral-900 z-30 flex justify-center items-center"
+		>
+			<img src={bragaLogo.src} alt="" class="invert dark:invert-0" />
+		</div> -->
+
+		<div
+			id="splash"
+			class="fixed inset-0 z-50 grid place-items-center bg-stone-50 dark:bg-neutral-900
+         transition-opacity duration-700 ease-out
+         motion-reduce:transition-none"
+			aria-hidden="true"
+		>
+			<img src={bragaLogo.src} alt="" class="invert dark:invert-0" />
+		</div>
 	</body>
 </html>
+
+<script is:inline client:load>
+	// Fade out after the page is ready; you can choose the trigger:
+	// 1) after DOM loaded + a small delay
+	// 2) after full window 'load' (waits for images, etc.)
+	const TRIGGER = "dom"; // 'dom' | 'load'
+
+	const run = () => {
+		const splash = document.getElementById("splash");
+		if (!splash) return;
+
+		// Respect reduced motion: remove instantly
+		const prefersReduced = window.matchMedia(
+			"(prefers-reduced-motion: reduce)",
+		).matches;
+		if (prefersReduced) {
+			splash.remove();
+			return;
+		}
+
+		// Start fade
+		requestAnimationFrame(() => {
+			splash.classList.add("opacity-0"); // Tailwind transition fades it out
+		});
+
+		// After CSS transition ends, remove from DOM
+		const onEnd = (e) => {
+			if (e.propertyName === "opacity") {
+				splash.remove();
+				splash.removeEventListener("transitionend", onEnd);
+			}
+		};
+		splash.addEventListener("transitionend", onEnd);
+	};
+
+	if (TRIGGER === "load") {
+		window.addEventListener("load", () => setTimeout(run, 200)); // tiny buffer
+	} else {
+		document.addEventListener("DOMContentLoaded", () => {
+			setTimeout(run, 350);
+		}); // short brand moment
+	}
+</script>
 
 <style>
 	.dropdown {
@@ -171,6 +229,10 @@ const navs = [
 			opacity: 0;
 			transform: translateY(-20px);
 		}
+		50% {
+			opacity: 0;
+			transform: translateY(-20px);
+		}
 		100% {
 			opacity: 1;
 			transform: translateY(0);
@@ -178,7 +240,7 @@ const navs = [
 	}
 
 	.fade-in-down {
-		animation: fadeInDown 0.6s ease-out;
+		animation: fadeInDown 1.4s ease-out;
 	}
 
 	@keyframes strokeFadeIn {
@@ -194,6 +256,6 @@ const navs = [
 	}
 
 	.stroke-fade-in {
-		animation: strokeFadeIn 1.8s ease-out;
+		animation: strokeFadeIn 2.4s ease-out;
 	}
 </style>
