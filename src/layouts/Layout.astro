@@ -7,11 +7,11 @@ import geodImage from "../assets/layout/geod.png";
 import logbookImage from "../assets/layout/logbook.png";
 import poinImage from "../assets/layout/poin.png";
 import Footer from "../components/home/Footer.astro";
-import type { NavigationItem, LayoutProps } from "../types/navigation";
+import type { LayoutProps } from "../types/navigation";
 
 const { theme }: LayoutProps = Astro.props;
 
-const navs: NavigationItem[] = [
+const navs = [
 	{ href: "/", label: "Home" },
 	{
 		href: "/products",
@@ -41,7 +41,15 @@ const navs: NavigationItem[] = [
 		],
 	},
 	{ href: "/service", label: "Services" },
-	{ href: "/company", label: "Company" },
+	{
+		href: "/company",
+		label: "Company",
+		menus: [
+			{ href: "/company/about", label: "About" },
+			{ href: "/company/culture", label: "Culture" },
+			{ href: "/company/career", label: "Career" },
+		],
+	},
 	{ href: "/initiatives", label: "Initiatives" },
 	{ href: "/blogs", label: "Blog" },
 ];
@@ -88,7 +96,7 @@ const navs: NavigationItem[] = [
 
 				<nav class="grow hidden sm:flex space-x-3 text-center text-xs">
 					{
-						navs.map(({ href, label, dropdowns }) =>
+						navs.map(({ href, label, dropdowns, menus }) =>
 							dropdowns?.length ? (
 								<div class="dropdown z-10 relative">
 									<button class="cursor-pointer w-20 dark:hover:text-neutral-200 hover:border border-stone-200 dark:border-neutral-700 rounded-sm h-9 flex justify-center items-center">
@@ -122,6 +130,24 @@ const navs: NavigationItem[] = [
 										)}
 									</div>
 								</div>
+							) : menus?.length ? (
+								<div class="dropdown z-10 relative">
+									<button class="cursor-pointer w-20 dark:hover:text-neutral-200 hover:border border-stone-200 dark:border-neutral-700 rounded-sm h-9 flex justify-center items-center">
+										{label}
+									</button>
+									<div class="content flex-col p-3 space-y-3 bg-stone-100 dark:bg-neutral-900/50 shadow-md rounded-lg border border-stone-300 dark:border-neutral-700 absolute left-0 top-9">
+										{menus.map(({ label, href }) => (
+											<a
+												href={href}
+												class="w-56 text-xs text-left cursor-pointer hover:bg-stone-50 dark:bg-transparent hover:dark:bg-neutral-900 p-2 rounded-lg"
+											>
+												<p class="text-neutral-700 dark:text-neutral-400">
+													{label}
+												</p>
+											</a>
+										))}
+									</div>
+								</div>
 							) : (
 								<a
 									class="w-20 dark:hover:text-neutral-200 hover:border border-stone-200 dark:border-neutral-700 rounded-sm h-9 flex justify-center items-center"
@@ -153,11 +179,6 @@ const navs: NavigationItem[] = [
 
 		<Footer theme={theme} />
 		<div class="w-full h-6"></div>
-		<!-- <div
-			class="fixed top-0 left-0 w-screen h-screen bg-neutral-900 z-30 flex justify-center items-center"
-		>
-			<img src={bragaLogo.src} alt="" class="invert dark:invert-0" />
-		</div> -->
 
 		<div
 			id="splash"
