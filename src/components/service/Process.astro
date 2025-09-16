@@ -1,13 +1,25 @@
 ---
-import platform from "../../assets/service/process-decor.svg";
+import decor from "../../assets/service/process-decor.svg";
 ---
 
-<section class="mx-6 my-12 py-9 border-t border-orange-500 relative">
-    <img
-        src={platform.src}
-        alt=""
-        class="absolute top-0 right-0 h-full pt-16 hidden sm:block"
-    />
+<section
+    class="mx-6 my-12 py-9 border-t border-orange-500 relative overflow-hidden"
+>
+    <div class="absolute top-0 right-0 h-full w-1/2 hidden sm:block">
+        <img
+            src={decor.src}
+            alt=""
+            class="absolute w-full h-[calc(100%-12rem)] top-16 right-0 object-fit object-top-right"
+        />
+        <div id={"canvas-1"} class="w-[160%] -ml-[26%] mt-[9%]"></div>
+        <div id={"canvas-2"} class="w-[180%] -ml-[31%] -mt-[15%] -scale-x-100">
+        </div>
+        <div id={"canvas-3"} class="w-[180%] -ml-[31%] -mt-[49%] -scale-x-100">
+        </div>
+        <div id={"canvas-4"} class="w-[180%] -ml-[24%] -mt-[25%]"></div>
+        <div id={"canvas-5"} class="w-[100%] -ml-[14%] -mt-[55%]"></div>
+    </div>
+
     <h6 class="text-orange-500 text-xl">Process</h6>
     <div class="sm:grid grid-cols-4 gap-x-6 space-y-8 sm:space-y-0">
         <div class="col-span-2">

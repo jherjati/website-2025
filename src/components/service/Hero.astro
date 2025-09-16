@@ -1,18 +1,22 @@
 ---
 import heroArrow from "../../assets/poin/hero-arrow.svg";
 import heroPattern from "../../assets/poin/hero-pattern.svg";
-import heroCircle from "../../assets/service/hero-circle.png";
 ---
 
 <section
-    class="bg-orange-900 sm:grid grid-cols-2 mx-6 mt-3 rounded-lg relative text-stone-50 px-6 py-9 sm:p-9 overflow-hidden"
+    class="bg-orange-900 sm:grid grid-cols-2 mx-6 mt-3 rounded-lg relative text-stone-50 px-6 py-9 sm:p-9 overflow-hidden fade-in-up"
+    style="animation-delay: 1400ms;"
 >
+    <div
+        id={"canvas-0"}
+        class="absolute h-1/2 sm:h-full top-0 -right-[90%] sm:-right-[75%] md:-right-[60%] lg:-right-[45%] xl:-right-[30%] scale-[200%] sm:scale-125 lg:scale-150"
+    >
+    </div>
     <img
-        src={heroCircle.src}
+        src={heroPattern.src}
         alt=""
-        class="absolute h-auto sm:h-full w-2/3 sm:w-auto top-6 sm:top-auto sm:bottom-0 -right-12 sm:right-3"
+        class="absolute h-full w-auto sm:h-auto sm:w-full top-0 left-0"
     />
-    <img src={heroPattern.src} alt="" class="absolute h-full w-auto sm:h-auto sm:w-full top-0 left-0" />
     <div>
         <div class="mb-64">
             <span
@@ -24,7 +28,9 @@ import heroCircle from "../../assets/service/hero-circle.png";
             >
         </div>
         <div class="space-y-6">
-            <h3 class="text-4xl sm:text-7xl w-1/2 sm:w-auto">Custom Software Solutions</h3>
+            <h3 class="text-4xl sm:text-7xl w-1/2 sm:w-auto">
+                Custom Software Solutions
+            </h3>
             <p class="text-xl sm:text-3xl w-5/6">
                 Elevating Your Digital Vision with Expertise and Excellence
             </p>
