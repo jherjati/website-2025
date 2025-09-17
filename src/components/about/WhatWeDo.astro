@@ -1,0 +1,68 @@
+<section class="px-6">
+    <div class="w-full bg-neutral-900 pt-8">
+        <h6 class="text-orange-500 text-xl">What We Do</h6>
+        <div class="grid grid-cols-2">
+            <h4 class="text-stone-50 text-4xl">Products and Service</h4>
+            <p class="text-neutral-400 text-lg">
+                At Braga Technologies, we offer innovative solutions ranging
+                from products and services that are tailored to suit your unique
+                needs. Discover them below.
+            </p>
+        </div>
+        <div class="grid grid-cols-2 gap-6 my-12">
+            {
+                [
+                    {
+                        title: "GeoDashboard",
+                        tagline: "Product",
+                        description:
+                            "Platform development in the form of web applications, and dashboards by approaching Geospatial technology.",
+                        src: "/screen/frame-1.png",
+                    },
+                    {
+                        title: "Logbook",
+                        tagline: "Product",
+                        description:
+                            "Platform development in the form of web applications, and dashboards by approaching Geospatial technology.",
+                        src: "/screen/frame-2.png",
+                    },
+                    {
+                        title: "Spatial Data",
+                        tagline: "Service",
+                        description:
+                            "Platform development in the form of web applications, and dashboards by approaching Geospatial technology.",
+                        src: "/screen/frame-3.png",
+                    },
+                    {
+                        title: "Software Development",
+                        tagline: "Service",
+                        description:
+                            "Platform development in the form of web applications, and dashboards by approaching Geospatial technology.",
+                        src: "/screen/frame-4.png",
+                    },
+                ].map(({ title, tagline, description, src }) => (
+                    <div class="group p-4 space-y-4 border border-neutral-800 hover:bg-black/16 rounded-sm">
+                        <div class="flex justify-between items-end">
+                            <h5
+                                class={
+                                    "text-4xl text-stone-50"
+                                }
+                            >
+                                {title}
+                            </h5>
+                            <span class="rounded-full border border-neutral-600 group-hover:border-stone-200 text-xs text-neutral-400 group-hover:text-stone-200 py-1 px-2">
+                                {tagline}
+                            </span>
+                        </div>
+                        <img
+                            src={src}
+                            class="w-full rounded-sm overflow-hidden bg-neutral-800"
+                        />
+
+                        <p class="text-stone-200 text-xl">{description}</p>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
