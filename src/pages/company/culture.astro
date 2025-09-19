@@ -1,10 +1,11 @@
 ---
 import Hero from "../../components/culture/Hero.astro";
+import CTA from "../../components/culture/CTA.astro";
 import Main from "../../components/culture/Main.astro";
 import Layout from "../../layouts/Layout.astro";
 ---
 
-<Layout theme="dark"><Hero /><Main /></Layout>
+<Layout theme="dark"><Hero /><Main /><CTA /></Layout>
 
 <script is:inline client:load>
     const observer = new IntersectionObserver(
