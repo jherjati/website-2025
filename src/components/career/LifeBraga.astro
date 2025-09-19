@@ -1,0 +1,94 @@
+---
+import benefit1 from "../../assets/career/benefit-1.svg";
+import benefit2 from "../../assets/career/benefit-2.svg";
+import benefit3 from "../../assets/career/benefit-3.svg";
+import benefit4 from "../../assets/career/benefit-4.svg";
+import benefit5 from "../../assets/career/benefit-5.svg";
+import benefit6 from "../../assets/career/benefit-6.svg";
+import benefit7 from "../../assets/career/benefit-7.svg";
+import benefit8 from "../../assets/career/benefit-8.svg";
+
+const benefits = [
+    {
+        number: "01/",
+        title: "Paid Leaves",
+        description:
+            "Leverage a planned absence to maintain a healthy work-life balance",
+        icon: benefit1,
+    },
+    {
+        number: "02/",
+        title: "Structured Flexible Hours",
+        description:
+            "Establish Optimal Work Schedules and Maintain Work-Life Balance through a Structured Approach.",
+        icon: benefit2,
+    },
+    {
+        number: "03/",
+        title: "Healthcare",
+        description:
+            "We prioritize your well-being by offering a self-directed health insurance program.",
+        icon: benefit3,
+    },
+    {
+        number: "04/",
+        title: "Office Lunch",
+        description:
+            "Focus on your work without interruption thanks to our on-site food service options available during weekdays.",
+        icon: benefit4,
+    },
+    {
+        number: "05/",
+        title: "Financial Security",
+        description:
+            "We offer a Flexible Repayment Loan Program with 0% interest, fees, and adjustable installment might help you in times of need.",
+        icon: benefit5,
+    },
+    {
+        number: "06/",
+        title: "Self Development",
+        description:
+            "Embark in career paths, learning materials, and our self-development activities.",
+        icon: benefit6,
+    },
+    {
+        number: "07/",
+        title: "Family Support Specialist",
+        description:
+            "Supporting you throughout your life journey, we offer targeted benefits for newlyweds, parents, and families.",
+        icon: benefit7,
+    },
+    {
+        number: "08/",
+        title: "Team Wellbeing",
+        description:
+            "Enhance your work-life balance with engaging recreational activities, including city exploration and games.",
+        icon: benefit8,
+    },
+];
+---
+
+<section class="px-6 grid grid-cols-4 gap-x-6 mb-16">
+    <div class="py-4 space-y-4">
+        <h6 class="text-orange-500 text-xl">Life at Braga</h6>
+        <h3 class="text-stone-200 text-4xl">We’ve got your back, always.</h3>
+    </div>
+    <div class="grid col-span-3 grid-cols-3 gap-6">
+        {
+            benefits.map(({ number, title, description, icon }) => (
+                <div class="pt-6 space-y-3">
+                    <p class="text-neutral-500 border-b border-neutral-600 pb-1 mt-0">
+                        {number}
+                    </p>
+                    <h5 class="text-white text-2xl">{title}</h5>
+                    <img src={icon.src} alt="" class="" />
+                    <p class="text-neutral-400 text-xl">{description}</p>
+                </div>
+            ))
+        }
+        <h2 class="col-span-3 pr-6 text-stone-50 text-6xl mt-36">
+            Together, we’re leveraging technology to help fight some of the
+            world’s toughest challenges
+        </h2>
+    </div>
+</section>
