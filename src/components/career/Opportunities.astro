@@ -1,0 +1,30 @@
+---
+import arrow from "../../assets/about/arrow.svg";
+import opportunities from "../../assets/career/opportunities.png";
+---
+
+<section class="px-6 grid grid-cols-4 bg-black mb-8">
+    <div class="pt-4 col-span-1">
+        <h6 class="text-orange-500 text-xl">Opportunities</h6>
+        <h4 class="text-stone-50 text-4xl my-4">Explore the career paths.</h4>
+        <p class="text-neutral-400 text-lg">
+            Help us to solve the world’s problems through maps, and You.
+            Interested? Find your forte below!
+        </p>
+        <button
+            class="bg-orange-700 py-2 px-3 text-sm text-white rounded-sm flex space-x-2 w-42 my-4"
+            ><p class="grow">Visit Linkedin</p><img
+                src={arrow.src}
+                alt=""
+            /></button
+        >
+        <button
+            class="bg-orange-700 py-2 px-3 text-sm text-white rounded-sm flex space-x-2 w-42"
+            ><p class="grow">Visit Glints</p><img
+                src={arrow.src}
+                alt=""
+            /></button
+        >
+    </div>
+    <img src={opportunities.src} alt="" class="col-span-3" />
+</section>
