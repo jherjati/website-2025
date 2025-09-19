@@ -17,6 +17,24 @@ import Layout from "../../layouts/Layout.astro";
     </div>
 </Layout>
 
+<script is:inline client:load>
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                }
+            });
+        },
+        { threshold: 0.1 },
+    );
+
+    // Observe all animated elements
+    document
+        .querySelectorAll(".fade-in-up")
+        .forEach((el) => observer.observe(el));
+</script>
+
 <style is:global>
     .typo-poin h1,
     .typo-poin h2,
@@ -25,5 +43,23 @@ import Layout from "../../layouts/Layout.astro";
     .typo-poin h5,
     .typo-poin h6 {
         font-family: "Montserrat", sans-serif;
+    }
+
+    /* Initial hidden state */
+    .fade-in-up {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    /* Animation when visible */
+    .fade-in-up.visible {
+        animation: fadeInUp 0.75s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 </style>

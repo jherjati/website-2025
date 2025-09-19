@@ -4,34 +4,48 @@ import heroDecor from "../../assets/poin/hero-decor.svg";
 import heroPattern from "../../assets/poin/hero-pattern.svg";
 ---
 
-<section
-    class="bg-rose-500 sm:grid grid-cols-2 mx-6 mt-3 rounded-lg relative text-stone-50 px-6 py-9 sm:p-9"
->
-    <div>
-        <div class="mb-32">
-            <span
-                class="text-yellow-950 bg-stone-50 px-3 py-2 rounded-lg text-xs"
-                >Service</span
-            ><span
-                class="border border-stone-50 text-stone-50 px-3 py-2 rounded-lg text-xs"
-                >Data</span
+<section class="px-6">
+    <div
+        class="bg-rose-500 sm:grid grid-cols-2 mt-3 rounded-lg relative text-stone-50 px-6 py-9 sm:p-9 fade-in-up"
+        style="animation-delay: 1400ms;"
+    >
+        <div>
+            <div class="mb-32">
+                <span
+                    class="text-yellow-950 bg-stone-50 px-3 py-2 rounded-lg text-xs"
+                    >Service</span
+                ><span
+                    class="border border-stone-50 text-stone-50 px-3 py-2 rounded-lg text-xs"
+                    >Data</span
+                >
+            </div>
+            <div class="space-y-6">
+                <h5 class="text-xl sm:text-4xl">Braga Poin</h5>
+                <h3 class="text-4xl sm:text-7xl">
+                    Streamlined Spatial Data Solutions
+                </h3>
+                <p class="text-sm sm:text-base w-5/6">
+                    Reduce time, cost, and resource allocation with our
+                    innovative solutions for geospatial and ground surveys.
+                    Eliminate redundant efforts - get the data you need, all at
+                    once.
+                </p>
+            </div>
+
+            <button
+                class="border border-stone-50 px-3 py-2 rounded-sm text-sm mt-12 flex space-x-6"
+                ><p>Explore Below</p><img src={heroArrow.src} alt="" /></button
             >
         </div>
-        <div class="space-y-6">
-            <h5 class="text-xl sm:text-4xl">Braga Poin</h5>
-            <h3 class="text-4xl sm:text-7xl">Streamlined Spatial Data Solutions</h3>
-            <p class="text-sm sm:text-base w-5/6">
-                Reduce time, cost, and resource allocation with our innovative
-                solutions for geospatial and ground surveys. Eliminate redundant
-                efforts - get the data you need, all at once.
-            </p>
-        </div>
-
-        <button
-            class="border border-stone-50 px-3 py-2 rounded-sm text-sm mt-12 flex space-x-6"
-            ><p>Explore Below</p><img src={heroArrow.src} alt="" /></button
-        >
+        <img
+            src={heroDecor.src}
+            alt=""
+            class="absolute h-1/4 sm:h-11/12 top-6 sm:top-auto sm:bottom-0 right-0"
+        />
+        <img
+            src={heroPattern.src}
+            alt=""
+            class="absolute w-full top-0 left-0"
+        />
     </div>
-    <img src={heroDecor.src} alt="" class="absolute h-1/4 sm:h-11/12 top-6 sm:top-auto sm:bottom-0 right-0" />
-    <img src={heroPattern.src} alt="" class="absolute w-full top-0 left-0" />
 </section>
