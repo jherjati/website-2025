@@ -1,0 +1,67 @@
+---
+import Hero from "../components/initiatives/Hero.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout theme="light"><Hero /></Layout>
+
+<script is:inline client:load>
+    const script = document.createElement("script");
+    script.src =
+        "https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.13.0/lottie.min.js";
+    script.onload = () => {
+        window.lottie.loadAnimation({
+            container: document.getElementById("canvas-0"),
+            renderer: "canvas", // svg / canvas / html
+            loop: true,
+            autoplay: true,
+            path: "/animation/initiative.json",
+        });
+    };
+    document.body.appendChild(script);
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                }
+            });
+        },
+        { threshold: 0.1 },
+    );
+
+    // Observe all animated elements
+    document
+        .querySelectorAll(".fade-in-up")
+        .forEach((el) => observer.observe(el));
+</script>
+
+<style is:global>
+    .typo-landing h1,
+    .typo-landing h2,
+    .typo-landing h3,
+    .typo-landing h4,
+    .typo-landing h5,
+    .typo-landing h6 {
+        font-family: "Host-Grotesk", sans-serif;
+    }
+
+    /* Initial hidden state */
+    .fade-in-up {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    /* Animation when visible */
+    .fade-in-up.visible {
+        animation: fadeInUp 0.75s ease-out forwards;
+    }
+
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
