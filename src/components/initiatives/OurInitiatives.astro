@@ -1,10 +1,68 @@
 ---
 import arrowBar from "../../assets/initiatives/arrow-bar.svg";
+
+const initiatives = [
+    {
+        title: "GeoDART :<br/>Disaster Response Team",
+        paragraphs: [
+            "Harnessing the prowess of our geospatial technology for the greater good, GeoDART emerges as a beacon in disaster management. ",
+            "Geospatial Disaster Assessment and Response Tool (GeoDART) signifies our dedication to revolutionize disaster mitigation through state-of-the-art tech solutions.",
+            "By providing real-time data and actionable insights during critical moments, GeoDART stands at the forefront, ensuring faster, more efficient responses, saving lives, and restoring hope..",
+        ],
+        actions: [
+            {
+                title: "Luwu Flood Disaster Relief 2020",
+                desc: "Read how we assist flood in disaster relief evacuation of Luwu Flood 2020 Flood Case.",
+                label: "Read  Report",
+                href: "/",
+            },
+            {
+                title: "BNPB Forest Fire Decision Support System 2023",
+                desc: "Read how we assist flood in disaster relief evacuation of Luwu Flood 2020 Flood Case.",
+                label: "Read Case Study",
+                href: "/",
+            },
+        ],
+        image: "/initiatives/geodart.png",
+    },
+    {
+        title: "Coffeerage<br/>Business Intelligence",
+        paragraphs: [
+            "Through Coffeerage, we aim to introduce the broader community to the practical applications of geospatial intelligence. Our objective is to simplify the intricacies of this field, rendering geospatial insights comprehensible and compelling to all individuals.",
+            "Coffeerage provides an open platform featuring a straightforward isochrone tool, enabling users to examine the spatial interactions of well-known coffee shops in Jakarta within the delivery radius of commonly utilized food-delivery services.",
+        ],
+        actions: [
+            {
+                title: "Cofferage Web App",
+                desc: "Experience how the business intelligence works in real time now.",
+                label: "Visit Cofferage",
+                href: "/",
+            },
+        ],
+        image: "/initiatives/coffeerage.png",
+    },
+    {
+        title: "<MATA>DATA. Creative Ecosystem Mapping",
+        paragraphs: [
+            "Expanding our initiatives to encompass the creative industries, the <MATA>DATA Exhibition serves as a dedicated medium for sharing the geospatial methodology applied to viewing Bandung as Indonesia's Creative City. This endeavor aims to prompt designers to reassess their perspectives on the city's creative ecosystem, while also facilitating potential collaborations across different disciplines and the exchange of ideas. ",
+            "Through the exhibition's presentation of the fusion between geospatial analysis and creativity, it endeavors to stimulate fresh insights and collaborative endeavors within Bandung's dynamic creative sphere.To explore more about our exhibition and geospatial insights, visit our website at Matadata.id and join us in shaping a more vibrant creative landscape.",
+        ],
+        actions: [
+            {
+                title: "Matadata Map",
+                desc: "See the creative ecosystem surrounding you in Bandung the Creative City.",
+                label: "Visit Matadata",
+                href: "/",
+            },
+        ],
+        image: "/initiatives/coffeerage.png",
+    },
+];
 ---
 
 <section class="mx-6 my-12 py-9 border-t border-neutral-400">
     <h6 class="text-orange-500 text-xl">Our Initiative</h6>
-    <div class="sm:grid grid-cols-4 gap-x-6 space-y-8 sm:space-y-0">
+    <div class="sm:grid grid-cols-4 gap-x-6 space-y-8 sm:space-y-0 mb-20">
         <div class="col-span-1">
             <h3 class="text-neutral-800 text-4xl sm:text-4xl mt-2 mb-3">
                 Extending the power of geospatial tech.
@@ -40,4 +98,42 @@ import arrowBar from "../../assets/initiatives/arrow-bar.svg";
             </button>
         </article>
     </div>
+    {
+        initiatives.map(({ title, paragraphs, actions, image }) => (
+            <div class="w-full grid grid-cols-2 gap-6 pt-20 pb-14 bg-neutral-50">
+                <article class="h-[42rem] flex flex-col justify-between">
+                    <div class="py-3 space-y-3 pl-4">
+                        <h3
+                            set:html={title}
+                            class="text-neutral-900 text-5xl mb-6"
+                        />
+                        {paragraphs.map((p) => (
+                            <p class="text-neutral-600 text-lg">{p}</p>
+                        ))}
+                    </div>
+                    <div class="space-y-3 w-4/5">
+                        {actions.map(({ title, desc, label, href }) => (
+                            <div class="p-4 space-y-2 border border-stone-200 rounded-sm">
+                                <h5 class="text-neutral-900 text-xl">
+                                    {title}
+                                </h5>
+                                <div class="flex space-x-2">
+                                    <p class="text-neutral-700 text-sm">
+                                        {desc}
+                                    </p>
+                                    <a
+                                        href={href}
+                                        class="text-white text-sm bg-orange-700 flex justify-center items-center rounded-sm min-w-52 text-center"
+                                    >
+                                        {label}
+                                    </a>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </article>
+                <img src={image} alt="" class="mt-[10%]" />
+            </div>
+        ))
+    }
 </section>

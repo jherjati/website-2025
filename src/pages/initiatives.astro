@@ -1,10 +1,11 @@
 ---
 import Hero from "../components/initiatives/Hero.astro";
 import OurInitiatives from "../components/initiatives/OurInitiatives.astro";
+import CTA from "../components/initiatives/CTA.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout theme="light"><Hero /><OurInitiatives /></Layout>
+<Layout theme="light"><Hero /><OurInitiatives /><CTA /></Layout>
 
 <script is:inline client:load>
     const script = document.createElement("script");

@@ -1,0 +1,31 @@
+---
+import contactDecor from "../../assets/home/contact-decor.svg";
+import ctaDecor from "../../assets/home/cta-decor.svg";
+---
+
+<section
+    class="flex justify-center items-center pt-30 pb-56 px-4"
+    style={`background: url(${contactDecor.src});`}
+>
+    <div
+        class="rounded-lg p-12 flex flex-col items-center text-center min-w-96 w-1/2 test relative overflow-hidden"
+    >
+        <img src={ctaDecor.src} alt="" class="absolute top-0 left-0" />
+        <h5 class="text-stone-100 text-6xl">Get started today</h5>
+        <p class="text-stone-50 text-xl mt-3 mb-6">
+            Find out how you can maximize the value from data and strengthen
+            your decision making
+        </p>
+        <button class="bg-orange-500 text-stone-50 px-12 py-3 rounded-sm"
+            >Contact us</button
+        >
+    </div>
+</section>
+
+<style>
+    .test {
+        isolation: isolate;
+        background: #842f15;
+        box-shadow: 0px 101px 80px -80px rgba(243, 106, 29, 0.4);
+    }
+</style>
