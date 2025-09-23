@@ -51,7 +51,9 @@ const blogs = [
 ---
 
 <section class="w-full px-6 pb-12 fade-in-up" style="animation-delay: 1400ms;">
-    <div class="grid grid-cols-2 py-10 px-6 gap-y-10 gap-x-6">
+    <div
+        class="grid grid-cols-2 py-10 px-6 gap-y-10 gap-x-6 bg-stone-50/70 mb-18 border border-stone-200"
+    >
         <div class="col-span-2">
             <p
                 class="text-stone-50 text-[10px] bg-neutral-900 px-3 py-2 rounded-lg w-fit"
@@ -97,13 +99,21 @@ const blogs = [
     <div class="grid grid-cols-3 gap-3">
         {
             blogs.map(({ title, topic, thumbnail, desc, href }) => (
-                <div class="p-3 bg-stone-100/70 border border-neutral-400 rounded-sm space-y-3">
-                    <img src={thumbnail} alt="" class="w-full" />
-                    <h6 class="text-neutral-800 border-b border-neutral-600">
-                        {topic}
-                    </h6>
-                    <h5 class="text-black text-3xl">{title}</h5>
-                    <p class="text-neutral-600 text-lg">{desc}</p>
+                <div class="flex flex-col justify-between p-3 bg-stone-100/70 border border-neutral-400 rounded-sm space-y-3">
+                    <div class="space-y-3">
+                        <img
+                            src={thumbnail}
+                            alt=""
+                            class="w-full h-64 object-cover object-center rounded-sm border border-black/10"
+                        />
+                        <h6 class="text-neutral-800 border-b border-neutral-600">
+                            {topic}
+                        </h6>
+                        <h5 class="text-black text-3xl">{title}</h5>
+                        <p class="text-neutral-600 text-lg line-clamp-5">
+                            {desc}
+                        </p>
+                    </div>
                     <a
                         href={href}
                         class="block w-full py-3 text-center bg-orange-700 text-white rounded-sm"
