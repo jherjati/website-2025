@@ -24,6 +24,7 @@ const initiatives = [
             },
         ],
         image: "/initiatives/geodart.png",
+        background: "/initiatives/geodart-bg.svg",
     },
     {
         title: "Coffeerage<br/>Business Intelligence",
@@ -40,6 +41,7 @@ const initiatives = [
             },
         ],
         image: "/initiatives/coffeerage.png",
+        background: "/initiatives/coffeerage-bg.svg",
     },
     {
         title: "<MATA>DATA. Creative Ecosystem Mapping",
@@ -55,7 +57,8 @@ const initiatives = [
                 href: "/",
             },
         ],
-        image: "/initiatives/coffeerage.png",
+        image: "/initiatives/matadata.png",
+        background: "/initiatives/matadata-bg.svg",
     },
 ];
 ---
@@ -99,8 +102,13 @@ const initiatives = [
         </article>
     </div>
     {
-        initiatives.map(({ title, paragraphs, actions, image }) => (
-            <div class="w-full grid grid-cols-2 gap-6 pt-20 pb-14 bg-neutral-50">
+        initiatives.map(({ title, paragraphs, actions, image, background }) => (
+            <div class="w-full grid grid-cols-2 gap-6 pt-20 pb-14 relative">
+                <img
+                    src={background}
+                    class="absolute w-full right-0 bottom-0 -z-20 bg-neutral-50 opacity-50"
+                />
+                <div class="blurred absolute w-1/3 h-full top-0 left-0 -z-10" />
                 <article class="h-[42rem] flex flex-col justify-between">
                     <div class="py-3 space-y-3 pl-4">
                         <h3
@@ -137,3 +145,10 @@ const initiatives = [
         ))
     }
 </section>
+<style>
+    .blurred {
+        background: rgba(62, 61, 52, 0.03);
+        filter: blur(40px);
+        backdrop-filter: blur(1px);
+    }
+</style>

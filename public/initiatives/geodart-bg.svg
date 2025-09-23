@@ -1,0 +1,42 @@
+<svg width="1440" height="800" viewBox="0 0 1440 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_1965_33780)">
+<g clip-path="url(#clip1_1965_33780)">
+<path d="M0 7.99999C0 3.58171 3.58172 0 8 0H1432C1436.42 0 1440 3.58172 1440 8V800H0V7.99999Z" fill="url(#paint0_linear_1965_33780)"/>
+<path opacity="0.5" d="M1349.85 117.127L879.423 216.978C867.918 219.42 860.994 231.213 864.467 242.449L908.573 385.147C910.516 391.432 915.425 396.36 921.703 398.326L1348.02 531.863C1360.9 535.898 1374 526.276 1374 512.777V136.691C1374 123.974 1362.29 114.486 1349.85 117.127Z" fill="#967E6E" fill-opacity="0.08" stroke="#967E6E" stroke-opacity="0.32"/>
+<path opacity="0.4" d="M841.756 192.212L799.136 68.5152C794.661 55.5285 804.309 42 818.045 42H1432C1443.05 42 1452 50.9918 1452 62.0374C1452 71.4531 1445.43 79.6239 1436.23 81.6153L864.895 205.245C854.995 207.387 845.056 201.789 841.756 192.212Z" fill="#967E6E" fill-opacity="0.08" stroke="#967E6E" stroke-opacity="0.32"/>
+<path d="M928.834 471.745C923.175 456.166 937.834 440.859 953.643 445.84L1365.38 575.57C1378.27 579.63 1391.39 570.006 1391.39 556.494V96C1391.39 84.9543 1400.34 76 1411.39 76H1419C1430.05 76 1439 84.9543 1439 96V719C1439 730.046 1430.05 739 1419 739L1039.94 739C1031.53 739 1024.01 733.736 1021.14 725.829L928.834 471.745Z" fill="url(#paint1_linear_1965_33780)" fill-opacity="0.08"/>
+<path d="M1419 738.5H1039.94C1031.74 738.5 1024.41 733.367 1021.61 725.658L929.305 471.574C923.787 456.385 938.079 441.46 953.492 446.316L1365.23 576.047C1378.44 580.209 1391.89 570.344 1391.89 556.494V96C1391.89 85.2305 1400.62 76.5 1411.39 76.5H1419C1429.77 76.5 1438.5 85.2305 1438.5 96V719C1438.5 729.77 1429.77 738.5 1419 738.5Z" stroke="url(#paint2_linear_1965_33780)" stroke-opacity="0.32"/>
+<path d="M752.925 25.1364C763.127 22.8035 773.403 28.7305 776.492 38.7298L808.22 141.43L953.97 560.429C958.121 572.363 950.302 585.109 937.781 586.816L511.702 644.905C499.693 646.542 489 637.208 489 625.088L489 101.429C489 92.1006 495.448 84.0112 504.542 81.9319L752.925 25.1364Z" fill="#967E6E" fill-opacity="0.04"/>
+<foreignObject x="-75.0916" y="-69.2584" width="807.659" height="900.782"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(1px);clip-path:url(#bgblur_2_1965_33780_clip_path);height:100%;width:100%"></div></foreignObject><g filter="url(#filter0_f_1965_33780)" data-figma-bg-blur-radius="2">
+<rect x="13.7947" y="10.7416" width="638.819" height="733.092" transform="rotate(0.694532 13.7947 10.7416)" fill="#3E3D34" fill-opacity="0.02"/>
+</g>
+</g>
+</g>
+<defs>
+<filter id="filter0_f_1965_33780" x="-75.0916" y="-69.2584" width="807.659" height="900.782" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="40" result="effect1_foregroundBlur_1965_33780"/>
+</filter>
+<clipPath id="bgblur_2_1965_33780_clip_path" transform="translate(75.0916 69.2584)"><rect x="13.7947" y="10.7416" width="638.819" height="733.092" transform="rotate(0.694532 13.7947 10.7416)"/>
+</clipPath><linearGradient id="paint0_linear_1965_33780" x1="720" y1="0" x2="720" y2="800" gradientUnits="userSpaceOnUse">
+<stop stop-color="#F4F3F1" stop-opacity="0"/>
+<stop offset="0.8" stop-color="#F4F3F1"/>
+</linearGradient>
+<linearGradient id="paint1_linear_1965_33780" x1="1177" y1="76" x2="1177" y2="739" gradientUnits="userSpaceOnUse">
+<stop stop-color="#967E6E"/>
+<stop offset="0.771666" stop-color="#967E6E"/>
+<stop offset="1" stop-color="#967E6E" stop-opacity="0"/>
+</linearGradient>
+<linearGradient id="paint2_linear_1965_33780" x1="1177" y1="76" x2="1177" y2="739" gradientUnits="userSpaceOnUse">
+<stop stop-color="#967E6E"/>
+<stop offset="1" stop-color="#967E6E" stop-opacity="0"/>
+</linearGradient>
+<clipPath id="clip0_1965_33780">
+<rect width="1440" height="800" fill="white"/>
+</clipPath>
+<clipPath id="clip1_1965_33780">
+<path d="M0 7.99999C0 3.58171 3.58172 0 8 0H1432C1436.42 0 1440 3.58172 1440 8V800H0V7.99999Z" fill="white"/>
+</clipPath>
+</defs>
+</svg>

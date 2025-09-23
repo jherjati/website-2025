@@ -1,4 +1,56 @@
-<section class="w-full px-6">
+---
+import building from "../../assets/blog/building.svg";
+import bulb from "../../assets/blog/bulb.svg";
+import loop from "../../assets/blog/loop.svg";
+import mountain from "../../assets/blog/mountain.svg";
+
+const blogs = [
+    {
+        thumbnail: "/blog/screen-1.png",
+        topic: "Case Study - Environmental",
+        title: "GIS for Mining: Safety, Efficiency, and Sustainability",
+        desc: "In mining, location intelligence can save lives and resources. Learn how GIS supports hazard monitoring, resource mapping, and operational planning to improve safety, productivity, and environmental responsibility in mining operations.",
+        href: "/",
+    },
+    {
+        thumbnail: "/blog/screen-2.png",
+        topic: "Case Study - Environmental",
+        title: "The Role of GIS in Environmental Conservation",
+        desc: "GIS is helping conservationists track wildlife, monitor deforestation, and manage natural resources more effectively. This article highlights how spatial data supports environmental protection and biodiversity preservation.",
+        href: "/",
+    },
+    {
+        thumbnail: "/blog/screen-3.png",
+        topic: "Insight - Business Intelligence",
+        title: "Smart Business Decisions with GIS Analytics",
+        desc: "Location isn’t just for maps—it’s a strategic advantage. Learn how companies use GIS to identify market opportunities, optimize logistics, and improve decision-making with location-based insights.",
+        href: "/",
+    },
+    {
+        thumbnail: "/blog/screen-4.png",
+        topic: "Government & Policy",
+        title: "GIS in Public Policy: for Better Governance",
+        desc: "From infrastructure planning to resource allocation, GIS provides policymakers with clear, data-driven insights. This article explores how spatial analysis supports decision-making and helps governments address community needs more effectively.",
+        href: "/",
+    },
+    {
+        thumbnail: "/blog/screen-5.png",
+        topic: "Urban Development",
+        title: "Mapping the Future: GIS in Urban Planning",
+        desc: "Discover how GIS is revolutionizing city planning, from optimizing transport routes to designing sustainable neighborhoods. This article explores real-world use cases where geospatial intelligence helps cities grow smarter and more livable.",
+        href: "/",
+    },
+    {
+        thumbnail: "/blog/screen-6.png",
+        topic: "Disaster Management",
+        title: "Disaster Preparedness with GIS: Mapping for Resilience",
+        desc: "From predicting flood zones to mapping evacuation routes, GIS is a critical tool for disaster risk reduction. This article covers how governments and organizations use geospatial data to plan ahead and respond faster to emergencies.",
+        href: "/",
+    },
+];
+---
+
+<section class="w-full px-6 pb-12 fade-in-up" style="animation-delay: 1400ms;">
     <div class="grid grid-cols-2 py-10 px-6 gap-y-10 gap-x-6">
         <div class="col-span-2">
             <p
@@ -14,5 +66,52 @@
             how location intelligence transforms data into smarter decisions
             across industries.
         </p>
+    </div>
+
+    <div
+        class="w-full flex justify-between items-center border border-neutral-400 rounded-lg p-2 bg-stone-100 mb-3"
+    >
+        <div class="flex space-x-3">
+            <button
+                class="flex border border-neutral-900 bg-neutral-800 rounded-lg py-2 px-3 space-x-3 text-stone-50 text-[10px]"
+                ><img src={bulb.src} alt="" /><p>All Articles</p>
+            </button><button
+                class="flex border border-neutral-400 text-neutral-600 rounded-lg py-2 px-3 space-x-3 text-[10px]"
+                ><img src={building.src} alt="" /><p>Blog Posts</p>
+            </button><button
+                class="flex border border-neutral-400 text-neutral-600 rounded-lg py-2 px-3 space-x-3 text-[10px]"
+                ><img src={mountain.src} alt="" /><p>Case Study</p>
+            </button>
+        </div>
+        <div
+            class="flex border border-neutral-400 rounded-lg px-3 py-2 text-sm text-neutral-600 space-x-2"
+        >
+            <input
+                type="text"
+                placeholder="Search Article"
+                class="focus:border-none focus:outline-0 min-w-56"
+            />
+            <img src={loop.src} alt="" class="cursor-pointer" />
+        </div>
+    </div>
+    <div class="grid grid-cols-3 gap-3">
+        {
+            blogs.map(({ title, topic, thumbnail, desc, href }) => (
+                <div class="p-3 bg-stone-100/70 border border-neutral-400 rounded-sm space-y-3">
+                    <img src={thumbnail} alt="" class="w-full" />
+                    <h6 class="text-neutral-800 border-b border-neutral-600">
+                        {topic}
+                    </h6>
+                    <h5 class="text-black text-3xl">{title}</h5>
+                    <p class="text-neutral-600 text-lg">{desc}</p>
+                    <a
+                        href={href}
+                        class="block w-full py-3 text-center bg-orange-700 text-white rounded-sm"
+                    >
+                        Read More
+                    </a>
+                </div>
+            ))
+        }
     </div>
 </section>
