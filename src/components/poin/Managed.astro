@@ -4,33 +4,38 @@ import powered2 from "../../assets/poin/powered-2.svg";
 import powered3 from "../../assets/poin/powered-3.svg";
 import powered4 from "../../assets/poin/powered-4.svg";
 
-const pillars = [
-    {
-        image: powered1,
-        title: "Flexibility",
-        description: `Select the model that fits your business: inhouse or on-site.`,
-    },
-    {
-        image: powered2,
-        title: "Expertise on Demand",
-        description: `Access professionals with proven experience.`,
-    },
-    {
-        image: powered3,
-        title: "Cost Efficiency",
-        description: `Scale resources without long-term overhead.`,
-    },
-    {
-        image: powered4,
-        title: "Seamless Integration",
-        description: `Talent that adapts to your workflows and culture.`,
-    },
-];
+import powered11 from "../../assets/service/powered-1.svg";
+import powered12 from "../../assets/service/powered-2.svg";
+import powered13 from "../../assets/service/powered-3.svg";
+import powered14 from "../../assets/service/powered-4.svg";
 
 const { brand } = Astro.props;
 
 const text = brand === "orange" ? "text-orange-500" : "text-rose-500";
 const border = brand === "orange" ? "border-orange-500" : "border-rose-500";
+
+const pillars = [
+    {
+        image: brand === "orange" ? powered11 : powered1,
+        title: "Flexibility",
+        description: `Select the model that fits your business: inhouse or on-site.`,
+    },
+    {
+        image: brand === "orange" ? powered12 : powered2,
+        title: "Expertise on Demand",
+        description: `Access professionals with proven experience.`,
+    },
+    {
+        image: brand === "orange" ? powered13 : powered3,
+        title: "Cost Efficiency",
+        description: `Scale resources without long-term overhead.`,
+    },
+    {
+        image: brand === "orange" ? powered14 : powered4,
+        title: "Seamless Integration",
+        description: `Talent that adapts to your workflows and culture.`,
+    },
+];
 ---
 
 <section
