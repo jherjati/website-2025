@@ -8,6 +8,20 @@ import Layout from "../../layouts/Layout.astro";
 <Layout theme="dark"><Hero /><Main /><CTA /></Layout>
 
 <script is:inline client:load>
+    const script = document.createElement("script");
+    script.src =
+        "https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.13.0/lottie.min.js";
+    script.onload = () => {
+        window.lottie.loadAnimation({
+            container: document.getElementById("canvas-1"),
+            renderer: "canvas", // svg / canvas / html
+            loop: true,
+            autoplay: true,
+            path: "/animation/culture.json",
+        });
+    };
+    document.body.appendChild(script);
+
     const observer = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry) => {
