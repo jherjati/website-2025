@@ -1,0 +1,62 @@
+---
+import share from "../../assets/post/share.svg";
+---
+
+<section
+    class="w-full px-6 pb-12 fade-in-up mt-9"
+    style="animation-delay: 1400ms;"
+>
+    <div
+        class="grid grid-cols-2 py-10 px-6 gap-y-10 gap-x-6 bg-stone-50/70 mb-3 border border-stone-200"
+    >
+        <div class="col-span-2 flex">
+            <p
+                class="text-stone-50 text-[10px] bg-neutral-900 px-3 py-2 rounded-lg w-fit"
+            >
+                Blog
+            </p>
+            <p
+                class="border-neutral-900 border text-[10px] text-neutral-900 px-3 py-2 rounded-lg w-fit"
+            >
+                Industry Insights / Knowledge / Op-Ed
+            </p>
+        </div>
+        <div class="opacity-90">
+            <h2 class="text-black text-4xl">Sub-Title</h2>
+            <h1 class="text-black text-7xl">TITLE</h1>
+        </div>
+        <div>
+            <p class="text-neutral-800 text-lg mb-3">
+                [Synopsis] here lorem ipsum dolor sit amet Hyundai Kiosk is a
+                system integrated with Hyundai dealerships, allowing Hyundai car
+                users to independently book service or accessories
+            </p>
+            <div class="flex space-x-6">
+                <div>
+                    <p class="text-xs text-neutral-700">
+                        [Tags 3 - Label] Topic
+                    </p><p class="text-xl text-neutral-600">Mining</p>
+                </div>
+                <div>
+                    <p class="text-xs text-neutral-500">
+                        [Date] Publish Date
+                    </p><p class="text-xl text-neutral-600">
+                        [Date] August, 2025
+                    </p>
+                </div>
+            </div>
+            <button
+                class="bg-orange-700 py-2 px-3 flex space-x-2 rounded-sm mt-3"
+                ><img src={share.src} alt="" /><p class="text-white text-sm">
+                    CTA
+                </p>
+            </button>
+        </div>
+    </div>
+
+    <img
+        src="/post/hero-1.png"
+        alt=""
+        class="w-full rounded-lg overflow-hidden"
+    />
+</section>

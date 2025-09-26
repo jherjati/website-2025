@@ -1,5 +1,7 @@
 ---
+import Hero from "../../../components/post/Hero.astro";
 import Layout from "../../../layouts/Layout.astro";
+import CTA from "../../../components/blog/CTA.astro";
 
 export function getStaticPaths() {
     return [
@@ -8,11 +10,11 @@ export function getStaticPaths() {
         { params: { slug: "tiga" } },
     ];
 }
-git
+
 const { slug } = Astro.params;
 ---
 
-<Layout theme="light" />
+<Layout theme="light"><Hero /><CTA /></Layout>
 
 <script is:inline client:load>
     const observer = new IntersectionObserver(
