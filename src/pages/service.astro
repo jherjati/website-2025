@@ -29,6 +29,7 @@ import Layout from "../layouts/Layout.astro";
             autoplay: true,
             path: "/animation/service.json",
         });
+
         window.lottie.loadAnimation({
             container: document.getElementById("canvas-1"),
             renderer: "canvas", // svg / canvas / html
@@ -64,6 +65,14 @@ import Layout from "../layouts/Layout.astro";
             autoplay: true,
             path: "/animation/process-5.json",
         });
+
+        // window.lottie.loadAnimation({
+        //     container: document.getElementById("canvas-6"),
+        //     renderer: "svg", // svg / canvas / html
+        //     loop: true,
+        //     autoplay: true,
+        //     path: "/animation/process.json",
+        // });
     };
     document.body.appendChild(script);
 
