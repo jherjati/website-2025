@@ -2,6 +2,9 @@
 import Hero from "../../../components/post/Hero.astro";
 import Layout from "../../../layouts/Layout.astro";
 import CTA from "../../../components/blog/CTA.astro";
+import Overview from "../../../components/post/Overview.astro";
+import Summary from "../../../components/post/Summary.astro";
+import MainPoints from "../../../components/post/MainPoints.astro";
 
 export function getStaticPaths() {
     return [
@@ -14,7 +17,9 @@ export function getStaticPaths() {
 const { slug } = Astro.params;
 ---
 
-<Layout theme="light"><Hero /><CTA /></Layout>
+<Layout theme="light"
+    ><Hero /><Overview /><MainPoints /><Summary /><CTA /></Layout
+>
 
 <script is:inline client:load>
     const observer = new IntersectionObserver(

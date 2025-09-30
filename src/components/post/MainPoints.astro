@@ -1,0 +1,30 @@
+<section class="w-full px-6 grid grid-cols-4 gap-6 text-neutral-800 my-12">
+    <h5 class="text-4xl">Main Points</h5>
+    <div class="col-span-3 grid grid-cols-2 gap-6">
+        {
+            [1, 2, 3, 4].map((i) => (
+                <article class="space-y-6">
+                    <h6 class="text-xl font-medium">Mapping the Ground Before Breaking It</h6>
+                    <p>
+                        Before any excavation begins, GIS provides a powerful
+                        set of tools for resource mapping. High-resolution
+                        satellite imagery, aerial surveys, and LiDAR data can be
+                        layered to identify mineral-rich zones, assess
+                        geological structures, and evaluate terrain stability.
+                    </p>
+                    <p>
+                        This early-stage analysis helps:
+                        <ul class="list-disc ml-4">
+                            <li>Minimize costly exploration errors.</li>
+                            <li>Reduce environmental disruption.</li>
+                            <li>
+                                Pinpoint optimal locations for drilling or
+                                extraction.
+                            </li>
+                        </ul>
+                    </p>
+                </article>
+            ))
+        }
+    </div>
+</section>
