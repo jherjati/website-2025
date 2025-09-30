@@ -1,33 +1,9 @@
 ---
 import testiAva1 from "../../assets/home/testi-ava-1.jpg";
 import testiComp1 from "../../assets/home/testi-comp-1.jpg";
-import work1 from "../../assets/home/work-1.jpg";
-import work2 from "../../assets/home/work-2.jpg";
-import work3 from "../../assets/home/work-3.jpg";
-import work4 from "../../assets/home/work-4.jpg";
+import { fetchWorks } from "../../utils/api";
 
-const works = [
-    {
-        title: "SIPULAU Information System",
-        image: work1,
-        description: "The Geospatial Information Agency - BIG",
-    },
-    {
-        title: "West Java Tourism Crisis Center (TCC)",
-        image: work2,
-        description: "DISPARBUD JABAR",
-    },
-    {
-        title: "Elevating Retail Experience: KiosK",
-        image: work3,
-        description: "Hyundai",
-    },
-    {
-        title: "Vessel Monitoring Integrated Fleet System",
-        image: work4,
-        description: "Security and Defense Sector",
-    },
-];
+const works = await fetchWorks();
 ---
 
 <section class="w-full px-6 grid grid-cols-4 gap-6 text-neutral-800 mb-16">
@@ -100,7 +76,7 @@ const works = [
                                     {title}
                                 </h5>
                                 <img
-                                    src={image.src}
+                                    src={image}
                                     class="rounded-sm w-full"
                                 />
                                 <div class="flex justify-between space-x-2">

@@ -1,31 +1,7 @@
 ---
-import work1 from "../../assets/home/work-1.jpg";
-import work2 from "../../assets/home/work-2.jpg";
-import work3 from "../../assets/home/work-3.jpg";
-import work4 from "../../assets/home/work-4.jpg";
+import { fetchWorks } from "../../utils/api";
 
-const works = [
-    {
-        title: "SIPULAU Information System",
-        image: work1,
-        description: "The Geospatial Information Agency - BIG",
-    },
-    {
-        title: "West Java Tourism Crisis Center (TCC)",
-        image: work2,
-        description: "DISPARBUD JABAR",
-    },
-    {
-        title: "Elevating Retail Experience: KiosK",
-        image: work3,
-        description: "Hyundai",
-    },
-    {
-        title: "Vessel Monitoring Integrated Fleet System",
-        image: work4,
-        description: "Security and Defense Sector",
-    },
-];
+const works = await fetchWorks();
 ---
 
 <section class="w-full px-6 grid grid-cols-4 gap-6 text-neutral-800">
@@ -61,7 +37,7 @@ const works = [
                     works.map(({ title, image, description }) => (
                         <div class="p-4 space-y-4 border border-neutral-400 rounded-sm min-w-72 z-10">
                             <h5 class="text-2xl text-neutral-800">{title}</h5>
-                            <img src={image.src} class="rounded-sm w-full" />
+                            <img src={image} class="rounded-sm w-full" />
                             <div class="flex justify-between space-x-2">
                                 <p class="text-sm text-neutral-600 grow line-clamp-2">
                                     {description}
