@@ -8,8 +8,9 @@ import logbookImage from "../assets/layout/logbook.png";
 import poinImage from "../assets/layout/poin.png";
 import Footer from "../components/home/Footer.astro";
 import type { LayoutProps } from "../types/navigation";
+import OrangeFooter from "./OrangeFooter.astro";
 
-const { theme }: LayoutProps = Astro.props;
+const { theme, orangeFooter }: LayoutProps = Astro.props;
 
 const navs = [
 	{ href: "/", label: "Home" },
@@ -80,7 +81,10 @@ const navs = [
 			<div class="border dark:border-neutral-800 border-stone-200"></div>
 		</div>
 
-		<div class={theme + " px-3 sm:px-6 pt-3 sm:pt-6 w-full sticky top-0 z-10 fade-in-down"}>
+		<div
+			class={theme +
+				" px-3 sm:px-6 pt-3 sm:pt-6 w-full sticky top-0 z-10 fade-in-down"}
+		>
 			<div
 				class="w-full flex items-center justify-between border border-stone-200 dark:border-neutral-800 p-2 rounded-sm text-neutral-800 dark:text-neutral-400 space-x-2 bg-stone-50 dark:bg-black/8 backdrop-blur-md"
 			>
@@ -177,7 +181,7 @@ const navs = [
 
 		<slot />
 
-		<Footer theme={theme} />
+		{orangeFooter ? <OrangeFooter /> : <Footer theme={theme} />}
 		<div class="w-full h-6"></div>
 
 		<div

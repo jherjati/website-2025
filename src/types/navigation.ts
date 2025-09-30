@@ -13,4 +13,5 @@ export interface NavigationItem {
 
 export interface LayoutProps {
   theme?: string;
+  orangeFooter?: boolean;
 }

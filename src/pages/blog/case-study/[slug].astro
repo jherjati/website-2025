@@ -1,5 +1,8 @@
 ---
+import Hero from "../../../components/case/Hero.astro";
 import Layout from "../../../layouts/Layout.astro";
+import Product from "../../../components/case/Product.astro";
+import Tech from "../../../components/case/Tech.astro";
 
 export function getStaticPaths() {
     return [
@@ -12,7 +15,7 @@ export function getStaticPaths() {
 const { slug } = Astro.params;
 ---
 
-<Layout theme="light" />
+<Layout theme="light" orangeFooter={true}><Hero /><Product /><Tech /> </Layout>
 
 <script is:inline client:load>
     const observer = new IntersectionObserver(

@@ -1,0 +1,121 @@
+---
+import testiAva1 from "../../assets/home/testi-ava-1.jpg";
+import testiComp1 from "../../assets/home/testi-comp-1.jpg";
+import work1 from "../../assets/home/work-1.jpg";
+import work2 from "../../assets/home/work-2.jpg";
+import work3 from "../../assets/home/work-3.jpg";
+import work4 from "../../assets/home/work-4.jpg";
+
+const works = [
+    {
+        title: "SIPULAU Information System",
+        image: work1,
+        description: "The Geospatial Information Agency - BIG",
+    },
+    {
+        title: "West Java Tourism Crisis Center (TCC)",
+        image: work2,
+        description: "DISPARBUD JABAR",
+    },
+    {
+        title: "Elevating Retail Experience: KiosK",
+        image: work3,
+        description: "Hyundai",
+    },
+    {
+        title: "Vessel Monitoring Integrated Fleet System",
+        image: work4,
+        description: "Security and Defense Sector",
+    },
+];
+---
+
+<section class="w-full px-6 grid grid-cols-4 gap-6 text-neutral-800 mb-16">
+    <h5 class="text-4xl">Tech Highlights</h5>
+    <div class="col-span-3">
+        <div class="grid grid-cols-3 gap-6">
+            {
+                [1, 2, 3, 4, 5, 6].map((i) => (
+                    <article class="space-y-3">
+                        <h6 class="text-xl font-medium">
+                            Virtual Payment Gateway Integration
+                        </h6>
+                        <p>
+                            Provides integration with various virtual payment
+                            methods such as QRIS, E-Wallet, and bank transfer.
+                            With this feature, customers can easily and securely
+                            make payments through their chosen digital payment
+                            application.
+                        </p>
+                    </article>
+                ))
+            }
+        </div>
+        <div></div><div class="col-span-3 mt-16 mb-9">
+            <div>
+                <p class="text-neutral-500 border-b border-neutral-600 pb-1">
+                    In Their Words
+                </p>
+                <p class="text-neutral-600 text-lg mt-3 mb-6">
+                    “Braga allows us to generate business intelligences uniquely
+                    with mapping approach, taking precise actions quickly and
+                    accurately has never been this easier.”
+                </p>
+                <div class="flex space-x-6">
+                    <div id="avatar list" class="flex items-center">
+                        <img
+                            src={testiAva1.src}
+                            alt=""
+                            class="rounded-full w-14 h-14"
+                        />
+                        <img
+                            src={testiComp1.src}
+                            alt=""
+                            class="rounded-full w-14 h-14 -ml-3"
+                        />
+                    </div>
+                    <div>
+                        <h6 class="text-neutral-800">Alma Ariestantin</h6>
+                        <p class="text-neutral-500">
+                            Ministry of Agrarian Affairs and Spatial
+                            Planning/National Land Agency (ATR/BPN)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div></div>
+        <div class="col-span-3 mt-9">
+            <p
+                class="w-full border-b border-neutral-600 mb-12 text-neutral-500"
+            >
+                More Works
+            </p>
+            <div class="w-full overflow-x-scroll">
+                <div class="flex space-x-5">
+                    {
+                        works.map(({ title, image, description }) => (
+                            <div class="p-4 space-y-4 border border-neutral-400 rounded-sm min-w-72 z-10">
+                                <h5 class="text-2xl text-neutral-800">
+                                    {title}
+                                </h5>
+                                <img
+                                    src={image.src}
+                                    class="rounded-sm w-full"
+                                />
+                                <div class="flex justify-between space-x-2">
+                                    <p class="text-sm text-neutral-600 grow line-clamp-2">
+                                        {description}
+                                    </p>
+                                    <button class="text-sm text-white bg-orange-600 rounded-sm min-w-28 px-3 py-2">
+                                        Read More
+                                    </button>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
