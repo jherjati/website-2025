@@ -134,23 +134,23 @@ const initiatives = [
                     <div class="space-y-3 sm:w-4/5">
                         {actions.map(
                             ({ title, desc, label, href, shortLabel }) => (
-                                <div class="p-4 space-y-2 border border-stone-200 rounded-sm">
+                                <div class="p-4 space-y-2 border border-stone-200 rounded-sm hover:bg-gray-700/20">
                                     <h5 class="text-neutral-900 text-base sm:text-xl">
                                         {title}
                                     </h5>
-                                    <div class="flex space-x-2">
+                                    <div class="flex space-x-2 items-center">
                                         <p class="text-neutral-700 text-xs sm:text-sm">
                                             {desc}
                                         </p>
                                         <a
-                                            href={href}
-                                            class="hidden sm:flex text-white text-sm bg-orange-700 justify-center items-center rounded-sm min-w-52 text-center"
+                                            href={label === "Visit Matadata" ? undefined : href}
+                                            class={`hidden sm:flex text-sm justify-center items-center rounded-sm min-w-52 text-center min-h-9 ${label === "Visit Matadata" ? "bg-[#353332] text-[#4F4D4A] pointer-events-none" : "text-white bg-orange-700 cursor-pointer"}`}
                                         >
                                             {label}
                                         </a>
                                         <a
-                                            href={href}
-                                            class="flex sm:hidden py-2 px-3 h-fit text-white text-sm bg-orange-700 justify-center items-center rounded-sm text-center"
+                                            href={shortLabel === "Visit" && title === "Matadata Map" ? undefined : href}
+                                            class={`flex sm:hidden py-2 px-3 h-fit text-sm justify-center items-center rounded-sm text-center ${shortLabel === "Visit" && title === "Matadata Map" ? "bg-[#353332] text-[#4F4D4A] cursor-not-allowed pointer-events-none" : "text-white bg-orange-700"}`}
                                         >
                                             {shortLabel}
                                         </a>
