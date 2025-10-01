@@ -12,6 +12,8 @@ import OrangeFooter from "./OrangeFooter.astro";
 
 const { theme, orangeFooter }: LayoutProps = Astro.props;
 
+const currentPath = Astro.url.pathname;
+
 const navs = [
 	{ href: "/", label: "Home" },
 	{
@@ -171,7 +173,7 @@ const navs = [
 						<button class="text-black dark:text-white">ID</button>
 					</div>
 					<button
-						class="bg-rose-500 dark:bg-orange-700 rounded-sm text-white py-1.5 px-3"
+						class={`rounded-sm text-white py-1.5 px-3 ${currentPath === '/products/poin' ? 'bg-rose-500 dark:bg-orange-700' : 'bg-[#CD541B] dark:bg-orange-700'}`}
 						>Contact</button
 					>
 					<img src={burgerIcon.src} alt="" class="sm:hidden" />

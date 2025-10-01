@@ -2,6 +2,7 @@
 import navigate from "../../assets/home/navigate.svg";
 
 const { theme } = Astro.props;
+const route = Astro.url.pathname
 ---
 
 <div class="w-full px-3 sm:px-6">
@@ -40,11 +41,11 @@ const { theme } = Astro.props;
             </p>
             <span class="flex space-x-4 mt-4">
                 <button
-                    class="border border-orange-500 text-orange-500 rounded-full py-1 w-36"
+                    class={` ${route === '/products/poin' ? 'border-[#FC3D59] text-[#FC3D59]' : 'border-orange-500 text-orange-500'} border  rounded-full py-1 w-36 `}
                     >LinkedIn</button
                 >
                 <button
-                    class="border border-orange-500 text-orange-500 rounded-full py-1 w-36"
+                    class={` ${route === '/products/poin' ? 'border-[#FC3D59] text-[#FC3D59]' : 'border-orange-500 text-orange-500'} border  rounded-full py-1 w-36 `}
                     >Youtube</button
                 ></span
             >
