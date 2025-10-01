@@ -3,50 +3,34 @@ import building from "../../assets/blog/building.svg";
 import bulb from "../../assets/blog/bulb.svg";
 import loop from "../../assets/blog/loop.svg";
 import mountain from "../../assets/blog/mountain.svg";
+import { fetchPosts, fetchWorks } from "../../utils/api";
 
-const blogs = [
-    {
-        thumbnail: "/blog/screen-1.png",
-        topic: "Case Study - Environmental",
-        title: "GIS for Mining: Safety, Efficiency, and Sustainability",
-        desc: "In mining, location intelligence can save lives and resources. Learn how GIS supports hazard monitoring, resource mapping, and operational planning to improve safety, productivity, and environmental responsibility in mining operations.",
-        href: "/blog/case-study/satu",
-    },
-    {
-        thumbnail: "/blog/screen-2.png",
-        topic: "Case Study - Environmental",
-        title: "The Role of GIS in Environmental Conservation",
-        desc: "GIS is helping conservationists track wildlife, monitor deforestation, and manage natural resources more effectively. This article highlights how spatial data supports environmental protection and biodiversity preservation.",
-        href: "/blog/case-study/dua",
-    },
-    {
-        thumbnail: "/blog/screen-3.png",
-        topic: "Insight - Business Intelligence",
-        title: "Smart Business Decisions with GIS Analytics",
-        desc: "Location isn’t just for maps—it’s a strategic advantage. Learn how companies use GIS to identify market opportunities, optimize logistics, and improve decision-making with location-based insights.",
-        href: "/blog/post/satu",
-    },
-    {
-        thumbnail: "/blog/screen-4.png",
-        topic: "Government & Policy",
-        title: "GIS in Public Policy: for Better Governance",
-        desc: "From infrastructure planning to resource allocation, GIS provides policymakers with clear, data-driven insights. This article explores how spatial analysis supports decision-making and helps governments address community needs more effectively.",
-        href: "/blog/post/dua",
-    },
-    {
-        thumbnail: "/blog/screen-5.png",
-        topic: "Urban Development",
-        title: "Mapping the Future: GIS in Urban Planning",
-        desc: "Discover how GIS is revolutionizing city planning, from optimizing transport routes to designing sustainable neighborhoods. This article explores real-world use cases where geospatial intelligence helps cities grow smarter and more livable.",
-        href: "/blog/post/tiga",
-    },
-    {
-        thumbnail: "/blog/screen-6.png",
-        topic: "Disaster Management",
-        title: "Disaster Preparedness with GIS: Mapping for Resilience",
-        desc: "From predicting flood zones to mapping evacuation routes, GIS is a critical tool for disaster risk reduction. This article covers how governments and organizations use geospatial data to plan ahead and respond faster to emergencies.",
-        href: "/blog/case-study/tiga",
-    },
+const works = await fetchWorks();
+const posts = await fetchPosts();
+
+const blogs: {
+    thumbnail: string;
+    topic: string;
+    title: string;
+    desc: string;
+    href: string;
+}[] = [
+    ...works.slice(0, 3).map((work) => ({
+        thumbnail: work.image,
+        topic: work.topic,
+        title: work.title,
+        desc: work.synopsis,
+        href: work.slug,
+    })),
+    ...posts
+        .slice(0, 3)
+        .map((post) => ({
+            thumbnail: post.thumbnail,
+            topic: post.topic,
+            title: post.title,
+            desc: post.synopsis,
+            href: post.slug,
+        })),
 ];
 ---
 
