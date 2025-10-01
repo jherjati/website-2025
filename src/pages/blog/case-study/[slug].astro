@@ -9,22 +9,43 @@ export async function getStaticPaths() {
     const works = await fetchWorks();
     return works.map((work) => ({
         params: { slug: work.slug },
-        props: { work }
+        // props: { work },
     }));
 }
 
 const { slug } = Astro.params;
-const { work } = Astro.props;
+// const { work } = Astro.props;
 
 // Fallback: fetch work if not provided via props
-const workData = work || await fetchWorkBySlug(slug);
+const workData = /* work || */ await fetchWorkBySlug(slug);
 
 if (!workData) {
-    return Astro.redirect('/404');
+    return Astro.redirect("/404");
 }
+
+console.log(workData);
 ---
 
-<Layout theme="light" orangeFooter={true}><Hero /><Product /><Tech /> </Layout>
+<Layout theme="light" orangeFooter={true}>
+    <Hero
+        subtitle={workData.subtitle}
+        title={workData.work_title}
+        client={workData.work_client}
+        publishedDate={workData.date_created}
+        topic={workData.topic}
+        service={workData.service}
+        synopsis={workData.synopsis}
+        hero={"https://panel.braga.co.id/panel/assets/" + workData.hero}
+        heroCaption={workData.hero_caption}
+    />
+    <Product
+        highlights={workData.product_highlight}
+        gallery={workData.gallery?.map(
+            (e) => "https://panel.braga.co.id/panel/assets/" + e.directus_files_id,
+        )}
+    />
+    <Tech highlights={workData.tech_highlight} />
+</Layout>
 
 <script is:inline client:load>
     const observer = new IntersectionObserver(

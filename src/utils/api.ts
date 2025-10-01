@@ -1,3 +1,5 @@
+export interface Highlight { title: string, description: string }
+
 interface DBWork {
     id: number;
     status: string;
@@ -9,6 +11,13 @@ interface DBWork {
     slug: string;
     synopsis: string;
     topic: string;
+    subtitle?: string,
+    service?: string,
+    product_highlight?: Highlight[],
+    tech_highlight?: Highlight[],
+    hero?: string,
+    gallery?: { directus_files_id: string }[]
+    hero_caption?: string
 }
 
 interface Work {
@@ -37,10 +46,10 @@ export const fetchWorks = async (): Promise<Work[]> => {
     }));
 };
 
-export const fetchWorkBySlug = async (slug: string): Promise<Work | null> => {
+export const fetchWorkBySlug = async (slug: string): Promise<DBWork | null> => {
     const accessToken = import.meta.env.DIRECTUS_ACCESS_TOKEN;
     const queryString = new URLSearchParams({
-        fields: '*',
+        fields: '*,gallery.directus_files_id',
         filter: JSON.stringify({ slug: { _eq: slug } })
     })
     const response = await fetch(
@@ -51,15 +60,7 @@ export const fetchWorkBySlug = async (slug: string): Promise<Work | null> => {
 
     if (json.data.length === 0) return null;
 
-    const work = json.data[0];
-    return {
-        title: work.work_title,
-        image: `https://panel.braga.co.id/panel/assets/${work.thumbnail}`,
-        description: work.work_client,
-        synopsis: work.synopsis,
-        topic: work.topic,
-        slug: work.slug
-    };
+    return json.data[0]
 };
 
 
