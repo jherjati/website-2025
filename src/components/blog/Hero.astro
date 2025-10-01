@@ -20,17 +20,15 @@ const blogs: {
         topic: work.topic,
         title: work.title,
         desc: work.synopsis,
-        href: work.slug,
+        href: "/blog/case-study/" + work.slug,
     })),
-    ...posts
-        .slice(0, 3)
-        .map((post) => ({
-            thumbnail: post.thumbnail,
-            topic: post.topic,
-            title: post.title,
-            desc: post.synopsis,
-            href: post.slug,
-        })),
+    ...posts.slice(0, 3).map((post) => ({
+        thumbnail: post.thumbnail,
+        topic: post.topic,
+        title: post.title,
+        desc: post.synopsis,
+        href: "/blog/post/" + post.slug,
+    })),
 ];
 ---
 

@@ -3,16 +3,25 @@ import Hero from "../../../components/case/Hero.astro";
 import Layout from "../../../layouts/Layout.astro";
 import Product from "../../../components/case/Product.astro";
 import Tech from "../../../components/case/Tech.astro";
+import { fetchWorks, fetchWorkBySlug } from "../../../utils/api";
 
-export function getStaticPaths() {
-    return [
-        { params: { slug: "satu" } },
-        { params: { slug: "dua" } },
-        { params: { slug: "tiga" } },
-    ];
+export async function getStaticPaths() {
+    const works = await fetchWorks();
+    return works.map((work) => ({
+        params: { slug: work.slug },
+        props: { work }
+    }));
 }
 
 const { slug } = Astro.params;
+const { work } = Astro.props;
+
+// Fallback: fetch work if not provided via props
+const workData = work || await fetchWorkBySlug(slug);
+
+if (!workData) {
+    return Astro.redirect('/404');
+}
 ---
 
 <Layout theme="light" orangeFooter={true}><Hero /><Product /><Tech /> </Layout>

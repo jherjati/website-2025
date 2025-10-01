@@ -5,16 +5,25 @@ import CTA from "../../../components/blog/CTA.astro";
 import Overview from "../../../components/post/Overview.astro";
 import Summary from "../../../components/post/Summary.astro";
 import MainPoints from "../../../components/post/MainPoints.astro";
+import { fetchPosts, fetchPostBySlug } from "../../../utils/api";
 
-export function getStaticPaths() {
-    return [
-        { params: { slug: "satu" } },
-        { params: { slug: "dua" } },
-        { params: { slug: "tiga" } },
-    ];
+export async function getStaticPaths() {
+    const posts = await fetchPosts();
+    return posts.map((post) => ({
+        params: { slug: post.slug },
+        props: { post }
+    }));
 }
 
 const { slug } = Astro.params;
+const { post } = Astro.props;
+
+// Fallback: fetch post if not provided via props
+const postData = post || await fetchPostBySlug(slug);
+
+if (!postData) {
+    return Astro.redirect('/404');
+}
 ---
 
 <Layout theme="light"
