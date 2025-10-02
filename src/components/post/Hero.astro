@@ -1,12 +1,8 @@
 ---
 import share from "../../assets/post/share.svg";
+import { formatDate } from "../../utils/func";
 
 const { post } = Astro.props;
-
-const formatDate = (dateString: Date) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
-};
 ---
 
 <section
@@ -25,7 +21,7 @@ const formatDate = (dateString: Date) => {
             <p
                 class="border-neutral-900 border text-[10px] text-neutral-900 px-3 py-2 rounded-lg w-fit"
             >
-                Industry Insights / Knowledge / Op-Ed
+                Post
             </p>
         </div>
         <div class="opacity-90">
@@ -38,14 +34,16 @@ const formatDate = (dateString: Date) => {
             </p>
             <div class="flex space-x-6">
                 <div>
-                    <p class="text-xs text-neutral-700">
-                        Topic
-                    </p><p class="text-xl text-neutral-600">{post.topic}</p>
+                    <p class="text-xs text-neutral-700">Topic</p><p
+                        class="text-xl text-neutral-600"
+                    >
+                        {post.topic}
+                    </p>
                 </div>
                 <div>
-                    <p class="text-xs text-neutral-500">
-                        Publish Date
-                    </p><p class="text-xl text-neutral-600">
+                    <p class="text-xs text-neutral-500">Publish Date</p><p
+                        class="text-xl text-neutral-600"
+                    >
                         {formatDate(post.date_created)}
                     </p>
                 </div>
@@ -59,11 +57,13 @@ const formatDate = (dateString: Date) => {
         </div>
     </div>
 
-    {post.hero && (
-        <img
-            src={`https://panel.braga.co.id/panel/assets/${post.hero}`}
-            alt={post.title}
-            class="w-full rounded-lg overflow-hidden"
-        />
-    )}
+    {
+        post.hero && (
+            <img
+                src={`https://panel.braga.co.id/panel/assets/${post.hero}`}
+                alt={post.title}
+                class="w-full rounded-lg overflow-hidden"
+            />
+        )
+    }
 </section>
