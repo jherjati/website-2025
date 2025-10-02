@@ -172,3 +172,28 @@ export const fetchTestimonials = async (): Promise<Testimonial[]> => {
         company: testimonial.company
     }));
 };
+
+export const fetchTestimonialsByWorkId = async (workId: number): Promise<Testimonial[]> => {
+    const accessToken = import.meta.env.DIRECTUS_ACCESS_TOKEN;
+    const queryString = new URLSearchParams({
+        fields: '*',
+        filter: JSON.stringify({
+            status: { _eq: 'published' },
+            work: { _eq: workId }
+        })
+    })
+    const response = await fetch(
+        "https://panel.braga.co.id/panel/items/testimonials?" + queryString,
+        { headers: { Authorization: 'Bearer ' + accessToken } }
+    );
+    const json = await response.json();
+
+    return json.data.map((testimonial: DBTestimonial) => ({
+        message: testimonial.message,
+        name: testimonial.name,
+        role: testimonial.role,
+        personImage: `https://panel.braga.co.id/panel/assets/${testimonial.person_image}`,
+        companyImage: `https://panel.braga.co.id/panel/assets/${testimonial.company_image}`,
+        company: testimonial.company
+    }));
+};

@@ -3,7 +3,7 @@ import Hero from "../../../components/case/Hero.astro";
 import Layout from "../../../layouts/Layout.astro";
 import Product from "../../../components/case/Product.astro";
 import Tech from "../../../components/case/Tech.astro";
-import { fetchWorks, fetchWorkBySlug } from "../../../utils/api";
+import { fetchWorks, fetchWorkBySlug, fetchTestimonialsByWorkId } from "../../../utils/api";
 
 export async function getStaticPaths() {
     const works = await fetchWorks();
@@ -23,7 +23,8 @@ if (!workData) {
     return Astro.redirect("/404");
 }
 
-console.log(workData);
+const testimonials = await fetchTestimonialsByWorkId(workData.id);
+
 ---
 
 <Layout theme="light" orangeFooter={true}>
@@ -44,7 +45,7 @@ console.log(workData);
             (e) => "https://panel.braga.co.id/panel/assets/" + e.directus_files_id,
         )}
     />
-    <Tech highlights={workData.tech_highlight} />
+    <Tech highlights={workData.tech_highlight} testimonials={testimonials} />
 </Layout>
 
 <script is:inline client:load>

@@ -1,13 +1,11 @@
 ---
-import testiAva1 from "../../assets/home/testi-ava-1.jpg";
-import testiComp1 from "../../assets/home/testi-comp-1.jpg";
 import { fetchWorks } from "../../utils/api";
 
 const works = await fetchWorks();
 
-import type { Highlight } from "../../utils/api";
+import type { Highlight, Testimonial } from "../../utils/api";
 
-const { highlights }: { highlights?: Highlight[] } = Astro.props;
+const { highlights, testimonials }: { highlights?: Highlight[], testimonials?: Testimonial[] } = Astro.props;
 ---
 
 <section class="w-full px-6 grid grid-cols-4 gap-6 text-neutral-800 mb-16">
@@ -24,37 +22,40 @@ const { highlights }: { highlights?: Highlight[] } = Astro.props;
             }
         </div>
         <div></div><div class="col-span-3 mt-16 mb-9">
-            <div>
-                <p class="text-neutral-500 border-b border-neutral-600 pb-1">
-                    In Their Words
-                </p>
-                <p class="text-neutral-600 text-lg mt-3 mb-6">
-                    “Braga allows us to generate business intelligences uniquely
-                    with mapping approach, taking precise actions quickly and
-                    accurately has never been this easier.”
-                </p>
-                <div class="flex space-x-6">
-                    <div id="avatar list" class="flex items-center">
-                        <img
-                            src={testiAva1.src}
-                            alt=""
-                            class="rounded-full w-14 h-14"
-                        />
-                        <img
-                            src={testiComp1.src}
-                            alt=""
-                            class="rounded-full w-14 h-14 -ml-3"
-                        />
-                    </div>
-                    <div>
-                        <h6 class="text-neutral-800">Alma Ariestantin</h6>
-                        <p class="text-neutral-500">
-                            Ministry of Agrarian Affairs and Spatial
-                            Planning/National Land Agency (ATR/BPN)
-                        </p>
-                    </div>
+            {testimonials && testimonials.length > 0 && (
+                <div>
+                    <p class="text-neutral-500 border-b border-neutral-600 pb-1">
+                        In Their Words
+                    </p>
+                    {testimonials.map((testimonial) => (
+                        <div class="mb-9">
+                            <p class="text-neutral-600 text-lg mt-3 mb-6">
+                                "{testimonial.message}"
+                            </p>
+                            <div class="flex space-x-6">
+                                <div id="avatar list" class="flex items-center">
+                                    <img
+                                        src={testimonial.personImage}
+                                        alt={testimonial.name}
+                                        class="rounded-full w-14 h-14"
+                                    />
+                                    <img
+                                        src={testimonial.companyImage}
+                                        alt={testimonial.company}
+                                        class="rounded-full w-14 h-14 -ml-3"
+                                    />
+                                </div>
+                                <div>
+                                    <h6 class="text-neutral-800">{testimonial.name} - {testimonial.role}</h6>
+                                    <p class="text-neutral-500">
+                                        {testimonial.company}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
                 </div>
-            </div>
+            )}
         </div>
         <div></div>
         <div class="col-span-3 mt-9">
