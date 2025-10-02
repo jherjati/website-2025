@@ -1,11 +1,16 @@
 ---
-import { fetchWorks } from "../../utils/api";
-
-const works = await fetchWorks();
-
 import type { Highlight, Testimonial } from "../../utils/api";
 
-const { highlights, testimonials }: { highlights?: Highlight[], testimonials?: Testimonial[] } = Astro.props;
+interface Work {
+    title: string;
+    image: string;
+    description: string;
+    synopsis: string;
+    topic: string;
+    slug: string;
+}
+
+const { highlights, testimonials, works }: { highlights?: Highlight[], testimonials?: Testimonial[], works?: Work[] } = Astro.props;
 ---
 
 <section class="w-full px-6 grid grid-cols-4 gap-6 text-neutral-800 mb-16">

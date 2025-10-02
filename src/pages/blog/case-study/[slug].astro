@@ -24,6 +24,8 @@ if (!workData) {
 }
 
 const testimonials = await fetchTestimonialsByWorkId(workData.id);
+const allWorks = await fetchWorks();
+const relatedWorks = allWorks.filter((work) => work.slug !== slug);
 
 ---
 
@@ -45,7 +47,7 @@ const testimonials = await fetchTestimonialsByWorkId(workData.id);
             (e) => "https://panel.braga.co.id/panel/assets/" + e.directus_files_id,
         )}
     />
-    <Tech highlights={workData.tech_highlight} testimonials={testimonials} />
+    <Tech highlights={workData.tech_highlight} testimonials={testimonials} works={relatedWorks} />
 </Layout>
 
 <script is:inline client:load>
