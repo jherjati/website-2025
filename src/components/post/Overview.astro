@@ -1,49 +1,34 @@
 ---
 import arrow from "../../assets/post/arrow.svg";
+
+const { post } = Astro.props;
 ---
 
 <section class="w-full px-6 grid grid-cols-4 gap-6 text-neutral-800">
     <h5 class="text-4xl">Overview</h5>
     <div class="col-span-3">
-        <article class="space-y-6">
-            <p>
-                Mining has always been a complex and high-stakes industry,
-                balancing the need for resource extraction with safety, cost
-                efficiency, and environmental responsibility. In recent years,
-                Geospatial Information Systems (GIS) have emerged as a
-                transformative technology, giving mining companies the ability
-                to visualize, analyze, and act on location-based data in ways
-                that were once impossible.
-            </p><p>
-                By integrating spatial data with operational workflows, GIS
-                empowers mining operations to work smarter, react faster, and
-                plan with greater accuracy—saving both lives and resources.
-            </p>
-        </article>
-        <div class="w-full overflow-x-scroll mt-9">
-            <div class="flex space-x-4 h-[36rem]">
-                <img
-                    src="/post/gallery-1.png"
-                    alt=""
-                    class="rounded-sm h-full"
-                />
-                <img
-                    src="/post/gallery-2.png"
-                    alt=""
-                    class="rounded-sm h-full"
-                />
-                <img
-                    src="/post/gallery-1.png"
-                    alt=""
-                    class="rounded-sm h-full"
-                />
-                <img
-                    src="/post/gallery-2.png"
-                    alt=""
-                    class="rounded-sm h-full"
-                />
-            </div>
-        </div>
+        {
+            post.overview && (
+                <article class="space-y-6" set:html={post.overview} />
+            )
+        }
+        {
+            post.gallery && post.gallery.length > 0 && (
+                <div class="w-full overflow-x-scroll mt-9">
+                    <div class="flex space-x-4 h-[36rem]">
+                        {post.gallery.map(
+                            (img: { directus_files_id: string }) => (
+                                <img
+                                    src={`https://panel.braga.co.id/panel/assets/${img.directus_files_id}`}
+                                    alt={post.title}
+                                    class="rounded-sm h-full"
+                                />
+                            ),
+                        )}
+                    </div>
+                </div>
+            )
+        }
         <div class="w-full flex justify-between items-center mt-6">
             <div class="space-x-3">
                 {

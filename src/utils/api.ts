@@ -63,18 +63,23 @@ export const fetchWorkBySlug = async (slug: string): Promise<DBWork | null> => {
     return json.data[0]
 };
 
-
 interface DBPost {
     id: number;
     status: string;
     date_created: Date;
-    date_updated: null;
+    date_updated: Date | null;
     title: string;
     client: string;
     thumbnail: string;
     slug: string;
     synopsis: string;
     topic: string;
+    subtitle?: string;
+    hero?: string;
+    overview?: string;
+    main_point?: Highlight[];
+    summary?: string;
+    gallery?: { directus_files_id: string }[];
 }
 
 interface Post {
@@ -103,10 +108,10 @@ export const fetchPosts = async (): Promise<Post[]> => {
     }));
 };
 
-export const fetchPostBySlug = async (slug: string): Promise<Post | null> => {
+export const fetchPostBySlug = async (slug: string): Promise<DBPost | null> => {
     const accessToken = import.meta.env.DIRECTUS_ACCESS_TOKEN;
     const queryString = new URLSearchParams({
-        fields: '*',
+        fields: '*,gallery.directus_files_id',
         filter: JSON.stringify({ slug: { _eq: slug } })
     })
     const response = await fetch(
@@ -117,15 +122,7 @@ export const fetchPostBySlug = async (slug: string): Promise<Post | null> => {
 
     if (json.data.length === 0) return null;
 
-    const post = json.data[0];
-    return {
-        title: post.title,
-        client: post.client,
-        thumbnail: `https://panel.braga.co.id/panel/assets/${post.thumbnail}`,
-        synopsis: post.synopsis,
-        topic: post.topic,
-        slug: post.slug
-    };
+    return json.data[0];
 };
 
 interface DBTestimonial {

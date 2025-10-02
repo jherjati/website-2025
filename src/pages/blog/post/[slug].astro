@@ -10,16 +10,14 @@ import { fetchPosts, fetchPostBySlug } from "../../../utils/api";
 export async function getStaticPaths() {
     const posts = await fetchPosts();
     return posts.map((post) => ({
-        params: { slug: post.slug },
-        props: { post }
+        params: { slug: post.slug }
     }));
 }
 
 const { slug } = Astro.params;
-const { post } = Astro.props;
 
-// Fallback: fetch post if not provided via props
-const postData = post || await fetchPostBySlug(slug);
+// Fetch full post data by slug
+const postData = await fetchPostBySlug(slug);
 
 if (!postData) {
     return Astro.redirect('/404');
@@ -27,7 +25,7 @@ if (!postData) {
 ---
 
 <Layout theme="light"
-    ><Hero /><Overview /><MainPoints /><Summary currentSlug={slug} /><CTA /></Layout
+    ><Hero post={postData} /><Overview post={postData} /><MainPoints post={postData} /><Summary currentSlug={slug} post={postData} /><CTA /></Layout
 >
 
 <script is:inline client:load>

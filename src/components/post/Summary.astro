@@ -1,34 +1,17 @@
 ---
 import { fetchPosts } from "../../utils/api";
 
-const { currentSlug } = Astro.props;
+const { currentSlug, post } = Astro.props;
 const allPosts = await fetchPosts();
-const posts = allPosts.filter(post => post.slug !== currentSlug);
+const posts = allPosts.filter(p => p.slug !== currentSlug);
 ---
 
 <section class="w-full px-6 grid grid-cols-4 gap-6 text-neutral-800">
     <h5 class="text-4xl">Summary</h5>
     <div class="col-span-3">
-        <article class="space-y-6">
-            <p>
-                In mining, every decision has real-world consequences—affecting
-                worker safety, operational costs, production targets, and the
-                surrounding environment. The ability to see and understand the
-                full spatial context is no longer a luxury, but a necessity. GIS
-                equips operators with a clear, data-driven view of their
-                environment, enabling them to interpret complex conditions,
-                anticipate potential risks, and respond with precision.
-            </p><p>
-                By transforming raw spatial data into actionable insights, GIS
-                bridges the gap between planning and execution. This means safer
-                worksites through proactive hazard detection, more efficient
-                resource allocation through optimized workflows, and more
-                sustainable practices through continuous environmental
-                monitoring. Ultimately, GIS empowers the mining industry to
-                operate with confidence, balancing productivity with
-                responsibility in an increasingly demanding world.
-            </p>
-        </article>
+        {post.summary && (
+            <article class="space-y-6" set:html={post.summary} />
+        )}
     </div>
     <div></div>
     <div class="col-span-3 mt-9">

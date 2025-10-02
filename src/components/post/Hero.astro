@@ -1,5 +1,12 @@
 ---
 import share from "../../assets/post/share.svg";
+
+const { post } = Astro.props;
+
+const formatDate = (dateString: Date) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+};
 ---
 
 <section
@@ -22,26 +29,24 @@ import share from "../../assets/post/share.svg";
             </p>
         </div>
         <div class="opacity-90">
-            <h2 class="text-black text-4xl">Sub-Title</h2>
-            <h1 class="text-black text-7xl">TITLE</h1>
+            <h2 class="text-black text-4xl">{post.subtitle}</h2>
+            <h1 class="text-black text-7xl">{post.title}</h1>
         </div>
         <div>
             <p class="text-neutral-800 text-lg mb-3">
-                [Synopsis] here lorem ipsum dolor sit amet Hyundai Kiosk is a
-                system integrated with Hyundai dealerships, allowing Hyundai car
-                users to independently book service or accessories
+                {post.synopsis}
             </p>
             <div class="flex space-x-6">
                 <div>
                     <p class="text-xs text-neutral-700">
-                        [Tags 3 - Label] Topic
-                    </p><p class="text-xl text-neutral-600">Mining</p>
+                        Topic
+                    </p><p class="text-xl text-neutral-600">{post.topic}</p>
                 </div>
                 <div>
                     <p class="text-xs text-neutral-500">
-                        [Date] Publish Date
+                        Publish Date
                     </p><p class="text-xl text-neutral-600">
-                        [Date] August, 2025
+                        {formatDate(post.date_created)}
                     </p>
                 </div>
             </div>
@@ -54,9 +59,11 @@ import share from "../../assets/post/share.svg";
         </div>
     </div>
 
-    <img
-        src="/post/hero-1.png"
-        alt=""
-        class="w-full rounded-lg overflow-hidden"
-    />
+    {post.hero && (
+        <img
+            src={`https://panel.braga.co.id/panel/assets/${post.hero}`}
+            alt={post.title}
+            class="w-full rounded-lg overflow-hidden"
+        />
+    )}
 </section>
