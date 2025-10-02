@@ -127,3 +127,48 @@ export const fetchPostBySlug = async (slug: string): Promise<Post | null> => {
         slug: post.slug
     };
 };
+
+interface DBTestimonial {
+    id: number;
+    status: string;
+    date_created: string;
+    date_updated: string;
+    message: string;
+    name: string;
+    role: string;
+    person_image: string;
+    company_image: string;
+    work: number;
+    company: string;
+}
+
+export interface Testimonial {
+    message: string;
+    name: string;
+    role: string;
+    personImage: string;
+    companyImage: string;
+    company: string;
+}
+
+export const fetchTestimonials = async (): Promise<Testimonial[]> => {
+    const accessToken = import.meta.env.DIRECTUS_ACCESS_TOKEN;
+    const queryString = new URLSearchParams({
+        fields: '*',
+        filter: JSON.stringify({ status: { _eq: 'published' } })
+    })
+    const response = await fetch(
+        "https://panel.braga.co.id/panel/items/testimonials?" + queryString,
+        { headers: { Authorization: 'Bearer ' + accessToken } }
+    );
+    const json = await response.json();
+
+    return json.data.map((testimonial: DBTestimonial) => ({
+        message: testimonial.message,
+        name: testimonial.name,
+        role: testimonial.role,
+        personImage: `https://panel.braga.co.id/panel/assets/${testimonial.person_image}`,
+        companyImage: `https://panel.braga.co.id/panel/assets/${testimonial.company_image}`,
+        company: testimonial.company
+    }));
+};
