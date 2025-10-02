@@ -12,7 +12,7 @@ const { post } = Astro.props;
                 post.main_point.map((point: Highlight) => (
                     <article class="space-y-6">
                         <h6 class="text-xl font-medium">{point.title}</h6>
-                        <div set:html={point.description} class="mutate-list" />
+                        <div set:html={point.description} class="mutate-list space-y-3" />
                     </article>
                 ))
         }
@@ -20,7 +20,7 @@ const { post } = Astro.props;
 </section>
 
 <style>
-    .mutate-list > ul {
+    .mutate-list :global(ul) {
         list-style-type: disc;
         margin-left: 1rem;
     }
