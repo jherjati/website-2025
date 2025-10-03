@@ -5,7 +5,7 @@ interface Props {
 	headline: string;
 	subheadline: string;
 	ctaText: string;
-	partnerLogos: number[];
+	partnerLogos: string[];
 }
 
 const { headline, subheadline, ctaText, partnerLogos } = Astro.props;
@@ -37,15 +37,12 @@ const { headline, subheadline, ctaText, partnerLogos } = Astro.props;
 					<div class="marquee-text-track">
 						{
 							partnerLogos.map((order, index) => (
-								<img src={`/partners/logo-${order}.svg`} />
+								<img src={order} />
 							))
 						}
 						{
 							partnerLogos.map((order, index) => (
-								<img
-									src={`/partners/logo-${order}.svg`}
-									aria-hidden="true"
-								/>
+								<img src={order} aria-hidden="true" />
 							))
 						}
 					</div>

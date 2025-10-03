@@ -206,3 +206,137 @@ export const fetchTestimonialsByWorkId = async (workId: number): Promise<Testimo
         company: testimonial.company
     }));
 };
+
+interface DBLandingPage {
+    id: number;
+    h_headline: string;
+    h_subheadline: string;
+    h_ctaText: string;
+    h_partnerLogos: { directus_files_id: string }[];
+    s_sectionTag: string;
+    s_headline: string;
+    s_description: string;
+    s_services: { title: string; description: string; tagline: string }[];
+    g_headline: string;
+    g_description: string;
+    g_ctaText: string;
+    g_features: { title: string; description: string }[];
+    l_headline: string;
+    l_description: string;
+    l_ctaText: string;
+    l_features: { title: string; description: string }[];
+    t_sectionTag: string;
+    t_headline: string;
+    t_description: string;
+    t_industries: { name: string; icon: string }[];
+    w_sectionTag: string;
+    w_headline: string;
+    w_description: string;
+    w_ctaText: string;
+    c_headline: string;
+    c_description: string;
+    c_ctaText: string;
+}
+
+export interface LandingPageData {
+    hero: {
+        headline: string;
+        subheadline: string;
+        ctaText: string;
+        partnerLogos: string[];
+    };
+    service: {
+        sectionTag: string;
+        headline: string;
+        description: string;
+        services: { title: string; tagline: string; description: string }[];
+    };
+    geodashboard: {
+        headline: string;
+        description: string;
+        ctaText: string;
+        features: { title: string; description: string }[];
+    };
+    logbook: {
+        headline: string;
+        description: string;
+        ctaText: string;
+        features: { title: string; description: string }[];
+    };
+    testimoni: {
+        sectionTag: string;
+        headline: string;
+        description: string;
+        industries: { name: string; icon: string }[];
+    };
+    works: {
+        sectionTag: string;
+        headline: string;
+        description: string;
+        ctaText: string;
+    };
+    contact: {
+        headline: string;
+        description: string;
+        ctaText: string;
+    };
+}
+
+export const fetchLandingPage = async (): Promise<LandingPageData> => {
+    const accessToken = import.meta.env.DIRECTUS_ACCESS_TOKEN;
+    const queryString = new URLSearchParams({
+        fields: '*,h_partnerLogos.directus_files_id'
+    })
+    const response = await fetch(
+        "https://panel.braga.co.id/panel/items/landing_page/1?" + queryString,
+        { headers: { Authorization: 'Bearer ' + accessToken } }
+    );
+    const json = await response.json();
+    const data: DBLandingPage = json.data;
+
+    return {
+        hero: {
+            headline: data.h_headline,
+            subheadline: data.h_subheadline,
+            ctaText: data.h_ctaText,
+            partnerLogos: data.h_partnerLogos.map(logo =>
+                `https://panel.braga.co.id/panel/assets/${logo.directus_files_id}`
+            )
+        },
+        service: {
+            sectionTag: data.s_sectionTag,
+            headline: data.s_headline,
+            description: data.s_description,
+            services: data.s_services
+        },
+        geodashboard: {
+            headline: data.g_headline,
+            description: data.g_description,
+            ctaText: data.g_ctaText,
+            features: data.g_features
+        },
+        logbook: {
+            headline: data.l_headline,
+            description: data.l_description,
+            ctaText: data.l_ctaText,
+            features: data.l_features
+        },
+        testimoni: {
+            sectionTag: data.t_sectionTag,
+            headline: data.t_headline,
+            description: data.t_description,
+            industries: data.t_industries
+        },
+        works: {
+            sectionTag: data.w_sectionTag,
+            headline: data.w_headline,
+            description: data.w_description,
+            ctaText: data.w_ctaText
+        },
+        contact: {
+            headline: data.c_headline,
+            description: data.c_description,
+            ctaText: data.c_ctaText
+        }
+    };
+};
