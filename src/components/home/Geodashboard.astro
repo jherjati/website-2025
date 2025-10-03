@@ -5,26 +5,21 @@ import geo3 from "../../assets/home/geo-3.svg";
 import geoBG from "../../assets/home/geo-bg.png";
 import geodashboardLogo from "../../assets/home/geodashboard-logo.svg";
 
-const geos = [
-    {
-        title: "Spatial Range Calculation",
-        description:
-            "Visualize multiple layers both vector and raster to perform a detailed, precise, and insightful analysis.",
-        image: geo1,
-    },
-    {
-        title: "Multi-Format Data Visualization",
-        description:
-            "Easily visualize data in point, polygon and polyline format. Inspect rich data display for each attribute.",
-        image: geo2,
-    },
-    {
-        title: "Bootstrap Approach Global",
-        description:
-            "Created in no time through bootstrap. Get all the desired features, tailored to your needs.",
-        image: geo3,
-    },
-];
+interface Feature {
+    title: string;
+    description: string;
+}
+
+interface Props {
+    headline: string;
+    description: string;
+    ctaText: string;
+    features: Feature[];
+}
+
+const { headline, description, ctaText, features } = Astro.props;
+
+const featureImages = [geo1, geo2, geo3];
 ---
 
 <section
@@ -42,14 +37,13 @@ const geos = [
     >
         <img src={geodashboardLogo.src} />
         <h5 class="text-stone-50 text-5xl">
-            From Seeing Where to Understand Why.
+            {headline}
         </h5>
         <p class="text-neutral-400 text-lg">
-            Analyze site conditions, measure key urban indicators, and perform
-            spatial analysis — directly in the browser.
+            {description}
         </p>
         <button class="bg-orange-700 rounded-sm text-white py-3 px-6"
-            >Go to Geodashboard &rarr;</button
+            >{ctaText}</button
         >
     </div>
 
@@ -58,13 +52,13 @@ const geos = [
         style="animation-delay: 1000ms;"
     >
         {
-            geos.map(({ title, description, image }) => (
+            features.map(({ title, description }, index) => (
                 <div class="gradient-border-1 rounded-sm group">
                     <div class="relative p-4 group-hover:bg-black/16 rounded-sm">
                         <h6 class="text-stone-50 mb-3">{title}</h6>
                         <p class="text-neutral-400">{description} </p>
                         <img
-                            src={image.src}
+                            src={featureImages[index]?.src}
                             alt=""
                             class="absolute top-4 right-4"
                         />

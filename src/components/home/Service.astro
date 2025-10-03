@@ -1,34 +1,18 @@
 ---
-const services = [
-    {
-        title: "Big Data Processing",
-        tagline: "Powerful",
-        description:
-            "Technologies that integrate, process, analyze, and visualize big data for your collective’s solution.",
-        isShort: false,
-    },
-    {
-        title: "IoT and AI Integration",
-        tagline: "Dynamic",
-        description:
-            "Connect to IoT and AI tools, models, or hardwares for furhterly advanced and integrated problem solving.",
-        isShort: false,
-    },
-    {
-        title: "Rich Analytics",
-        tagline: "Advanced",
-        description:
-            "Advanced tools that Braga provides helps to come up with analytics that beneficial to tackle various challanges.",
-        isShort: true,
-    },
-    {
-        title: "Data Services",
-        tagline: "Global",
-        description:
-            "Not bounded by space and time, we help in multiple platforms, adapting to different conditions and terrains.",
-        isShort: true,
-    },
-];
+interface Service {
+    title: string;
+    tagline: string;
+    description: string;
+}
+
+interface Props {
+    sectionTag: string;
+    headline: string;
+    description: string;
+    services: Service[];
+}
+
+const { sectionTag, headline, description, services } = Astro.props;
 ---
 
 <section class="mx-6 pt-12 pb-24 border-t border-neutral-700">
@@ -36,19 +20,17 @@ const services = [
         class="text-orange-500 text-xl mb-2 fade-in"
         style="animation-delay: 750ms;"
     >
-        Powered by Braga
+        {sectionTag}
     </h6>
     <div
         class="grid grid-cols-1 gap-6 sm:grid-cols-2 fade-in"
         style="animation-delay: 750ms;"
     >
         <h3 class="text-stone-50 text-5xl">
-            Sustainably Accelerating through Geospatial Tech.
+            {headline}
         </h3>
         <p class="text-neutral-400 text-lg">
-            We hear, formulate and implement each solition for you with our
-            advanced geospatial expertise. Our solutions are carefully designed
-            to help you today, tomorrow and for many years to come.
+            {description}
         </p>
     </div>
     <div

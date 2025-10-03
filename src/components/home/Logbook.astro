@@ -4,20 +4,21 @@ import log2 from "../../assets/home/log-2.svg";
 import logbook from "../../assets/home/logbook-bg.png";
 import logbookLogo from "../../assets/home/logbook-logo.svg";
 
-const logs = [
-    {
-        title: "Simplify storytelling",
-        description:
-            "Streamline your storytelling process with our intuitive tools, enabling you to convey your message effectively.",
-        image: log1,
-    },
-    {
-        title: "Craft maps that reflect your style and identity",
-        description:
-            "Express your individuality through meticulously crafted maps tailored to your personal style and identity.",
-        image: log2,
-    },
-];
+interface Feature {
+    title: string;
+    description: string;
+}
+
+interface Props {
+    headline: string;
+    description: string;
+    ctaText: string;
+    features: Feature[];
+}
+
+const { headline, description, ctaText, features } = Astro.props;
+
+const featureImages = [log1, log2];
 ---
 
 <section
@@ -35,15 +36,13 @@ const logs = [
     >
         <img src={logbookLogo.src} />
         <h5 class="text-amber-50 text-5xl">
-            Log Your Journey, Endless Possibility
+            {headline}
         </h5>
         <p class="text-stone-50 text-lg">
-            Stay tuned for the unveiling of our meticulously crafted logbook –
-            where every entry marks a step toward unparalleled organization and
-            memorable experiences. Launching soon!
+            {description}
         </p>
         <button class="bg-lime-400 rounded-sm text-black py-3 px-6"
-            >Go to LogBook &rarr;</button
+            >{ctaText}</button
         >
     </div>
 
@@ -52,13 +51,13 @@ const logs = [
         style="animation-delay: 1000ms;"
     >
         {
-            logs.map(({ title, description, image }) => (
+            features.map(({ title, description }, index) => (
                 <div class="gradient-border-1 rounded-sm group">
                     <div class="relative rounded-sm p-4 group-hover:bg-black/16">
                         <h6 class="text-lime-300 mb-3">{title}</h6>
                         <p class="text-neutral-400">{description} </p>
                         <img
-                            src={image.src}
+                            src={featureImages[index]?.src}
                             alt=""
                             class="absolute top-4 right-4"
                         />

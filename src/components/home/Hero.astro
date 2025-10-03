@@ -1,7 +1,14 @@
 ---
 import motionImage from "../../assets/home/motion-placeholder.png";
 
-const partners = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+interface Props {
+	headline: string;
+	subheadline: string;
+	ctaText: string;
+	partnerLogos: number[];
+}
+
+const { headline, subheadline, ctaText, partnerLogos } = Astro.props;
 ---
 
 <section class="w-full px-6 mt-3 space-y-2">
@@ -14,16 +21,13 @@ const partners = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 				class="absolute z-0 left-0 top-0 h-full w-full max-w-none"
 			/>
 			<h3 class="text-4xl sm:text-7xl px-3 sm:w-2/3">
-				Connecting Data, Transforming Tomorrow.
+				{headline}
 			</h3>
 			<h5 class="text-sm sm:text-lg text-neutral-400 px-3 sm:w-1/2">
-				In today's volatile, uncertain, complex, and ambiguous (VUCA)
-				environment, effective decision-making is paramount. At Braga
-				Technologies, we bridge the gap of "where" and "how" by
-				harnessing the power of Location Intelligence.
+				{subheadline}
 			</h5>
 			<button class="bg-orange-600 rounded-sm text-white py-3 px-6">
-				Primary CTA
+				{ctaText}
 			</button>
 		</div>
 
@@ -32,12 +36,12 @@ const partners = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 				<div class="marquee-text fadeout-horizontal">
 					<div class="marquee-text-track">
 						{
-							partners.map((order, index) => (
+							partnerLogos.map((order, index) => (
 								<img src={`/partners/logo-${order}.svg`} />
 							))
 						}
 						{
-							partners.map((order, index) => (
+							partnerLogos.map((order, index) => (
 								<img
 									src={`/partners/logo-${order}.svg`}
 									aria-hidden="true"

@@ -1,6 +1,14 @@
 ---
 import contactDecor from "../../assets/home/contact-decor.svg";
 import ctaDecor from "../../assets/home/cta-decor.svg";
+
+interface Props {
+    headline: string;
+    description: string;
+    ctaText: string;
+}
+
+const { headline, description, ctaText } = Astro.props;
 ---
 
 <section
@@ -11,13 +19,12 @@ import ctaDecor from "../../assets/home/cta-decor.svg";
         class="rounded-lg p-12 flex flex-col items-center text-center min-w-96 w-1/2 test relative overflow-hidden"
     >
         <img src={ctaDecor.src} alt="" class="absolute top-0 left-0 "/>
-        <h5 class="text-stone-100 text-6xl">Get started today</h5>
+        <h5 class="text-stone-100 text-6xl">{headline}</h5>
         <p class="text-stone-50 text-xl mt-3 mb-6">
-            Find out how you can maximize the value from data and strengthen
-            your decision making
+            {description}
         </p>
         <button class="bg-orange-500 text-stone-50 px-12 py-3 rounded-sm"
-            >Contact us</button
+            >{ctaText}</button
         >
     </div>
 </section>

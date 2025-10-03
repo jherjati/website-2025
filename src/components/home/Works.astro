@@ -2,6 +2,15 @@
 import workDecor from "../../assets/home/work-decor.svg";
 import { fetchWorks } from "../../utils/api";
 
+interface Props {
+    sectionTag: string;
+    headline: string;
+    description: string;
+    ctaText: string;
+}
+
+const { sectionTag, headline, description, ctaText } = Astro.props;
+
 const works = await fetchWorks();
 ---
 
@@ -10,18 +19,17 @@ const works = await fetchWorks();
         class="text-orange-500 text-xl mb-2 fade-in"
         style="animation-delay: 750ms;"
     >
-        Our Work
+        {sectionTag}
     </h6>
     <div
         class="sm:grid grid-cols-2 space-y-6 fade-in"
         style="animation-delay: 750ms;"
     >
         <h3 class="text-stone-50 text-5xl w-2/3">
-            Braga Solutions, Integrated to You.
+            {headline}
         </h3>
         <p class="text-neutral-400 text-lg">
-            Our interdisciplinary design and development approach accelerates
-            the geospatial tech delivery to your hands.
+            {description}
         </p>
     </div>
     <div
@@ -44,7 +52,7 @@ const works = await fetchWorks();
                             {description}
                         </p>
                         <button class="text-sm text-white bg-orange-700 rounded-sm min-w-28 px-3 py-2">
-                            Read More
+                            {ctaText}
                         </button>
                     </div>
                 </div>
