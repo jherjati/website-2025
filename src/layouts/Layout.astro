@@ -24,14 +24,14 @@ const navs = [
 				title: "GeoDashboard",
 				subtitle:
 					"Visualize spatial data, exercise spatial analysis, and gather insights.",
-				href: "/products/geodashboard",
+				href: "https://geodashboard.io/",
 				image: geodImage,
 			},
 			{
 				title: "LogBook",
 				subtitle:
 					"Engaging map creator for your map-based storytelling",
-				href: "/products/logbook",
+				href: "https://logbook.id/",
 				image: logbookImage,
 			},
 			{
@@ -117,6 +117,11 @@ const navs = [
 												subtitle,
 											}) => (
 												<a
+													target={
+														href.includes("https")
+															? "_blank"
+															: "_self"
+													}
 													href={href}
 													class="w-56 text-xs text-left cursor-pointer bg-stone-50 hover:bg-white dark:bg-transparent hover:dark:bg-neutral-900 border border-stone-200 dark:border-none p-2 rounded-lg"
 												>
@@ -173,7 +178,7 @@ const navs = [
 						<button class="text-black dark:text-white">ID</button>
 					</div>
 					<button
-						class={`rounded-sm text-white py-1.5 px-3 ${currentPath === '/products/poin' ? 'bg-rose-500 dark:bg-orange-700' : 'bg-[#CD541B] dark:bg-orange-700'}`}
+						class={`rounded-sm text-white py-1.5 px-3 ${currentPath === "/products/poin" ? "bg-rose-500 dark:bg-orange-700" : "bg-[#CD541B] dark:bg-orange-700"}`}
 						>Contact</button
 					>
 					<img src={burgerIcon.src} alt="" class="sm:hidden" />
