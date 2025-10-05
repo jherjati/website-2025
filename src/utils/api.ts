@@ -340,3 +340,77 @@ export const fetchLandingPage = async (): Promise<LandingPageData> => {
         }
     };
 };
+
+export const searchBlogContent = async (query: string): Promise<{ works: Work[], posts: Post[] }> => {
+    const accessToken = import.meta.env.DIRECTUS_ACCESS_TOKEN;
+
+    const worksQueryString = new URLSearchParams({
+        fields: '*',
+        sort: '-date_created',
+        filter: JSON.stringify({
+            _and: [
+                { status: { _eq: 'published' } },
+                {
+                    _or: [
+                        { work_title: { _contains: query } },
+                        { synopsis: { _contains: query } },
+                        { topic: { _contains: query } }
+                    ]
+                }
+            ]
+        })
+    });
+
+    const postsQueryString = new URLSearchParams({
+        fields: '*',
+        sort: '-date_created',
+        filter: JSON.stringify({
+            _and: [
+                { status: { _eq: 'published' } },
+                {
+                    _or: [
+                        { title: { _contains: query } },
+                        { synopsis: { _contains: query } },
+                        { topic: { _contains: query } }
+                    ]
+                }
+            ]
+        })
+    });
+
+    const [worksResponse, postsResponse] = await Promise.all([
+        fetch(
+            "https://panel.braga.co.id/panel/items/works?" + worksQueryString,
+            { headers: { Authorization: 'Bearer ' + accessToken } }
+        ),
+        fetch(
+            "https://panel.braga.co.id/panel/items/posts?" + postsQueryString,
+            { headers: { Authorization: 'Bearer ' + accessToken } }
+        )
+    ]);
+
+    const [worksJson, postsJson] = await Promise.all([
+        worksResponse.json(),
+        postsResponse.json()
+    ]);
+
+    const works = worksJson.data.map((work: DBWork) => ({
+        title: work.work_title,
+        image: `https://panel.braga.co.id/panel/assets/${work.thumbnail}`,
+        description: work.work_client,
+        synopsis: work.synopsis,
+        topic: work.topic,
+        slug: work.slug
+    }));
+
+    const posts = postsJson.data.map((post: DBPost) => ({
+        title: post.title,
+        client: post.client,
+        thumbnail: `https://panel.braga.co.id/panel/assets/${post.thumbnail}`,
+        synopsis: post.synopsis,
+        topic: post.topic,
+        slug: post.slug
+    }));
+
+    return { works, posts };
+};

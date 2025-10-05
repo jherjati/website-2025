@@ -34,6 +34,7 @@ jobs:
         run: pnpm run build
         env:
           DIRECTUS_ACCESS_TOKEN: ${{ secrets.DIRECTUS_ACCESS_TOKEN }}
+          PUBLIC_DIRECTUS_SEARCH_TOKEN: ${{ secrets.PUBLIC_DIRECTUS_SEARCH_TOKEN }}
         # pastikan script "build" sudah ada di package.json → "astro build"
         # output default: ./dist
 
