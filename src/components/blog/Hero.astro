@@ -1,38 +1,48 @@
 ---
-import building from "../../assets/blog/building.svg";
-import bulb from "../../assets/blog/bulb.svg";
 import loop from "../../assets/blog/loop.svg";
-import mountain from "../../assets/blog/mountain.svg";
 import { fetchPosts, fetchWorks } from "../../utils/api";
 
 const works = await fetchWorks();
 const posts = await fetchPosts();
 
-const blogs: {
-    thumbnail: string;
-    topic: string;
-    title: string;
-    desc: string;
-    href: string;
-}[] = [
-    ...works.slice(0, 3).map((work) => ({
-        thumbnail: work.image,
-        topic: work.topic,
-        title: work.title,
-        desc: work.synopsis,
-        href: "/blog/case-study/" + work.slug,
-    })),
-    ...posts.slice(0, 3).map((post) => ({
-        thumbnail: post.thumbnail,
-        topic: post.topic,
-        title: post.title,
-        desc: post.synopsis,
-        href: "/blog/post/" + post.slug,
-    })),
-];
+const allWorks = works.slice(0, 6).map((work) => ({
+    thumbnail: work.image,
+    topic: work.topic,
+    title: work.title,
+    desc: work.synopsis,
+    href: "/blog/case-study/" + work.slug,
+    type: "work",
+}));
+
+const allPosts = posts.slice(0, 6).map((post) => ({
+    thumbnail: post.thumbnail,
+    topic: post.topic,
+    title: post.title,
+    desc: post.synopsis,
+    href: "/blog/post/" + post.slug,
+    type: "post",
+}));
 ---
 
-<section class="w-full px-6 pb-12 fade-in-up" style="animation-delay: 1400ms;">
+<section
+    class="w-full px-6 pb-12 fade-in-up"
+    style="animation-delay: 1400ms;"
+    x-data=`{
+        filter: 'all',
+        allWorks: ${JSON.stringify(allWorks)},
+        allPosts: ${JSON.stringify(allPosts)},
+        get filteredBlogs() {
+            if (this.filter === 'all') {
+                return [...this.allWorks.slice(0, 3), ...this.allPosts.slice(0, 3)];
+            } else if (this.filter === 'work') {
+                return this.allWorks.slice(0, 6);
+            } else if (this.filter === 'post') {
+                return this.allPosts.slice(0, 6);
+            }
+            return [];
+        }
+    }`
+>
     <div
         class="grid grid-cols-2 py-10 px-6 gap-y-10 gap-x-6 bg-stone-50/70 mb-18 border border-stone-200"
     >
@@ -57,14 +67,60 @@ const blogs: {
     >
         <div class="flex space-x-3">
             <button
-                class="flex border border-neutral-900 bg-neutral-800 rounded-lg py-2 px-3 space-x-3 text-stone-50 text-[10px]"
-                ><img src={bulb.src} alt="" /><p>All Articles</p>
-            </button><button
-                class="flex border border-neutral-400 text-neutral-600 rounded-lg py-2 px-3 space-x-3 text-[10px]"
-                ><img src={building.src} alt="" /><p>Blog Posts</p>
-            </button><button
-                class="flex border border-neutral-400 text-neutral-600 rounded-lg py-2 px-3 space-x-3 text-[10px]"
-                ><img src={mountain.src} alt="" /><p>Case Study</p>
+                @click="filter = 'all'"
+                :class="filter === 'all' ? 'border-neutral-900 bg-neutral-800 text-stone-50' : 'border-neutral-400 text-neutral-600'"
+                class="cursor-pointer flex border rounded-lg py-2 px-3 space-x-3 text-[10px]"
+            >
+                <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="mt-[1.5px]"
+                >
+                    <g>
+                        <path
+                            d="M4.00018 10.0744V11.9999H8.00018V10.1574C7.99039 9.73116 8.07147 9.30775 8.23803 8.91531C8.40459 8.52288 8.65281 8.17041 8.96618 7.88136C9.65013 7.28187 10.1364 6.48921 10.3608 5.60785C10.5853 4.72649 10.5374 3.7978 10.2235 2.9442C9.90959 2.09059 9.3444 1.35214 8.60243 0.826163C7.86046 0.300188 6.97653 0.011384 6.06714 -0.00218452C5.15775 -0.015753 4.26559 0.246551 3.50826 0.750156C2.75092 1.25376 2.16396 1.97502 1.82473 2.81888C1.48551 3.66274 1.40994 4.58959 1.60799 5.47725C1.80605 6.36492 2.26843 7.17173 2.93418 7.79136C3.26028 8.07733 3.52342 8.42792 3.70692 8.82092C3.89042 9.21392 3.99029 9.64075 4.00018 10.0744ZM7.00018 10.9999H5.00018V10.0744C5.00018 10.0494 4.99668 10.0244 4.99618 9.99986H7.00818C7.00818 10.0524 7.00018 10.1044 7.00018 10.1574V10.9999ZM2.53018 4.03736C2.60451 3.47645 2.81372 2.94192 3.13989 2.47958C3.46605 2.01723 3.89944 1.64085 4.40293 1.38269C4.90642 1.12454 5.46499 0.99229 6.03078 0.99729C6.59657 1.00229 7.15272 1.14439 7.65156 1.41141C8.15041 1.67842 8.57708 2.0624 8.89502 2.53044C9.21297 2.99848 9.4127 3.53662 9.4771 4.09876C9.54151 4.6609 9.46867 5.23027 9.26482 5.75809C9.06098 6.28591 8.73221 6.75644 8.30668 7.12936C7.75018 7.62763 7.35164 8.27785 7.16018 8.99986H6.50018V5.40786C6.79164 5.30482 7.04414 5.11425 7.22314 4.86221C7.40214 4.61018 7.4989 4.30899 7.50018 3.99986H6.50018C6.50018 4.13247 6.4475 4.25965 6.35373 4.35342C6.25997 4.44718 6.13279 4.49986 6.00018 4.49986C5.86757 4.49986 5.7404 4.44718 5.64663 4.35342C5.55286 4.25965 5.50018 4.13247 5.50018 3.99986H4.50018C4.50146 4.30899 4.59822 4.61018 4.77723 4.86221C4.95623 5.11425 5.20873 5.30482 5.50018 5.40786V8.99986H4.83918C4.61368 8.25447 4.19074 7.58396 3.61518 7.05936C3.20495 6.67979 2.89218 6.207 2.70332 5.68098C2.51446 5.15496 2.45507 4.59119 2.53018 4.03736Z"
+                            fill="currentColor"></path>
+                    </g>
+                </svg>
+                <p>All Articles</p>
+            </button>
+            <button
+                @click="filter = 'post'"
+                :class="filter === 'post' ? 'border-neutral-900 bg-neutral-800 text-stone-50' : 'border-neutral-400 text-neutral-600'"
+                class="cursor-pointer flex border rounded-lg py-2 px-3 space-x-3 text-[10px]"
+            >
+                <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="mt-[1.5px]"
+                >
+                    <path
+                        d="M2 6.5H3.5V7.5H2V6.5ZM4.5 7.5H6V6.5H4.5V7.5ZM2 9.5H3.5V8.5H2V9.5ZM4.5 9.5H6V8.5H4.5V9.5ZM2 3.5H3.5V2.5H2V3.5ZM4.5 3.5H6V2.5H4.5V3.5ZM2 5.5H3.5V4.5H2V5.5ZM4.5 5.5H6V4.5H4.5V5.5ZM12 4V12H0V1.5C0 1.10218 0.158035 0.720644 0.43934 0.43934C0.720644 0.158035 1.10218 0 1.5 0L6.5 0C6.89782 0 7.27936 0.158035 7.56066 0.43934C7.84196 0.720644 8 1.10218 8 1.5V2.5H10.5C10.8978 2.5 11.2794 2.65804 11.5607 2.93934C11.842 3.22064 12 3.60218 12 4ZM7 1.5C7 1.36739 6.94732 1.24021 6.85355 1.14645C6.75979 1.05268 6.63261 1 6.5 1H1.5C1.36739 1 1.24021 1.05268 1.14645 1.14645C1.05268 1.24021 1 1.36739 1 1.5V11H7V1.5ZM11 4C11 3.86739 10.9473 3.74021 10.8536 3.64645C10.7598 3.55268 10.6326 3.5 10.5 3.5H8V11H11V4ZM9 7.5H10V6.5H9V7.5ZM9 9.5H10V8.5H9V8.5ZM9 5.5H10V4.5H9V5.5Z"
+                        fill="currentColor"></path>
+                </svg>
+                <p>Blog Posts</p>
+            </button>
+            <button
+                @click="filter = 'work'"
+                :class="filter === 'work' ? 'border-neutral-900 bg-neutral-800 text-stone-50' : 'border-neutral-400 text-neutral-600'"
+                class="cursor-pointer flex border rounded-lg py-2 px-3 space-x-3 text-[10px]"
+            >
+                <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="mt-[1.5px]"
+                >
+                    <path
+                        d="M10 4C9.46957 4 8.96086 3.78929 8.58579 3.41421C8.21071 3.03914 8 2.53043 8 2C8 1.46957 8.21071 0.960859 8.58579 0.585786C8.96086 0.210714 9.46957 0 10 0C10.5304 0 11.0391 0.210714 11.4142 0.585786C11.7893 0.960859 12 1.46957 12 2C12 2.53043 11.7893 3.03914 11.4142 3.41421C11.0391 3.78929 10.5304 4 10 4ZM10 1C9.73478 1 9.48043 1.10536 9.29289 1.29289C9.10536 1.48043 9 1.73478 9 2C9 2.26522 9.10536 2.51957 9.29289 2.70711C9.48043 2.89464 9.73478 3 10 3C10.2652 3 10.5196 2.89464 10.7071 2.70711C10.8946 2.51957 11 2.26522 11 2C11 1.73478 10.8946 1.48043 10.7071 1.29289C10.5196 1.10536 10.2652 1 10 1ZM5.5 12V11.3905L7.6385 6.719C7.7385 6.50892 7.89599 6.33148 8.09271 6.20725C8.28943 6.08302 8.51733 6.01708 8.75 6.01708C8.98267 6.01708 9.21057 6.08302 9.40729 6.20725C9.60401 6.33148 9.7615 6.50892 9.8615 6.719L12 11.3685V11.978L5.5 12ZM6.77 11H10.73L8.953 7.137C8.93593 7.09732 8.9076 7.06352 8.87152 7.03977C8.83544 7.01602 8.79319 7.00336 8.75 7.00336C8.70681 7.00336 8.66456 7.01602 8.62848 7.03977C8.5924 7.06352 8.56407 7.09732 8.547 7.137L6.77 11ZM6.124 3.2705C6.01604 3.04297 5.84574 2.85074 5.63288 2.71613C5.42002 2.58153 5.17335 2.51007 4.9215 2.51007C4.66965 2.51007 4.42298 2.58153 4.21012 2.71613C3.99726 2.85074 3.82696 3.04297 3.719 3.2705L0 11.3905V12H4.5V11H1.264L4.6275 3.6885C4.65342 3.63227 4.69491 3.58464 4.74706 3.55125C4.79921 3.51786 4.85983 3.50012 4.92175 3.50012C4.98367 3.50012 5.04429 3.51786 5.09644 3.55125C5.14859 3.58464 5.19008 3.63227 5.216 3.6885L6.574 6.6385L6.73 6.2995C6.84694 6.04795 7.00953 5.82026 7.2095 5.628L6.124 3.2705Z"
+                        fill="currentColor"></path>
+                </svg>
+                <p>Case Study</p>
             </button>
         </div>
         <div
@@ -79,31 +135,25 @@ const blogs: {
         </div>
     </div>
     <div class="grid grid-cols-3 gap-3">
-        {
-            blogs.map(({ title, topic, thumbnail, desc, href }) => (
-                <div class="flex flex-col justify-between p-3 bg-stone-100/70 border border-neutral-400 rounded-sm space-y-3">
-                    <div class="space-y-3">
-                        <img
-                            src={thumbnail}
-                            alt=""
-                            class="w-full h-64 object-cover object-center rounded-sm border border-black/10"
-                        />
-                        <h6 class="text-neutral-800 border-b border-neutral-600">
-                            {topic}
-                        </h6>
-                        <h5 class="text-black text-3xl">{title}</h5>
-                        <p class="text-neutral-600 text-lg line-clamp-5">
-                            {desc}
-                        </p>
-                    </div>
-                    <a
-                        href={href}
-                        class="block w-full py-3 text-center bg-orange-700 text-white rounded-sm"
-                    >
-                        Read More
-                    </a>
+        <template x-for="blog in filteredBlogs" :key="blog.href">
+            <div class="flex flex-col justify-between p-3 bg-stone-100/70 border border-neutral-400 rounded-sm space-y-3">
+                <div class="space-y-3">
+                    <img
+                        :src="blog.thumbnail"
+                        alt=""
+                        class="w-full h-64 object-cover object-center rounded-sm border border-black/10"
+                    />
+                    <h6 class="text-neutral-800 border-b border-neutral-600" x-text="blog.topic"></h6>
+                    <h5 class="text-black text-3xl" x-text="blog.title"></h5>
+                    <p class="text-neutral-600 text-lg line-clamp-5" x-text="blog.desc"></p>
                 </div>
-            ))
-        }
+                <a
+                    :href="blog.href"
+                    class="block w-full py-3 text-center bg-orange-700 text-white rounded-sm"
+                >
+                    Read More
+                </a>
+            </div>
+        </template>
     </div>
 </section>
