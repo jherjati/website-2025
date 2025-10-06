@@ -1,45 +1,65 @@
-<section class="px-6 mb-12 mt-20">
+---
+
+---
+
+<section class='px-6 mb-12 mt-20'>
+  <div
+    class='w-full lg:h-[48rem] rounded-sm overflow-hidden lg:grid lg:grid-cols-2 gap-6 lg:p-10 custom-bg'
+  >
     <div
-        class="w-full h-[48rem] rounded-sm overflow-hidden grid grid-cols-2 gap-6 p-10 custom-bg"
+      class='flex flex-col lg:justify-between z-0 p-6 lg:p-0 h-full justify-between'
     >
-        <div class="flex flex-col justify-between z-0">
-            <h3 class="text-stone-50 text-5xl">Office</h3>
-            <div class="grid grid-cols-2 gap-9">
-                <div>
-                    <h5 class="text-stone-50 text-4xl mb-6">BDO</h5>
-                    <p class="text-xl text-stone-300">
-                        Jl. Cilaki No. 23, Cihapit, Bandung Wetan, Kota Bandung
-                        40114
-                    </p>
-                    <p class="text-xl text-stone-300">
-                        Phone (+62) 813-8404-1190
-                    </p>
-                </div>
-                <div>
-                    <h5 class="text-stone-50 text-4xl mb-6">JKT</h5>
-                    <p class="text-xl text-stone-300">
-                        Jl. Cilaki No. 23, Cihapit, Bandung Wetan, Kota Bandung
-                        40114
-                    </p>
-                    <p class="text-xl text-stone-300">
-                        Phone (+62) 813-8404-1190
-                    </p>
-                </div>
-            </div>
+      <h3 class='text-stone-50 text-6xl lg:mb-0'>Office</h3>
+      <div class='flex flex-col lg:grid lg:grid-cols-2 gap-6 lg:gap-9'>
+        <div>
+          <h5 class='text-stone-50 text-2xl lg:text-4xl mb-4 lg:mb-6'>BDO</h5>
+          <p class='text-base lg:text-xl text-stone-300 mb-2'>
+            Jl. Cilaki No. 23, Cihapit, Bandung Wetan, Kota Bandung 40114
+          </p>
+          <p class='text-base lg:text-xl text-stone-300'>
+            Phone (+62) 813-8404-1190
+          </p>
         </div>
+        <div>
+          <h5 class='text-stone-50 text-2xl lg:text-4xl mb-4 lg:mb-6'>JKT</h5>
+          <p class='text-base lg:text-xl text-stone-300 mb-2'>
+            Lina Building Kuningan, Cikini, Menteng, Central Jakarta City,
+            Jakarta 10330
+          </p>
+          <p class='text-base lg:text-xl text-stone-300'>
+            Phone (+62) 813-8404-1190
+          </p>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
 <style>
+  .custom-bg {
+    border-radius: var(--gd-radius-xs, 8px);
+    background:
+      linear-gradient(
+        183deg,
+        rgba(25, 25, 25, 0) 3.86%,
+        var(--Color-Neutral-Neutral-950, #161414) 90.13%
+      ),
+      url("/about/office.png") lightgray 50% / cover no-repeat;
+    background-blend-mode: multiply, normal;
+    height: 45rem;
+  }
+
+  @media (min-width: 1024px) {
     .custom-bg {
-        border-radius: var(--gd-radius-xs, 8px);
-        background:
-            linear-gradient(
-                183deg,
-                rgba(25, 25, 25, 0) 3.86%,
-                var(--Color-Neutral-Neutral-950, #161414) 90.13%
-            ),
-            url("/about/office.png") lightgray 50% / cover no-repeat;
-        background-blend-mode: multiply, normal;
+      height: 48rem;
     }
+  }
+
+  @media (max-width: 1023px) {
+    .custom-bg {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
 </style>
