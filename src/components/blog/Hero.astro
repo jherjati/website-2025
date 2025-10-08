@@ -43,7 +43,9 @@ const directusToken =
         isSearching: false,
         hasSearched: false,
         directusToken: '${directusToken}',
-        get filteredBlogs() {
+        currentPage: 1,
+        itemsPerPage: 6,
+        get allFilteredBlogs() {
             if (this.hasSearched && this.searchQuery.trim() !== '') {
                 const searchWorks = this.searchResults.works.map(work => ({
                     thumbnail: 'https://panel.braga.co.id/panel/assets/' + work.thumbnail,
@@ -74,22 +76,47 @@ const directusToken =
             }
 
             if (this.filter === 'all') {
-                return [...this.allWorks.slice(0, 3), ...this.allPosts.slice(0, 3)];
+                return [...this.allWorks, ...this.allPosts];
             } else if (this.filter === 'work') {
-                return this.allWorks.slice(0, 6);
+                return this.allWorks;
             } else if (this.filter === 'post') {
-                return this.allPosts.slice(0, 6);
+                return this.allPosts;
             }
             return [];
+        },
+        get totalPages() {
+            return Math.ceil(this.allFilteredBlogs.length / this.itemsPerPage);
+        },
+        get filteredBlogs() {
+            const start = (this.currentPage - 1) * this.itemsPerPage;
+            const end = start + this.itemsPerPage;
+            return this.allFilteredBlogs.slice(start, end);
+        },
+        goToPage(page) {
+            if (page >= 1 && page <= this.totalPages) {
+                this.currentPage = page;
+            }
+        },
+        nextPage() {
+            if (this.currentPage < this.totalPages) {
+                this.currentPage++;
+            }
+        },
+        prevPage() {
+            if (this.currentPage > 1) {
+                this.currentPage--;
+            }
         },
         async performSearch() {
             if (this.searchQuery.trim() === '') {
                 this.searchResults = { works: [], posts: [] };
                 this.hasSearched = false;
+                this.currentPage = 1;
                 return;
             }
 
             this.isSearching = true;
+            this.currentPage = 1;
             try {
                 const worksFilter = JSON.stringify({
                     _and: [
@@ -182,7 +209,7 @@ const directusToken =
     >
         <div class="flex space-x-3">
             <button
-                @click="filter = 'all'"
+                @click="filter = 'all'; currentPage = 1"
                 :class="filter === 'all' ? 'border-neutral-900 bg-neutral-800 text-stone-50' : 'border-neutral-400 text-neutral-600'"
                 class="cursor-pointer flex border rounded-lg py-2 px-3 space-x-3 text-[10px]"
             >
@@ -202,7 +229,7 @@ const directusToken =
                 <p>All Articles</p>
             </button>
             <button
-                @click="filter = 'post'"
+                @click="filter = 'post'; currentPage = 1"
                 :class="filter === 'post' ? 'border-neutral-900 bg-neutral-800 text-stone-50' : 'border-neutral-400 text-neutral-600'"
                 class="cursor-pointer flex border rounded-lg py-2 px-3 space-x-3 text-[10px]"
             >
@@ -220,7 +247,7 @@ const directusToken =
                 <p>Blog Posts</p>
             </button>
             <button
-                @click="filter = 'work'"
+                @click="filter = 'work'; currentPage = 1"
                 :class="filter === 'work' ? 'border-neutral-900 bg-neutral-800 text-stone-50' : 'border-neutral-400 text-neutral-600'"
                 class="cursor-pointer flex border rounded-lg py-2 px-3 space-x-3 text-[10px]"
             >
@@ -284,5 +311,53 @@ const directusToken =
                 </a>
             </div>
         </template>
+    </div>
+
+    <div class="w-full flex justify-center items-center space-x-1 mt-3">
+        <button
+            @click="prevPage()"
+            :disabled="currentPage === 1"
+            :class="currentPage === 1 ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'"
+            class="w-12 h-14 flex justify-center items-center border border-neutral-400 text-neutral-500 rounded-xl dark:bg-neutral-800 dark:text-stone-50 dark:border-neutral-900"
+        >
+            <svg
+                width="8"
+                height="12"
+                viewBox="0 0 8 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="M0.961569 5.87812C0.961188 6.09696 1.00406 6.31372 1.08772 6.51594C1.17138 6.71815 1.29418 6.90185 1.44907 7.05645L5.86073 11.4673L7.03906 10.289L2.62823 5.87812L7.03906 1.46728L5.86073 0.288948L1.4499 4.69978C1.29487 4.85432 1.17191 5.03798 1.08811 5.2402C1.0043 5.44242 0.961297 5.65922 0.961569 5.87812Z"
+                    fill="#777674"></path>
+            </svg>
+        </button>
+        <template x-for="i in totalPages" :key="i">
+            <button
+                @click="goToPage(i)"
+                :class="currentPage === i ? 'dark' : 'cursor-pointer'"
+                class="w-12 h-14 flex justify-center items-center border border-neutral-400 text-neutral-500 rounded-xl dark:bg-neutral-800 dark:text-stone-50 dark:border-neutral-900"
+                x-text="i"
+            >
+            </button>
+        </template>
+        <button
+            @click="nextPage()"
+            :disabled="currentPage === totalPages"
+            :class="currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'"
+            class="w-12 h-14 flex justify-center items-center border border-neutral-400 text-neutral-500 rounded-xl dark:bg-neutral-800 dark:text-stone-50 dark:border-neutral-900"
+        >
+            <svg
+                width="8"
+                height="12"
+                viewBox="0 0 8 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="M7.04038 5.87812C7.04077 6.09696 6.99789 6.31372 6.91423 6.51594C6.83057 6.71815 6.70777 6.90185 6.55288 7.05645L2.14122 11.4673L0.962891 10.289L5.37372 5.87812L0.962891 1.46728L2.14122 0.288948L6.55205 4.69978C6.70708 4.85432 6.83004 5.03798 6.91385 5.2402C6.99765 5.44242 7.04066 5.65922 7.04038 5.87812Z"
+                    fill="#777674"></path>
+            </svg>
+        </button>
     </div>
 </section>
