@@ -3,7 +3,7 @@ export interface Highlight { title: string, description: string }
 interface DBWork {
     id: number;
     status: string;
-    date_created: Date;
+    date_created: string;
     date_updated: Date;
     work_title: string;
     work_client: string;
@@ -25,7 +25,8 @@ interface Work {
     image: string;
     description: string;
     synopsis: string;
-    topic: string
+    topic: string;
+    date_created: string;
     slug: string
 }
 
@@ -46,7 +47,9 @@ export const fetchWorks = async (): Promise<Work[]> => {
         image: `https://panel.braga.co.id/panel/assets/${work.thumbnail}`,
         description: work.work_client,
         synopsis: work.synopsis,
-        topic: work.topic, slug: work.slug
+        topic: work.topic,
+        date_created: work.date_created,
+        slug: work.slug
     }));
 };
 
@@ -70,7 +73,7 @@ export const fetchWorkBySlug = async (slug: string): Promise<DBWork | null> => {
 interface DBPost {
     id: number;
     status: string;
-    date_created: Date;
+    date_created: string;
     date_updated: Date | null;
     title: string;
     client: string;
@@ -92,6 +95,7 @@ interface Post {
     thumbnail: string;
     synopsis: string;
     topic: string;
+    date_created: string;
     slug: string;
 }
 
@@ -113,7 +117,9 @@ export const fetchPosts = async (): Promise<Post[]> => {
         client: post.client,
         thumbnail: `https://panel.braga.co.id/panel/assets/${post.thumbnail}`,
         synopsis: post.synopsis,
-        topic: post.topic, slug: post.slug
+        topic: post.topic,
+        date_created: post.date_created,
+        slug: post.slug
     }));
 };
 
@@ -400,6 +406,7 @@ export const searchBlogContent = async (query: string): Promise<{ works: Work[],
         description: work.work_client,
         synopsis: work.synopsis,
         topic: work.topic,
+        date_created: work.date_created,
         slug: work.slug
     }));
 
@@ -409,6 +416,7 @@ export const searchBlogContent = async (query: string): Promise<{ works: Work[],
         thumbnail: `https://panel.braga.co.id/panel/assets/${post.thumbnail}`,
         synopsis: post.synopsis,
         topic: post.topic,
+        date_created: post.date_created,
         slug: post.slug
     }));
 

@@ -1,6 +1,7 @@
 ---
 import loop from "../../assets/blog/loop.svg";
 import { fetchPosts, fetchWorks } from "../../utils/api";
+import { formatDate } from "../../utils/func";
 
 const works = await fetchWorks();
 const posts = await fetchPosts();
@@ -8,6 +9,7 @@ const posts = await fetchPosts();
 const allWorks = works.slice(0, 6).map((work) => ({
     thumbnail: work.image,
     topic: work.topic,
+    date_created: formatDate(work.date_created),
     title: work.title,
     desc: work.synopsis,
     href: "/blog/case-study/" + work.slug,
@@ -17,13 +19,16 @@ const allWorks = works.slice(0, 6).map((work) => ({
 const allPosts = posts.slice(0, 6).map((post) => ({
     thumbnail: post.thumbnail,
     topic: post.topic,
+    date_created: formatDate(post.date_created),
     title: post.title,
     desc: post.synopsis,
     href: "/blog/post/" + post.slug,
     type: "post",
 }));
 
-const directusToken = import.meta.env.PUBLIC_DIRECTUS_SEARCH_TOKEN || import.meta.env.DIRECTUS_ACCESS_TOKEN;
+const directusToken =
+    import.meta.env.PUBLIC_DIRECTUS_SEARCH_TOKEN ||
+    import.meta.env.DIRECTUS_ACCESS_TOKEN;
 ---
 
 <section
@@ -43,6 +48,7 @@ const directusToken = import.meta.env.PUBLIC_DIRECTUS_SEARCH_TOKEN || import.met
                 const searchWorks = this.searchResults.works.map(work => ({
                     thumbnail: 'https://panel.braga.co.id/panel/assets/' + work.thumbnail,
                     topic: work.topic,
+                    date_created: new Date(work.date_created).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }),
                     title: work.work_title,
                     desc: work.synopsis,
                     href: '/blog/case-study/' + work.slug,
@@ -51,6 +57,7 @@ const directusToken = import.meta.env.PUBLIC_DIRECTUS_SEARCH_TOKEN || import.met
                 const searchPosts = this.searchResults.posts.map(post => ({
                     thumbnail: 'https://panel.braga.co.id/panel/assets/' + post.thumbnail,
                     topic: post.topic,
+                    date_created: new Date(post.date_created).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }),
                     title: post.title,
                     desc: post.synopsis,
                     href: '/blog/post/' + post.slug,
@@ -259,7 +266,7 @@ const directusToken = import.meta.env.PUBLIC_DIRECTUS_SEARCH_TOKEN || import.met
                     />
                     <h6
                         class="text-neutral-800 border-b border-neutral-600"
-                        x-text="blog.topic"
+                        x-text="(blog.type === 'post' ? 'Post' : 'Case Study') + ' - ' + blog.topic + ' - ' + blog.date_created"
                     >
                     </h6>
                     <h5 class="text-black text-3xl" x-text="blog.title"></h5>
