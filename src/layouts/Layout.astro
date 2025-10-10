@@ -123,7 +123,7 @@ const navs = [
 															: "_self"
 													}
 													href={href}
-													class="w-56 text-xs text-left cursor-pointer bg-stone-50 hover:bg-white dark:bg-transparent hover:dark:bg-neutral-900 border border-stone-200 dark:border-none p-2 rounded-lg"
+													class="w-56 text-xs text-left cursor-pointer bg-stone-50 hover:bg-white dark:bg-transparent dark:hover:bg-[#232221] border border-stone-200 dark:border-none p-2 rounded-lg transition-colors duration-200"
 												>
 													<img
 														src={image.src}
@@ -150,7 +150,7 @@ const navs = [
 										{menus.map(({ label, href }) => (
 											<a
 												href={href}
-												class="w-56 text-xs text-left cursor-pointer hover:bg-stone-50 dark:bg-transparent hover:dark:bg-neutral-900 p-2 rounded-lg"
+												class="w-56 text-xs text-left cursor-pointer hover:bg-stone-50 dark:bg-transparent dark:hover:bg-[#232221] p-2 rounded-lg transition-colors duration-200"
 											>
 												<p class="text-neutral-700 dark:text-neutral-400">
 													{label}
@@ -181,8 +181,63 @@ const navs = [
 						class={`rounded-sm text-white py-1.5 px-3 ${currentPath === "/products/poin" ? "bg-rose-500 dark:bg-orange-700" : "bg-[#CD541B] dark:bg-orange-700"}`}
 						>Contact</button
 					>
-					<img src={burgerIcon.src} alt="" class="sm:hidden" />
+					<button id="burger-menu" class="sm:hidden">
+						<img src={burgerIcon.src} alt="" />
+					</button>
 				</div>
+			</div>
+		</div>
+
+		<!-- Mobile Menu -->
+		<div id="mobile-menu" class="hidden fixed inset-0 z-50 bg-black text-white overflow-y-auto transition-all duration-500 ease-out">
+			<div id="mobile-menu-content" class="flex flex-col min-h-full p-6 transition-transform duration-500 ease-out">
+				<div class="flex justify-between items-center mb-8">
+					<img src={bragaLogo.src} alt="braga logo" class="invert-0 w-24" />
+					<button id="close-menu" class="text-white text-4xl leading-none">&times;</button>
+				</div>
+				
+				<nav class="flex flex-col space-y-6 text-base">
+					<a href="/" class="text-neutral-300 py-2 mobile-menu-item" style="animation-delay: 0.1s">Home</a>
+					
+					<div class="mobile-menu-item" style="animation-delay: 0.2s">
+						<p class="text-neutral-400 text-sm mb-3 uppercase tracking-wider">Product</p>
+						<div class="flex flex-col space-y-4 ml-4">
+							<a href="https://geodashboard.io/" target="_blank" class="py-2">
+								<h6 class="text-white font-semibold mb-1">GeoDashboard</h6>
+								<p class="text-sm text-neutral-400">Visualize spatial data, exercise spatial analysis, and gather insights.</p>
+							</a>
+							<a href="https://logbook.id/" target="_blank" class="py-2">
+								<h6 class="text-white font-semibold mb-1">LogBook</h6>
+								<p class="text-sm text-neutral-400">Engaging map creator for your map-based storytelling</p>
+							</a>
+							<a href="/products/poin" class="py-2">
+								<h6 class="text-white font-semibold mb-1">Poin</h6>
+								<p class="text-sm text-neutral-400">Innovative solutions for geospatial and ground surveys.</p>
+							</a>
+						</div>
+					</div>
+					
+					<a href="/service" class="text-neutral-300 py-2 mobile-menu-item" style="animation-delay: 0.3s">Services</a>
+					
+					<div class="mobile-menu-item" style="animation-delay: 0.4s">
+						<p class="text-neutral-400 text-sm mb-3 uppercase tracking-wider">Company</p>
+						<div class="flex flex-col space-y-3 ml-4">
+							<a href="/company/about" class="text-neutral-300 py-2">About</a>
+							<a href="/company/culture" class="text-neutral-300 py-2">Culture</a>
+							<a href="/company/career" class="text-neutral-300 py-2">Career</a>
+						</div>
+					</div>
+					
+					<a href="/initiatives" class="text-neutral-300 py-2 mobile-menu-item" style="animation-delay: 0.5s">Initiatives</a>
+					<a href="/blog" class="text-neutral-300 py-2 mobile-menu-item" style="animation-delay: 0.6s">Blog</a>
+
+					<div class="pt-6 border-t border-neutral-800 mobile-menu-item" style="animation-delay: 0.7s">
+						<div class="flex space-x-4 text-sm">
+							<button class="text-orange-500">EN</button>
+							<button class="text-white">ID</button>
+						</div>
+					</div>
+				</nav>
 			</div>
 		</div>
 
@@ -246,6 +301,52 @@ const navs = [
 	}
 </script>
 
+<script is:inline>
+	document.addEventListener('DOMContentLoaded', () => {
+		const burgerBtn = document.getElementById('burger-menu');
+		const closeBtn = document.getElementById('close-menu');
+		const mobileMenu = document.getElementById('mobile-menu');
+		const mobileMenuContent = document.getElementById('mobile-menu-content');
+		
+		const openMenu = () => {
+			if (mobileMenu && mobileMenuContent) {
+				mobileMenu.classList.remove('hidden');
+				mobileMenu.style.opacity = '0';
+				requestAnimationFrame(() => {
+					mobileMenu.style.opacity = '1';
+					mobileMenuContent.style.transform = 'translateX(0)';
+				});
+				document.body.style.overflow = 'hidden';
+			}
+		};
+		
+		const closeMenu = () => {
+			if (mobileMenu && mobileMenuContent) {
+				mobileMenu.style.opacity = '0';
+				mobileMenuContent.style.transform = 'translateX(-100%)';
+				setTimeout(() => {
+					mobileMenu.classList.add('hidden');
+					document.body.style.overflow = '';
+				}, 500);
+			}
+		};
+		
+		if (burgerBtn) {
+			burgerBtn.addEventListener('click', openMenu);
+		}
+		
+		if (closeBtn) {
+			closeBtn.addEventListener('click', closeMenu);
+		}
+
+		// Close menu when clicking on a link
+		const mobileLinks = mobileMenu?.querySelectorAll('a');
+		mobileLinks?.forEach(link => {
+			link.addEventListener('click', closeMenu);
+		});
+	});
+</script>
+
 <style>
 	.dropdown {
 		display: inline-block;
@@ -290,5 +391,29 @@ const navs = [
 
 	.stroke-fade-in {
 		animation: strokeFadeIn 2.4s ease-out;
+	}
+
+	@keyframes slideInFromLeft {
+		0% {
+			opacity: 0;
+			transform: translateX(-30px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateX(0);
+		}
+	}
+
+	#mobile-menu:not(.hidden) .mobile-menu-item {
+		animation: slideInFromLeft 0.5s ease-out forwards;
+		opacity: 0;
+	}
+
+	#mobile-menu-content {
+		transform: translateX(-100%);
+	}
+
+	#mobile-menu:not(.hidden) #mobile-menu-content {
+		transform: translateX(0);
 	}
 </style>
