@@ -1,0 +1,24 @@
+---
+interface Props {
+  label: string;
+  rows?: number;
+  placeholder?: string;
+  name?: string;
+}
+
+const { label, rows = 6, placeholder = "", name } = Astro.props;
+---
+
+<div class='relative'>
+  <textarea
+    rows={rows}
+    placeholder={placeholder}
+    name={name || label.toLowerCase().replace(/\s+/g, "_")}
+    class='w-full bg-neutral-800 border border-neutral-700 rounded-sm px-3 pt-7 pb-2 text-[14px] text-stone-100 focus:outline-none focus:ring-0 resize-none placeholder:italic placeholder:text-neutral-400'
+  ></textarea>
+  <label
+    class='absolute left-3 top-2 text-[10px] text-neutral-400 pointer-events-none'
+  >
+    {label}
+  </label>
+</div>

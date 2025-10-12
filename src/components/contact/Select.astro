@@ -1,0 +1,35 @@
+---
+interface Option {
+  value: string;
+  label: string;
+}
+
+interface Props {
+  label: string;
+  options: Option[];
+  name?: string;
+}
+
+const { label, options, name } = Astro.props;
+---
+
+<div class='relative'>
+  <select
+    name={name || label.toLowerCase().replace(/\s+/g, "_")}
+    class='w-full bg-neutral-800 border border-neutral-700 rounded-sm px-3 pt-6 pb-2 text-[14px] text-stone-100 focus:outline-none focus:ring-0 appearance-none bg-no-repeat pr-10 bg-[right_1rem_center] bg-[length:16px] [background-image:url("data:image/svg+xml,%3csvg%20xmlns=%27http://www.w3.org/2000/svg%27%20viewBox=%270%200%2024%2024%27%20fill=%27none%27%20stroke=%27white%27%20stroke-width=%272%27%20stroke-linecap=%27round%27%20stroke-linejoin=%27round%27%3e%3cpolyline%20points=%276%209%2012%2015%2018%209%27%3e%3c/polyline%3e%3c/svg%3e")] peer [&:has(option[value=""]:checked)]:text-transparent'
+  >
+    <option value="" selected disabled hidden></option>
+    {
+      options.map((option) => (
+        <option value={option.value}>
+          {option.label}
+        </option>
+      ))
+    }
+  </select>
+  <label
+    class='absolute left-3 top-1/2 -translate-y-1/2 text-[14px] text-neutral-400 pointer-events-none transition-all duration-200 peer-focus:top-2 peer-focus:translate-y-0 peer-focus:text-[10px] peer-[&:not(:has(option[value=""]:checked))]:top-2 peer-[&:not(:has(option[value=""]:checked))]:translate-y-0 peer-[&:not(:has(option[value=""]:checked))]:text-[10px]'
+  >
+    {label}
+  </label>
+</div>

@@ -1,0 +1,23 @@
+---
+interface Props {
+  type?: "text" | "email" | "tel";
+  label: string;
+  name?: string;
+}
+
+const { type = "text", label, name } = Astro.props;
+---
+
+<div class='relative'>
+  <input
+    type={type}
+    placeholder=' '
+    name={name || label.toLowerCase().replace(/\s+/g, "_")}
+    class='w-full bg-neutral-800 border border-neutral-700 rounded-sm px-3 pt-6 pb-2 text-[14px] text-stone-100 focus:outline-none focus:ring-0 peer placeholder:opacity-0 [&:-webkit-autofill]:[-webkit-text-fill-color:rgb(231,229,228)!important] [&:-webkit-autofill]:shadow-[inset_0_0_0px_1000px_rgb(38,38,38)!important] [&:-webkit-autofill]:bg-neutral-800'
+  />
+  <label
+    class='absolute left-3 top-1/2 -translate-y-1/2 text-[14px] text-neutral-400 pointer-events-none transition-all duration-200 peer-focus:top-2 peer-focus:translate-y-0 peer-focus:text-[10px] peer-[:not(:placeholder-shown)]:top-2 peer-[:not(:placeholder-shown)]:translate-y-0 peer-[:not(:placeholder-shown)]:text-[10px]'
+  >
+    {label}
+  </label>
+</div>
