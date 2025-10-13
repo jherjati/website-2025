@@ -10,7 +10,7 @@ import Footer from "../components/home/Footer.astro";
 import type { LayoutProps } from "../types/navigation";
 import OrangeFooter from "./OrangeFooter.astro";
 
-const { theme, orangeFooter }: LayoutProps = Astro.props;
+const { theme, orangeFooter, hideGridOnMobile }: LayoutProps = Astro.props;
 
 const currentPath = Astro.url.pathname;
 
@@ -75,7 +75,7 @@ const navs = [
 			" relative w-full bg-stone-100 dark:bg-neutral-900 font-inter"}
 	>
 		<div
-			class="fixed w-full h-full -z-20 grid grid-cols-4 gap-6 px-3 sm:px-6 stroke-fade-in"
+			class={`fixed w-full h-full -z-20 grid grid-cols-4 gap-6 px-3 sm:px-6 stroke-fade-in ${hideGridOnMobile ? 'hidden lg:grid' : ''}`}
 		>
 			<div class="border dark:border-neutral-800 border-stone-200"></div>
 			<div class="border dark:border-neutral-800 border-stone-200"></div>
