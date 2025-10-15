@@ -12,7 +12,7 @@ import Layout from "../../layouts/Layout.astro";
         <Offices />
     </div>
 
-    <!-- Toast Notification - shown when success query param is present -->
+    <!-- Success Toast Notification - shown when success query param is present -->
     <div
         id="success-toast"
         x-data="{ show: false }"
@@ -59,6 +59,54 @@ import Layout from "../../layouts/Layout.astro";
                 class="bg-[#CD541B] hover:bg-orange-700 text-white px-9 py-2 rounded-sm transition-colors font-medium text-sm cursor-pointer"
             >
                 Continue
+            </button>
+        </div>
+    </div>
+
+    <!-- Error Toast Notification - triggered via custom event -->
+    <div
+        id="error-toast"
+        x-data="{ show: false, message: '', defaultMessage: 'We encountered an issue while sending your message. Please try again later or contact us directly via email.' }"
+        x-show="show"
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in duration-200"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/25 backdrop-blur-xs"
+        style="display: none;"
+        @click.self="show = false"
+        @show-error-toast.window="
+            message = $event.detail?.message || defaultMessage;
+            show = true;
+        "
+    >
+        <div
+            x-show="show"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 scale-95"
+            x-transition:enter-end="opacity-100 scale-100"
+            x-transition:leave="transition ease-in duration-200"
+            x-transition:leave-start="opacity-100 scale-100"
+            x-transition:leave-end="opacity-0 scale-95"
+            class="bg-neutral-900 rounded-lg p-4 md:p-6 max-w-md w-full text-center shadow-2xl border border-red-900/50"
+            @click.stop
+        >
+            <div class="px-6 space-y-2 mb-6">
+                <h2 class="text-2xl md:text-3xl text-stone-50">
+                    Something Went Wrong
+                </h2>
+                <p
+                    class="text-stone-50 text-sm leading-relaxed"
+                    x-text="message || defaultMessage"
+                ></p>
+            </div>
+            <button
+                @click="show = false"
+                class="bg-red-600 hover:bg-red-700 text-white px-9 py-2 rounded-sm transition-colors font-medium text-sm cursor-pointer"
+            >
+                Close
             </button>
         </div>
     </div>
