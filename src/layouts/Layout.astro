@@ -17,7 +17,7 @@ const currentPath = Astro.url.pathname;
 const navs = [
 	{ href: "/", label: "Home" },
 	{
-		href: "/products",
+		href: "/products/",
 		label: "Products",
 		dropdowns: [
 			{
@@ -38,23 +38,23 @@ const navs = [
 				title: "Poin",
 				subtitle:
 					"Innovative solutions for geospatial and ground surveys.",
-				href: "/products/poin",
+				href: "/products/poin/",
 				image: poinImage,
 			},
 		],
 	},
-	{ href: "/service", label: "Services" },
+	{ href: "/service/", label: "Services" },
 	{
-		href: "/company",
+		href: "/company/",
 		label: "Company",
 		menus: [
-			{ href: "/company/about", label: "About" },
-			{ href: "/company/culture", label: "Culture" },
-			{ href: "/company/career", label: "Career" },
+			{ href: "/company/about/", label: "About" },
+			{ href: "/company/culture/", label: "Culture" },
+			{ href: "/company/career/", label: "Career" },
 		],
 	},
-	{ href: "/initiatives", label: "Initiatives" },
-	{ href: "/blog", label: "Blog" },
+	{ href: "/initiatives/", label: "Initiatives" },
+	{ href: "/blog/", label: "Blog" },
 ];
 ---
 
@@ -178,7 +178,7 @@ const navs = [
 						<button class="text-black dark:text-white">ID</button>
 					</div>
 					<a
-						href="/contact"
+						href="/contact/"
 						class={`rounded-sm text-white py-1.5 px-3 ${currentPath === "/products/poin" ? "bg-rose-500 dark:bg-orange-700" : "bg-[#CD541B] dark:bg-orange-700"}`}
 						>Contact</a
 					>
@@ -211,26 +211,26 @@ const navs = [
 								<h6 class="text-white font-semibold mb-1">LogBook</h6>
 								<p class="text-sm text-neutral-400">Engaging map creator for your map-based storytelling</p>
 							</a>
-							<a href="/products/poin" class="py-2">
+							<a href="/products/poin/" class="py-2">
 								<h6 class="text-white font-semibold mb-1">Poin</h6>
 								<p class="text-sm text-neutral-400">Innovative solutions for geospatial and ground surveys.</p>
 							</a>
 						</div>
 					</div>
 					
-					<a href="/service" class="text-neutral-300 py-2 mobile-menu-item" style="animation-delay: 0.3s">Services</a>
+					<a href="/service/" class="text-neutral-300 py-2 mobile-menu-item" style="animation-delay: 0.3s">Services</a>
 					
 					<div class="mobile-menu-item" style="animation-delay: 0.4s">
 						<p class="text-neutral-400 text-sm mb-3 uppercase tracking-wider">Company</p>
 						<div class="flex flex-col space-y-3 ml-4">
-							<a href="/company/about" class="text-neutral-300 py-2">About</a>
-							<a href="/company/culture" class="text-neutral-300 py-2">Culture</a>
-							<a href="/company/career" class="text-neutral-300 py-2">Career</a>
+							<a href="/company/about/" class="text-neutral-300 py-2">About</a>
+							<a href="/company/culture/" class="text-neutral-300 py-2">Culture</a>
+							<a href="/company/career/" class="text-neutral-300 py-2">Career</a>
 						</div>
 					</div>
 					
-					<a href="/initiatives" class="text-neutral-300 py-2 mobile-menu-item" style="animation-delay: 0.5s">Initiatives</a>
-					<a href="/blog" class="text-neutral-300 py-2 mobile-menu-item" style="animation-delay: 0.6s">Blog</a>
+					<a href="/initiatives/" class="text-neutral-300 py-2 mobile-menu-item" style="animation-delay: 0.5s">Initiatives</a>
+					<a href="/blog/" class="text-neutral-300 py-2 mobile-menu-item" style="animation-delay: 0.6s">Blog</a>
 
 					<div class="pt-6 border-t border-neutral-800 mobile-menu-item" style="animation-delay: 0.7s">
 						<div class="flex space-x-4 text-sm">

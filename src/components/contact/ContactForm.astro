@@ -364,7 +364,7 @@ const apiToken = import.meta.env.PUBLIC_DIRECTUS_SEARCH_TOKEN;
       const messageId = result.data?.id || result.id;
 
       // Redirect to the success page with query parameter
-      window.location.href = `/contact?success=true&id=${messageId}`;
+      window.location.href = `/contact/?success=true&id=${messageId}`;
     } catch (error) {
       // Log the actual error to console for debugging
       console.error("Error submitting form:", error);
