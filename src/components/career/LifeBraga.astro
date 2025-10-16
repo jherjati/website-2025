@@ -8,6 +8,13 @@ import benefit6 from "../../assets/career/benefit-6.svg";
 import benefit7 from "../../assets/career/benefit-7.svg";
 import benefit8 from "../../assets/career/benefit-8.svg";
 
+import activity1 from "../../assets/career/act-1.png";
+import activity2 from "../../assets/career/act-2.png";
+import activity3 from "../../assets/career/act-3.png";
+import activity4 from "../../assets/career/act-4.png";
+import activity5 from "../../assets/career/act-5.png";
+import activity6 from "../../assets/career/act-6.png";
+
 const benefits = [
     {
         number: "01/",
@@ -66,6 +73,15 @@ const benefits = [
         icon: benefit8,
     },
 ];
+
+const activities = [
+    activity1,
+    activity2,
+    activity3,
+    activity4,
+    activity5,
+    activity6,
+];
 ---
 
 <section class="px-6 grid grid-cols-4 gap-x-6 mb-16">
@@ -90,5 +106,10 @@ const benefits = [
             Together, we’re leveraging technology to help fight some of the
             world’s toughest challenges
         </h2>
+    </div>
+    <div class="col-span-4 overflow-x-scroll mt-48 mb-6">
+        <div class="flex space-x-4">
+            {activities.map((image) => <img src={image.src} alt="" />)}
+        </div>
     </div>
 </section>

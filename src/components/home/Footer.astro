@@ -40,13 +40,17 @@ const route = Astro.url.pathname
                 analytics and performance, moving the world one map at a time.
             </p>
             <span class="flex space-x-4 mt-4">
-                <button
-                    class={` ${route === '/products/poin' ? 'border-[#FC3D59] text-[#FC3D59]' : 'border-orange-500 text-orange-500'} border  rounded-full py-1 w-36 `}
-                    >LinkedIn</button
+                <a
+                    href="https://www.linkedin.com/company/braga-technology/"
+                    target="_blank"
+                    class={` ${route === '/products/poin' ? 'border-[#FC3D59] text-[#FC3D59]' : 'border-orange-500 text-orange-500'} border  rounded-full py-1 w-36 text-center`}
+                    >LinkedIn</a
                 >
-                <button
-                    class={` ${route === '/products/poin' ? 'border-[#FC3D59] text-[#FC3D59]' : 'border-orange-500 text-orange-500'} border  rounded-full py-1 w-36 `}
-                    >Youtube</button
+                <a
+                    href="https://www.youtube.com/@bragatechnologies6807"
+                    target="_blank"
+                    class={` ${route === '/products/poin' ? 'border-[#FC3D59] text-[#FC3D59]' : 'border-orange-500 text-orange-500'} border  rounded-full py-1 w-36 text-center`}
+                    >Youtube</a
                 ></span
             >
         </div>
