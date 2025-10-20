@@ -5,7 +5,7 @@ import Main from "../../components/culture/Main.astro";
 import Layout from "../../layouts/Layout.astro";
 ---
 
-<Layout theme="dark"><Hero /><Main /><CTA /></Layout>
+<Layout theme="dark" isBlack={true}><Hero /><Main /><CTA /></Layout>
 
 <script is:inline client:load>
     const script = document.createElement("script");
@@ -47,6 +47,34 @@ import Layout from "../../layouts/Layout.astro";
     .typo-poin h5,
     .typo-poin h6 {
         font-family: "Host-Grotesk", sans-serif;
+    }
+
+    .gradient-border-1 {
+        position: relative;
+        border-radius: 4px;
+    }
+
+    .gradient-border-1::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        padding: 1px;
+        background: #232221;
+        border-radius: inherit;
+        mask:
+            linear-gradient(#000 0 0) content-box,
+            linear-gradient(#000 0 0);
+        mask-composite: xor;
+        -webkit-mask-composite: xor;
+        transition: background 0.3s ease; /* Smooth transition */
+    }
+
+    .gradient-border-1:hover::before {
+        background: linear-gradient(
+            180deg,
+            rgba(205, 84, 27, 0),
+            rgb(243, 106, 29)
+        );
     }
 
     /* Initial hidden state */
