@@ -47,7 +47,7 @@ const comments = [
 ---
 
 <section
-    class="px-6 fade-in-up mb-16 overflow-hidden"
+    class="px-6 fade-in-up mb-9 overflow-hidden"
     style="animation-delay: 1400ms;"
 >
     <div
@@ -68,7 +68,7 @@ const comments = [
             </h2>
         </div>
     </div>
-    <div class="grid grid-cols-4 gap-x-6 overflow-visible">
+    <div class="grid grid-cols-4 gap-x-6 overflow-visible pt-24">
         <div class="py-8">
             <h6 class="text-orange-500 text-xl">Work with Us</h6>
             <h4 class="text-stone-50 text-4xl my-4">
@@ -80,7 +80,7 @@ const comments = [
                 suits you well.
             </p>
         </div>
-        <div class="col-span-3 overflow-visible">
+        <div class="col-span-3 overflow-visible border-t border-neutral-800">
             <div
                 class="relative w-full h-[30rem] overflow-visible flex justify-between items-end"
             >
@@ -138,7 +138,7 @@ const comments = [
                     comments.map(({ number, comment, position, name }, i) => (
                         <article
                             class={
-                                "absolute w-full left-0 top-0 carousel-set " +
+                                "pb-6 border-b border-neutral-800 absolute w-full left-0 top-0 carousel-set " +
                                 (i === 0 ? "" : "hide")
                             }
                             id={"comment-" + (i + 1)}

@@ -5,7 +5,9 @@ import Opportunities from "../../components/career/Opportunities.astro";
 import Layout from "../../layouts/Layout.astro";
 ---
 
-<Layout theme="dark"><Hero /><LifeBraga /><Opportunities /></Layout>
+<Layout theme="dark" isBlack={true}
+    ><Hero /><LifeBraga /><Opportunities /></Layout
+>
 
 <script is:inline client:load>
     const observer = new IntersectionObserver(

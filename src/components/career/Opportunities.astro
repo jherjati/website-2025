@@ -3,32 +3,42 @@ import arrow from "../../assets/about/arrow.svg";
 import opportunities from "../../assets/career/opportunities.png";
 ---
 
-<section class="px-6 grid grid-cols-4 bg-black mb-8">
-    <div class="pt-4 col-span-1">
-        <h6 class="text-orange-500 text-xl">Opportunities</h6>
-        <h4 class="text-stone-50 text-4xl my-4">Explore the career paths.</h4>
-        <p class="text-neutral-400 text-lg">
-            Help us to solve the world’s problems through maps, and You.
-            Interested? Find your forte below!
-        </p>
-        <a
-            href="https://www.linkedin.com/company/braga-technology/"
-            target="_blank"
-            class="bg-orange-700 py-2 px-3 text-sm text-white rounded-sm flex space-x-2 w-42 my-4"
-            ><p class="grow">Visit Linkedin</p><img
-                src={arrow.src}
+<div class="w-full px-6">
+    <section class="grid grid-cols-4 gap-6 mb-8 border border-neutral-800">
+        <div class="pt-4 col-span-1">
+            <h6 class="text-orange-500 text-xl">Opportunities</h6>
+            <h4 class="text-stone-50 text-4xl my-4">
+                Explore the career paths.
+            </h4>
+            <p class="text-neutral-400 text-lg">
+                Help us to solve the world’s problems through maps, and You.
+                Interested? Find your forte below!
+            </p>
+            <a
+                href="https://www.linkedin.com/company/braga-technology/"
+                target="_blank"
+                class="bg-orange-700 py-2 px-3 text-sm text-white rounded-sm flex space-x-2 w-42 my-4"
+                ><p class="grow">Visit Linkedin</p><img
+                    src={arrow.src}
+                    alt=""
+                /></a
+            >
+            <a
+                href="https://glints.com/id/companies/braga-technologies/1b0cbefb-61ce-4320-90a5-be0a36a8fcf2"
+                target="_blank"
+                class="bg-orange-700 py-2 px-3 text-sm text-white rounded-sm flex space-x-2 w-42"
+                ><p class="grow">Visit Glints</p><img
+                    src={arrow.src}
+                    alt=""
+                /></a
+            >
+        </div>
+        <div class="col-span-3 pt-9">
+            <img
+                src={opportunities.src}
                 alt=""
-            /></a
-        >
-        <a
-            href="https://glints.com/id/companies/braga-technologies/1b0cbefb-61ce-4320-90a5-be0a36a8fcf2"
-            target="_blank"
-            class="bg-orange-700 py-2 px-3 text-sm text-white rounded-sm flex space-x-2 w-42"
-            ><p class="grow">Visit Glints</p><img
-                src={arrow.src}
-                alt=""
-            /></a
-        >
-    </div>
-    <img src={opportunities.src} alt="" class="col-span-3" />
-</section>
+                class="w-full h-full object-cover border-t border-neutral-800"
+            />
+        </div>
+    </section>
+</div>

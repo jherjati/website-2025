@@ -84,32 +84,40 @@ const activities = [
 ];
 ---
 
-<section class="px-6 grid grid-cols-4 gap-x-6 mb-16">
-    <div class="py-4 space-y-4">
-        <h6 class="text-orange-500 text-xl">Life at Braga</h6>
-        <h3 class="text-stone-200 text-4xl">We’ve got your back, always.</h3>
-    </div>
-    <div class="grid col-span-3 grid-cols-3 gap-6">
-        {
-            benefits.map(({ number, title, description, icon }) => (
-                <div class="pt-6 space-y-3">
-                    <p class="text-neutral-500 border-b border-neutral-600 pb-1 mt-0">
-                        {number}
-                    </p>
-                    <h5 class="text-white text-2xl">{title}</h5>
-                    <img src={icon.src} alt="" class="" />
-                    <p class="text-neutral-400 text-xl">{description}</p>
-                </div>
-            ))
-        }
-        <h2 class="col-span-3 pr-6 text-stone-50 text-6xl mt-36">
-            Together, we’re leveraging technology to help fight some of the
-            world’s toughest challenges
-        </h2>
-    </div>
-    <div class="col-span-4 overflow-x-scroll mt-48 mb-6">
-        <div class="flex space-x-4">
-            {activities.map((image) => <img src={image.src} alt="" />)}
+<div class="w-full px-6">
+    <section
+        class="grid grid-cols-4 gap-x-6 mb-16 border-y border-neutral-800 pt-10"
+    >
+        <div class="py-4 space-y-4">
+            <h6 class="text-orange-500 text-xl">Life at Braga</h6>
+            <h3 class="text-stone-200 text-4xl">
+                We’ve got your back, always.
+            </h3>
         </div>
-    </div>
-</section>
+        <div
+            class="grid col-span-3 grid-cols-3 gap-6 px-6 pb-40 border border-neutral-800 bg-black"
+        >
+            {
+                benefits.map(({ number, title, description, icon }) => (
+                    <div class="pt-6 space-y-3">
+                        <p class="text-neutral-500 border-b border-neutral-600 pb-1 mt-0">
+                            {number}
+                        </p>
+                        <h5 class="text-white text-2xl">{title}</h5>
+                        <img src={icon.src} alt="" class="" />
+                        <p class="text-neutral-400 text-xl">{description}</p>
+                    </div>
+                ))
+            }
+            <h2 class="col-span-3 pr-6 text-stone-50 text-6xl mt-36">
+                Together, we’re leveraging technology to help fight some of the
+                world’s toughest challenges
+            </h2>
+        </div>
+        <div class="col-span-4 overflow-x-scroll mb-6">
+            <div class="flex space-x-4">
+                {activities.map((image) => <img src={image.src} alt="" />)}
+            </div>
+        </div>
+    </section>
+</div>

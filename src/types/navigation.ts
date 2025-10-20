@@ -15,4 +15,5 @@ export interface LayoutProps {
   theme?: string;
   orangeFooter?: boolean;
   hideGridOnMobile?: boolean;
+  isBlack?: boolean
 }
