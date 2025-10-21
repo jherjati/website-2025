@@ -4,31 +4,31 @@ import ctaDecor from "../../assets/home/cta-decor.svg";
 ---
 
 <section
-    class="flex justify-center items-center pt-48 pb-56 px-4"
-    style={`background: url(${contactDecor.src});`}
+  class='flex justify-center items-center pt-24 md:pt-48 pb-28 md:pb-56 px-4 w-full max-w-full overflow-hidden'
+  style={`background: url(${contactDecor.src});`}
 >
-    <div
-        class="rounded-lg p-12 flex flex-col items-center text-center min-w-96 w-1/2 test relative overflow-hidden"
+  <div
+    class='rounded-lg p-6 md:p-12 flex flex-col items-center text-center w-full md:w-3/4 lg:w-1/2 test relative overflow-hidden'
+  >
+    <img src={ctaDecor.src} alt='' class='absolute top-0 left-0' />
+    <h5 class='text-stone-100 text-3xl md:text-4xl lg:text-5xl leading-tight'>
+      Location Intelligence meets Your uniquity creates something new.
+    </h5>
+    <p class='text-stone-50 text-base md:text-lg mt-3 mb-6'>
+      Being part of Braga means finding yourself in a unique position. Seize the
+      possibility to work on challanges that impacts all over the world.
+    </p>
+    <button
+      class='bg-orange-500 text-stone-50 px-8 md:px-12 py-2 md:py-3 rounded-sm text-sm md:text-base'
+      >Grow With Us</button
     >
-        <img src={ctaDecor.src} alt="" class="absolute top-0 left-0" />
-        <h5 class="text-stone-100 text-5xl">
-            Location Intelligence meets Your uniquity creates something new.
-        </h5>
-        <p class="text-stone-50 text-lg mt-3 mb-6">
-            Being part of Braga means finding yourself in a unique position.
-            Seize the possibility to work on challanges that impacts all over
-            the world.
-        </p>
-        <button class="bg-orange-500 text-stone-50 px-12 py-3 rounded-sm"
-            >Grow With Us</button
-        >
-    </div>
+  </div>
 </section>
 
 <style>
-    .test {
-        isolation: isolate;
-        background: #842f15;
-        box-shadow: 0px 101px 80px -80px rgba(243, 106, 29, 0.4);
-    }
+  .test {
+    isolation: isolate;
+    background: #842f15;
+    box-shadow: 0px 101px 80px -80px rgba(243, 106, 29, 0.4);
+  }
 </style>
