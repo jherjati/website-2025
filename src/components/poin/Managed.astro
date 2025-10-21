@@ -39,16 +39,16 @@ const pillars = [
 ---
 
 <section
-    class="mx-6 mt-6 pt-6 border-t border-stone-200 sm:grid grid-cols-12 gap-x-3"
+    class="mx-4 lg:mx-6 mt-6 pt-6 border-t border-stone-200 lg:grid grid-cols-12 gap-x-6"
 >
-    <div class="col-span-3">
-        <h5 class={text + " text-2xl"}>Managed Service Solutions</h5>
-        <h2 class="text-3xl sm:text-4xl">
+    <div class="lg:col-span-3 mb-8 lg:mb-0">
+        <h5 class={text + " text-xl lg:text-2xl mb-3 lg:mb-4"}>Managed Service Solutions</h5>
+        <h2 class="text-2xl lg:text-4xl leading-tight">
             Flexible expertise, tailored to your needs
         </h2>
     </div>
-    <div class="col-span-9">
-        <p class="mb-24 sm:mb-12 text-sm sm:text-lg pt-8">
+    <div class="lg:col-span-9">
+        <p class="mb-12 text-sm lg:text-lg pt-0 lg:pt-8 leading-relaxed text-neutral-700">
             Braga’s Managed Service offers companies the freedom to choose how
             projects are delivered. Whether handled fully by our inhouse team or
             through manpower placement within your organization, we provide the
@@ -56,36 +56,36 @@ const pillars = [
             approach ensures efficiency, seamless execution, and reduced
             overhead—so you can focus on outcomes, not resourcing challenges.
         </p>
-        <h4 class="text-4xl mb-6">Value Pillars</h4>
-        <div class="space-y-6 gap-x-6 sm:grid grid-cols-4">
+        <h4 class="text-3xl lg:text-4xl mb-6 lg:mb-8">Value Pillars</h4>
+        <div class="space-y-8 lg:space-y-0 lg:grid lg:grid-cols-4 gap-x-6">
             {
                 pillars.map(({ image, title, description }) => (
                     <div>
-                        <img src={image.src} alt="" class="w-12 h-12" />
-                        <div class={"sm:h-20 my-3 border-b pb-3 " + border}>
-                            <h6 class={text + " text-3xl"}>{title}</h6>
+                        <img src={image.src} alt="" class="w-10 h-10 lg:w-12 lg:h-12" />
+                        <div class={"lg:h-20 my-3 border-b pb-3 " + border}>
+                            <h6 class={text + " text-xl lg:text-3xl"}>{title}</h6>
                         </div>
-                        <p class="">{description}</p>
+                        <p class="text-sm lg:text-base text-neutral-700 leading-relaxed">{description}</p>
                     </div>
                 ))
             }
         </div>
 
-        <h4 class="text-4xl mb-6 mt-12">Comparison Model</h4>
-        <div class="space-y-6 sm:grid grid-cols-2">
-            <div class="space-y-3">
-                <h6 class={text + " text-3xl pb-2"}>Inhouse Braga Team</h6>
-                <p class="">Project fully managed by Braga</p>
-                <p class="">End-to-end responsibility</p>
-                <p class="">Centralized delivery and oversight</p>
+        <h4 class="text-3xl lg:text-4xl mb-6 lg:mb-8 mt-12 lg:mt-16">Comparison Model</h4>
+        <div class="space-y-8 lg:space-y-0 lg:grid lg:grid-cols-2 gap-x-6">
+            <div class="space-y-2 lg:space-y-3">
+                <h6 class={text + " text-xl lg:text-3xl pb-2 mb-2"}>Inhouse Braga Team</h6>
+                <p class="text-sm lg:text-base text-neutral-700">Project fully managed by Braga</p>
+                <p class="text-sm lg:text-base text-neutral-700">End-to-end responsibility</p>
+                <p class="text-sm lg:text-base text-neutral-700">Centralized delivery and oversight</p>
             </div>
-            <div class="space-y-3">
-                <h6 class={text + " text-3xl pb-2"}>
+            <div class="space-y-2 lg:space-y-3">
+                <h6 class={text + " text-xl lg:text-3xl pb-2 mb-2"}>
                     On-Site Manpower Placement
                 </h6>
-                <p class="">Talent embedded within client’s team</p>
-                <p class="">Works under client’s direction</p>
-                <p class="">Scales quickly to match project needs</p>
+                <p class="text-sm lg:text-base text-neutral-700">Talent embedded within client’s team</p>
+                <p class="text-sm lg:text-base text-neutral-700">Works under client’s direction</p>
+                <p class="text-sm lg:text-base text-neutral-700">Scales quickly to match project needs</p>
             </div>
         </div>
     </div>

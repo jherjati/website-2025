@@ -4,13 +4,13 @@ import heroDecor from "../../assets/poin/hero-decor.svg";
 import heroPattern from "../../assets/poin/hero-pattern.svg";
 ---
 
-<section class="px-6">
+<section class="px-4 md:px-6">
     <div
-        class="bg-rose-500 sm:grid grid-cols-2 mt-3 rounded-lg relative text-stone-50 px-6 py-9 sm:p-9 fade-in-up"
+        class="bg-rose-500 lg:grid grid-cols-2 mt-3 rounded-lg relative text-stone-50 px-6 py-9 md:p-12 lg:p-9 overflow-hidden fade-in-up"
         style="animation-delay: 1400ms;"
     >
         <div>
-            <div class="mb-32">
+            <div class="mb-20 md:mb-32">
                 <span
                     class="text-yellow-950 bg-stone-50 px-3 py-2 rounded-lg text-xs"
                     >Service</span
@@ -20,11 +20,11 @@ import heroPattern from "../../assets/poin/hero-pattern.svg";
                 >
             </div>
             <div class="space-y-6">
-                <h5 class="text-xl sm:text-4xl">Braga Poin</h5>
-                <h3 class="text-4xl sm:text-7xl">
+                <h5 class="text-xl md:text-3xl lg:text-4xl">Braga Poin</h5>
+                <h3 class="text-3xl md:text-5xl lg:text-7xl leading-tight">
                     Streamlined Spatial Data Solutions
                 </h3>
-                <p class="text-sm sm:text-base w-5/6">
+                <p class="text-sm md:text-base w-full md:w-5/6">
                     Reduce time, cost, and resource allocation with our
                     innovative solutions for geospatial and ground surveys.
                     Eliminate redundant efforts - get the data you need, all at
@@ -33,19 +33,19 @@ import heroPattern from "../../assets/poin/hero-pattern.svg";
             </div>
 
             <button
-                class="border border-stone-50 px-3 py-2 rounded-sm text-sm mt-12 flex space-x-6"
+                class="border border-stone-50 px-3 py-2 rounded-sm text-xs md:text-sm mt-8 md:mt-12 flex space-x-4 md:space-x-6 items-center"
                 ><p>Explore Below</p><img src={heroArrow.src} alt="" /></button
             >
         </div>
         <img
             src={heroDecor.src}
             alt=""
-            class="absolute h-1/4 sm:h-11/12 top-6 sm:top-auto sm:bottom-0 right-0"
+            class="absolute h-1/3 md:h-2/3 lg:h-11/12 top-6 md:top-auto md:bottom-0 right-0 lg:right-0 object-contain"
         />
         <img
             src={heroPattern.src}
             alt=""
-            class="absolute w-full top-0 left-0"
+            class="absolute w-full h-full top-0 left-0 object-cover opacity-20"
         />
     </div>
 </section>

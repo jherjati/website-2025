@@ -41,30 +41,30 @@ const powered = [
 ---
 
 <section
-    class="mx-6 mt-6 pt-6 border-t border-stone-200 sm:grid grid-cols-12 gap-x-3"
+    class="mx-4 lg:mx-6 mt-6 pt-6 border-t border-stone-200 lg:grid grid-cols-12 gap-x-6"
 >
-    <div class="col-span-3">
-        <h5 class="text-rose-500 text-2xl">Powered by Braga</h5>
-        <h2 class="text-3xl sm:text-4xl">
+    <div class="lg:col-span-3 mb-8 lg:mb-0">
+        <h5 class="text-rose-500 text-xl lg:text-2xl mb-3 lg:mb-4">Powered by Braga</h5>
+        <h2 class="text-2xl lg:text-4xl leading-tight">
             Sustainably Accelerating through Geospatial Technology.
         </h2>
     </div>
-    <div class="col-span-9">
-        <h1 class="text-4xl sm:text-6xl mb-24 sm:mb-12 pt-8">
+    <div class="lg:col-span-9">
+        <h1 class="text-3xl lg:text-6xl mb-12 pt-0 lg:pt-8 leading-tight">
             Revolutionizing industries by leveraging cutting-edge geospatial
             data to drive sustainable growth and innovation.
         </h1>
-        <div class="space-y-6">
+        <div class="space-y-8 lg:space-y-12">
             {
                 powered.map(({ image, title, description, subtitle }) => (
-                    <div>
-                        <div class="flex border-b border-rose-500 mb-3 pb-3">
-                            <img src={image.src} alt="" class="w-12 h-12" />
-                            <h6 class="text-rose-500 text-3xl">{title}</h6>
+                    <div class="fade-in-up">
+                        <div class="flex items-center space-x-3 border-b border-rose-500 mb-4 lg:mb-6 pb-3 lg:pb-4">
+                            <img src={image.src} alt="" class="w-10 h-10 lg:w-12 lg:h-12 flex-shrink-0" />
+                            <h6 class="text-rose-500 text-xl lg:text-3xl leading-tight">{title}</h6>
                         </div>
-                        <div class="sm:grid grid-cols-2 gap-x-3 pl-12">
-                            <p class="">{description}</p>
-                            <p class="">{subtitle}</p>
+                        <div class="lg:grid lg:grid-cols-2 gap-x-6 gap-y-4 pl-0 lg:pl-14 space-y-4 lg:space-y-0">
+                            <p class="text-sm lg:text-base text-neutral-700 leading-relaxed">{description}</p>
+                            <p class="text-sm lg:text-base text-neutral-700 leading-relaxed">{subtitle}</p>
                         </div>
                     </div>
                 ))
