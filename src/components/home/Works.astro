@@ -14,26 +14,26 @@ const { sectionTag, headline, description, ctaText } = Astro.props;
 const works = await fetchWorks();
 ---
 
-<section class="mx-6 pt-12 pb-24 border-t border-neutral-700">
+<section class="mx-4 md:mx-6 pt-12 pb-24 border-t border-neutral-700">
     <h6
-        class="text-orange-500 text-xl mb-2 fade-in"
+        class="text-orange-500 text-lg md:text-xl mb-2 fade-in"
         style="animation-delay: 750ms;"
     >
         {sectionTag}
     </h6>
     <div
-        class="sm:grid grid-cols-2 space-y-6 gap-x-6 fade-in"
+        class="sm:grid grid-cols-1 md:grid-cols-2 space-y-6 md:space-y-0 gap-x-6 fade-in"
         style="animation-delay: 750ms;"
     >
-        <h3 class="text-stone-50 text-5xl w-2/3">
+        <h3 class="text-stone-50 text-3xl md:text-4xl lg:text-5xl w-full md:w-2/3">
             {headline}
         </h3>
-        <p class="text-neutral-400 text-lg">
+        <p class="text-neutral-400 text-base md:text-lg">
             {description}
         </p>
     </div>
     <div
-        class="bg-neutral-900 mt-12 sm:mt-9 flex overflow-x-scroll sm:grid grid-cols-4 gap-4 sm:p-6 sm:border border-neutral-800 rounded-sm relative fade-in-up"
+        class="bg-neutral-900 mt-12 sm:mt-9 flex overflow-x-scroll md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:p-4 lg:p-6 md:border border-neutral-800 rounded-sm relative fade-in-up"
         style="animation-delay: 1300ms;"
     >
         <img
@@ -44,14 +44,14 @@ const works = await fetchWorks();
         />
         {
             works.map(({ title, image, description }) => (
-                <div class="p-4 space-y-4 border border-neutral-800 rounded-sm bg-black/10 hover:bg-black/16 min-w-72 z-10 gradient-border-1">
-                    <h5 class="text-2xl text-stone-50">{title}</h5>
-                    <img src={image} class="rounded-sm w-full" />
-                    <div class="flex justify-between space-x-2">
-                        <p class="text-sm text-neutral-400 grow line-clamp-2">
+                <div class="p-4 space-y-3 md:space-y-4 border border-neutral-800 rounded-sm bg-black/10 hover:bg-black/16 min-w-72 md:min-w-0 z-10 gradient-border-1">
+                    <h5 class="text-xl md:text-2xl text-stone-50">{title}</h5>
+                    <img src={image} class="rounded-sm w-full h-48 md:h-auto object-cover" />
+                    <div class="flex flex-col md:flex-row justify-between space-y-2 md:space-y-0 md:space-x-2">
+                        <p class="text-xs md:text-sm text-neutral-400 grow line-clamp-2">
                             {description}
                         </p>
-                        <button class="text-sm text-white bg-orange-700 rounded-sm min-w-28 px-3 py-2">
+                        <button class="text-xs md:text-sm text-white bg-orange-700 rounded-sm w-full md:w-auto md:min-w-28 px-3 py-2 flex-shrink-0">
                             {ctaText}
                         </button>
                     </div>

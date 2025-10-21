@@ -102,7 +102,7 @@ const navs = [
 					/>
 				</div>
 
-				<nav class="grow hidden sm:flex space-x-3 text-center text-xs">
+				<nav class="grow hidden lg:flex space-x-3 text-center text-xs">
 					{
 						navs.map(({ href, label, dropdowns, menus }) =>
 							dropdowns?.length ? (
@@ -175,7 +175,7 @@ const navs = [
 				<div
 					class="border p-2 border-stone-200 dark:border-neutral-800 rounded-sm flex items-center space-x-2 text-xs"
 				>
-					<div class="hidden sm:block">
+					<div class="hidden lg:block">
 						<button class="text-orange-500 ml-1">EN</button>
 						<button class="text-black dark:text-white">ID</button>
 					</div>
@@ -184,7 +184,7 @@ const navs = [
 						class={`rounded-sm text-white py-1.5 px-3 ${currentPath === "/products/poin" ? "bg-rose-500 dark:bg-orange-700" : "bg-[#CD541B] dark:bg-orange-700"}`}
 						>Contact</a
 					>
-					<button id="burger-menu" class="sm:hidden">
+					<button id="burger-menu" class="lg:hidden">
 						<img src={burgerIcon.src} alt="" />
 					</button>
 				</div>
@@ -307,7 +307,7 @@ const navs = [
 						class="pt-6 border-t border-neutral-800 mobile-menu-item"
 						style="animation-delay: 0.7s"
 					>
-						<div class="flex space-x-4 text-sm">
+						<div class="flex justify-center space-x-4 text-sm">
 							<button class="text-orange-500">EN</button>
 							<button class="text-white">ID</button>
 						</div>
