@@ -5,93 +5,154 @@ import Main from "../../components/culture/Main.astro";
 import Layout from "../../layouts/Layout.astro";
 ---
 
-<Layout theme="dark" isBlack={true}><Hero /><Main /><CTA /></Layout>
+<Layout theme='dark' isBlack={true} hideGridOnMobile={true}>
+  <div class="w-full max-w-full overflow-x-hidden">
+    <Hero /><Main /><CTA />
+  </div>
+</Layout>
 
 <script is:inline client:load>
-    const script = document.createElement("script");
-    script.src =
-        "https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.13.0/lottie.min.js";
-    script.onload = () => {
-        window.lottie.loadAnimation({
-            container: document.getElementById("canvas-1"),
-            renderer: "canvas", // svg / canvas / html
-            loop: true,
-            autoplay: true,
-            path: "/animation/culture.json",
-        });
-    };
-    document.body.appendChild(script);
+  const script = document.createElement("script");
+  script.src =
+    "https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.13.0/lottie.min.js";
+  script.onload = () => {
+    const canvasContainer = document.getElementById("canvas-1");
+    if (canvasContainer) {
+      canvasContainer.style.width = "100%";
+      canvasContainer.style.maxWidth = "100%";
+      canvasContainer.style.overflow = "hidden";
+    }
+    
+    const animation = window.lottie.loadAnimation({
+      container: canvasContainer,
+      renderer: "canvas",
+      loop: true,
+      autoplay: true,
+      path: "/animation/culture.json",
+      rendererSettings: {
+        preserveAspectRatio: 'xMidYMid slice',
+        clearCanvas: true,
+        progressiveLoad: false,
+        hideOnTransparent: true,
+        context: canvasContainer
+      }
+    });
+    
+    // Force canvas element to be constrained
+    animation.addEventListener('DOMLoaded', function() {
+      const canvas = canvasContainer.querySelector('canvas');
+      if (canvas) {
+        canvas.style.width = "100%";
+        canvas.style.maxWidth = "100%";
+        canvas.style.height = "auto";
+      }
+    });
+  };
+  document.body.appendChild(script);
 
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("visible");
-                }
-            });
-        },
-        { threshold: 0.1 },
-    );
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
 
-    // Observe all animated elements
-    document
-        .querySelectorAll(".fade-in-up")
-        .forEach((el) => observer.observe(el));
+  // Observe all animated elements
+  document
+    .querySelectorAll(".fade-in-up")
+    .forEach((el) => observer.observe(el));
 </script>
 
 <style is:global>
-    .typo-poin h1,
-    .typo-poin h2,
-    .typo-poin h3,
-    .typo-poin h4,
-    .typo-poin h5,
-    .typo-poin h6 {
-        font-family: "Host-Grotesk", sans-serif;
-    }
+  /* Prevent horizontal scroll */
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+    width: 100%;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
 
-    .gradient-border-1 {
-        position: relative;
-        border-radius: 4px;
-    }
+  /* Constrain lottie canvas */
+  #canvas-1,
+  #canvas-1 canvas,
+  #canvas-1 svg {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
 
-    .gradient-border-1::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        padding: 1px;
-        background: #232221;
-        border-radius: inherit;
-        mask:
-            linear-gradient(#000 0 0) content-box,
-            linear-gradient(#000 0 0);
-        mask-composite: xor;
-        -webkit-mask-composite: xor;
-        transition: background 0.3s ease; /* Smooth transition */
+  /* Smooth horizontal scroll for mobile cards */
+  @media (max-width: 768px) {
+    .overflow-x-auto {
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE and Edge */
     }
+    
+    .overflow-x-auto::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+    }
+  }
 
-    .gradient-border-1:hover::before {
-        background: linear-gradient(
-            180deg,
-            rgba(205, 84, 27, 0),
-            rgb(243, 106, 29)
-        );
-    }
+  .typo-poin h1,
+  .typo-poin h2,
+  .typo-poin h3,
+  .typo-poin h4,
+  .typo-poin h5,
+  .typo-poin h6 {
+    font-family: "Host-Grotesk", sans-serif;
+  }
 
-    /* Initial hidden state */
-    .fade-in-up {
-        opacity: 0;
-        transform: translateY(30px);
-    }
+  .gradient-border-1 {
+    position: relative;
+    border-radius: 4px;
+  }
 
-    /* Animation when visible */
-    .fade-in-up.visible {
-        animation: fadeInUp 0.75s ease-out forwards;
-    }
+  .gradient-border-1::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    background: #232221;
+    border-radius: inherit;
+    mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    mask-composite: xor;
+    -webkit-mask-composite: xor;
+    transition: background 0.3s ease; /* Smooth transition */
+  }
 
-    @keyframes fadeInUp {
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+  .gradient-border-1:hover::before {
+    background: linear-gradient(
+      180deg,
+      rgba(205, 84, 27, 0),
+      rgb(243, 106, 29)
+    );
+  }
+
+  /* Initial hidden state */
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  /* Animation when visible */
+  .fade-in-up.visible {
+    animation: fadeInUp 0.75s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
+  }
 </style>
