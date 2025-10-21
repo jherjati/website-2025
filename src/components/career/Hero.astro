@@ -8,297 +8,319 @@ import img5 from "../../assets/career/img-5.png";
 
 const imgs = [img1, img2, img3, img4, img5];
 const comments = [
-    {
-        number: "01/",
-        comment:
-            "It’s Lively here, The working environment iscomfortable. It’s lively her. Also, BragaTechnologies supports us to develop our skill, bothprofessional and life skills, which is great",
-        position: "VP of Engineering",
-        name: "Tabah Juliansyah",
-    },
-    {
-        number: "02/",
-        comment:
-            "I have grown precious expertises, been working here since I finished my undergraduate degree. Here, in Braga, I have grown precious expertises within the company values which related to my skills in geospatial and technology. Living my role as PM, I learn how to manage and communicate things in most effective way to deliver the best Product & Services.",
-        position: "Product Manager",
-        name: "Angelica Tamada",
-    },
-    {
-        number: "03/",
-        comment:
-            "Working at Braga Technologies gave me a chance to design spatial product, that’s special in a sense that people rarely know about this niched area when in fact we use them a lot and it is very useful in many aspect in life ",
-        position: "Product Designer",
-        name: "Dzakky Hamzimi",
-    },
-    {
-        number: "04/",
-        comment:
-            "In the whirlwind of our industry, where decisions must be made swiftly and accurately, each Creator has consistently demonstrated an unparalleled ability to navigate complex situations easily and gracefully. Their decisiveness is remarkable, often making critical judgments under immense pressure without sacrificing the quality of outcomes.",
-        position: "Chief Finance Officer ",
-        name: "Reza Fahmi",
-    },
-    {
-        number: "05/",
-        comment:
-            "They never fail to encourage me, I learned many thing during my experience at Braga Technologies, especially in the field of data processing. Of course it’s challenging when you’re needed to think creatively and out of the box every single day, but people I’m working with never fail to inspire and encourage me.",
-        position: "Maps Ops Manager",
-        name: "Dindi Umam",
-    },
+  {
+    number: "01/",
+    comment:
+      "It's Lively here, The working environment iscomfortable. It's lively her. Also, BragaTechnologies supports us to develop our skill, bothprofessional and life skills, which is great",
+    position: "VP of Engineering",
+    name: "Tabah Juliansyah",
+  },
+  {
+    number: "02/",
+    comment:
+      "I have grown precious expertises, been working here since I finished my undergraduate degree. Here, in Braga, I have grown precious expertises within the company values which related to my skills in geospatial and technology. Living my role as PM, I learn how to manage and communicate things in most effective way to deliver the best Product & Services.",
+    position: "Product Manager",
+    name: "Angelica Tamada",
+  },
+  {
+    number: "03/",
+    comment:
+      "Working at Braga Technologies gave me a chance to design spatial product, that's special in a sense that people rarely know about this niched area when in fact we use them a lot and it is very useful in many aspect in life ",
+    position: "Product Designer",
+    name: "Dzakky Hamzimi",
+  },
+  {
+    number: "04/",
+    comment:
+      "In the whirlwind of our industry, where decisions must be made swiftly and accurately, each Creator has consistently demonstrated an unparalleled ability to navigate complex situations easily and gracefully. Their decisiveness is remarkable, often making critical judgments under immense pressure without sacrificing the quality of outcomes.",
+    position: "Chief Finance Officer ",
+    name: "Reza Fahmi",
+  },
+  {
+    number: "05/",
+    comment:
+      "They never fail to encourage me, I learned many thing during my experience at Braga Technologies, especially in the field of data processing. Of course it's challenging when you're needed to think creatively and out of the box every single day, but people I'm working with never fail to inspire and encourage me.",
+    position: "Maps Ops Manager",
+    name: "Dindi Umam",
+  },
 ];
 ---
 
 <section
-    class="px-6 fade-in-up mb-9 overflow-hidden"
-    style="animation-delay: 1400ms;"
+  class='px-4 md:px-6 fade-in-up mb-9 overflow-hidden'
+  style='animation-delay: 1400ms;'
 >
-    <div
-        class="bg-neutral-950 grid grid-cols-2 px-6 py-10 gap-y-10 gap-x-6 border border-neutral-800 mt-2 overflow-visible"
-    >
-        <div class="text-[10px]">
-            <button class="bg-stone-50 rounded-lg text-neutral-900 px-3 py-2"
-                >Company</button
-            ><button
-                class="border rounded-lg text-stone-50 border-stone-50 px-3 py-2"
-                >Career</button
-            >
-            <h3 class="text-stone-50 text-3xl mt-10 mb-6">
-                Join us on our Mission
-            </h3>
-            <h2 class="text-stone-100 text-7xl">
-                Guiding The World, one Map at a Time.
-            </h2>
-        </div>
+  <div
+    class='bg-neutral-950 grid grid-cols-1 md:grid-cols-2 px-4 md:px-6 py-10 gap-y-10 gap-x-6 border border-neutral-800 mt-2 overflow-visible'
+  >
+    <div class='text-[10px]'>
+      <button class='bg-stone-50 rounded-lg text-neutral-900 px-3 py-2'
+        >Company</button
+      ><button class='border rounded-lg text-stone-50 border-stone-50 px-3 py-2'
+        >Career</button
+      >
+      <h3 class='text-stone-50 text-2xl md:text-3xl mt-10 mb-6 hidden lg:block'>
+        Join us on our Mission
+      </h3>
+      <h2
+        class='text-stone-100 text-6xl lg:text-7xl leading-tight font-host mt-10 lg:mt-0s'
+      >
+        Guiding The World, one Map at a Time.
+      </h2>
     </div>
-    <div class="grid grid-cols-4 gap-x-6 overflow-visible pt-24">
-        <div class="py-8">
-            <h6 class="text-orange-500 text-xl">Work with Us</h6>
-            <h4 class="text-stone-50 text-4xl my-4">
-                Together, Creating Enormous Impact.
-            </h4>
-            <p class="text-neutral-400 text-lg">
-                Be a creator. Own what you create, and help others to solve
-                their problems. Interested in doing so? Find which team that
-                suits you well.
-            </p>
-        </div>
-        <div class="col-span-3 overflow-visible border-t border-neutral-800">
-            <div
-                class="relative w-full h-[30rem] overflow-visible flex justify-between items-end"
-            >
-                {
-                    imgs.map((e, i) => (
-                        <img
-                            src={e.src}
-                            alt=""
-                            class={
-                                "absolute top-[75px] scale-150 w-[1858px] carousel-set " +
-                                (i === 0 ? "" : "hide")
-                            }
-                            id={"image-" + (i + 1)}
-                        />
-                    ))
-                }
-
-                <!-- Controller -->
-                <div class="text-white flex space-x-3 pb-9 z-10">
-                    {
-                        [1, 2, 3, 4, 5].map((e, i) => (
-                            <button
-                                id={"trigger-" + e}
-                                class={
-                                    "rounded-full w-3 h-3 cursor-pointer " +
-                                    (i === 0
-                                        ? "bg-orange-800"
-                                        : "bg-neutral-400")
-                                }
-                            />
-                        ))
-                    }
-                </div>
-
-                <div class="flex space-x-3 pb-6 z-10">
-                    <button
-                        id="move-prev"
-                        class="border border-stone-100 rounded-full w-11 h-11 flex items-center justify-center cursor-pointer hover:bg-stone-700"
-                        ><img src={arrowLeft.src} alt="" id="move-prev" />
-                    </button>
-                    <button
-                        id="move-next"
-                        class="border border-stone-100 rounded-full w-11 h-11 flex items-center justify-center cursor-pointer hover:bg-stone-700"
-                        ><img
-                            src={arrowLeft.src}
-                            alt=""
-                            class="-scale-x-90"
-                            id="move-next"
-                        />
-                    </button>
-                </div>
-            </div>
-            <div class="relative w-full h-72">
-                {
-                    comments.map(({ number, comment, position, name }, i) => (
-                        <article
-                            class={
-                                "pb-6 border-b border-neutral-800 absolute w-full left-0 top-0 carousel-set " +
-                                (i === 0 ? "" : "hide")
-                            }
-                            id={"comment-" + (i + 1)}
-                        >
-                            <p class="text-neutral-500 border-b border-neutral-600 pb-1 mt-0">
-                                {number}
-                            </p>
-                            <h6 class="min-h-16 text-white text-2xl my-3 pr-6">
-                                {comment}
-                            </h6>
-                            <p class="text-stone-50 text-lg">{position}</p>
-                            <p class="text-neutral-400 text-lg">{name}</p>
-                        </article>
-                    ))
-                }
-            </div>
-        </div>
+  </div>
+  <div
+    class='grid grid-cols-1 md:grid-cols-4 gap-x-6 overflow-visible pt-12 md:pt-24'
+  >
+    <div class='py-8'>
+      <h6 class='text-orange-500 text-lg md:text-xl'>Work with Us</h6>
+      <h4 class='text-stone-50 text-3xl md:text-4xl my-4'>
+        Together, Creating Enormous Impact.
+      </h4>
+      <p class='text-neutral-400 text-base md:text-lg'>
+        Be a creator. Own what you create, and help others to solve their
+        problems. Interested in doing so? Find which team that suits you well.
+      </p>
     </div>
+    <div class='md:col-span-3 overflow-visible border-t border-neutral-800'>
+      <div
+        class='relative w-full h-[20rem] md:h-[30rem] overflow-visible flex justify-between items-end mt-20 lg:mt-0'
+      >
+        {
+          imgs.map((e, i) => (
+            <img
+              src={e.src}
+              alt=''
+              class={
+                "absolute top-0 md:top-[75px] left-1/2 -translate-x-1/2 scale-150 md:scale-150 w-[800px] md:w-[1858px] h-full object-cover object-center carousel-set  " +
+                (i === 0 ? "" : "hide")
+              }
+              id={"image-" + (i + 1)}
+            />
+          ))
+        }
+
+        <!-- Controller -->
+        <div class='text-white flex space-x-2 md:space-x-3 pb-6 md:pb-9 z-10'>
+          {
+            [1, 2, 3, 4, 5].map((e, i) => (
+              <button
+                id={"trigger-" + e}
+                class={
+                  "rounded-full w-2 h-2 md:w-3 md:h-3 cursor-pointer " +
+                  (i === 0 ? "bg-orange-800" : "bg-neutral-400")
+                }
+              />
+            ))
+          }
+        </div>
+
+        <div class='flex space-x-2 md:space-x-3 pb-4 md:pb-6 z-10'>
+          <button
+            id='move-prev'
+            class='border border-stone-100 rounded-full w-9 h-9 md:w-11 md:h-11 flex items-center justify-center cursor-pointer hover:bg-stone-700'
+            ><img src={arrowLeft.src} alt='' id='move-prev' />
+          </button>
+          <button
+            id='move-next'
+            class='border border-stone-100 rounded-full w-9 h-9 md:w-11 md:h-11 flex items-center justify-center cursor-pointer hover:bg-stone-700'
+            ><img
+              src={arrowLeft.src}
+              alt=''
+              class='-scale-x-90'
+              id='move-next'
+            />
+          </button>
+        </div>
+      </div>
+      <div class='relative w-full md:min-h-[22rem]' id='comments-container'>
+        {
+          comments.map(({ number, comment, position, name }, i) => (
+            <article
+              class={
+                "pb-6 absolute w-full left-0 top-0 carousel-set px-2 md:px-0 " +
+                (i === 0 ? "" : "hide")
+              }
+              id={"comment-" + (i + 1)}
+            >
+              <p class='text-neutral-500 border-b border-neutral-600 pb-1 mt-0'>
+                {number}
+              </p>
+              <h6 class='text-white text-2xl md:text-2xl my-3 pr-2 md:pr-6'>
+                {comment}
+              </h6>
+              <p class='text-stone-50 text-sm md:text-lg'>{position}</p>
+              <p class='text-neutral-400 text-sm md:text-lg'>{name}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </div>
 </section>
 
 <style>
-    .carousel-set {
-        transition: opacity 0.5s ease-in-out;
-        opacity: 1;
-    }
+  .carousel-set {
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
+  }
 
-    .carousel-set.hide {
-        opacity: 0;
-        pointer-events: none;
-    }
+  .carousel-set.hide {
+    opacity: 0;
+    pointer-events: none;
+  }
 </style>
 
 <script client:load>
-    document.addEventListener("DOMContentLoaded", function () {
-        console.log("Efficient carousel initialized");
+  document.addEventListener("DOMContentLoaded", function () {
+    console.log("Efficient carousel initialized");
 
-        // Configuration
-        const TOTAL_SLIDES = 5;
-        let currentImg = 1;
+    // Configuration
+    const TOTAL_SLIDES = 5;
+    let currentImg = 1;
 
-        // Cache DOM elements (query once, reuse many times)
-        const elements = {
-            images: document.querySelectorAll('[id^="image-"]'),
-            comments: document.querySelectorAll('[id^="comment-"]'),
-            triggers: document.querySelectorAll('[id^="trigger-"]'),
-        };
+    // Cache DOM elements (query once, reuse many times)
+    const elements = {
+      images: document.querySelectorAll('[id^="image-"]'),
+      comments: document.querySelectorAll('[id^="comment-"]'),
+      triggers: document.querySelectorAll('[id^="trigger-"]'),
+      container: document.getElementById("comments-container"),
+    };
 
-        // Single function to handle all slide switching logic
-        function switchToSlide(targetIndex) {
-            // Validate input
-            if (
-                targetIndex === currentImg ||
-                targetIndex < 1 ||
-                targetIndex > TOTAL_SLIDES
-            ) {
-                return;
-            }
+    // Function to update container height based on active comment
+    function updateContainerHeight(targetIndex) {
+      const activeComment = elements.comments[targetIndex - 1];
+      if (activeComment && elements.container && window.innerWidth < 768) {
+        // Only adjust height on mobile
+        const height = activeComment.offsetHeight;
+        elements.container.style.height = height + "px";
+      }
+    }
 
-            console.log(`Switching from ${currentImg} to ${targetIndex}`);
+    // Single function to handle all slide switching logic
+    function switchToSlide(targetIndex) {
+      // Validate input
+      if (
+        targetIndex === currentImg ||
+        targetIndex < 1 ||
+        targetIndex > TOTAL_SLIDES
+      ) {
+        return;
+      }
 
-            const currentIndex = currentImg - 1;
-            const targetIndexZero = targetIndex - 1;
+      console.log(`Switching from ${currentImg} to ${targetIndex}`);
 
-            // Update elements using cached references
-            elements.images[currentIndex]?.classList.add("hide");
-            elements.images[targetIndexZero]?.classList.remove("hide");
-            elements.comments[currentIndex]?.classList.add("hide");
-            elements.comments[targetIndexZero]?.classList.remove("hide");
+      const currentIndex = currentImg - 1;
+      const targetIndexZero = targetIndex - 1;
 
-            // Update trigger indicators
-            elements.triggers[currentIndex]?.classList.replace(
-                "bg-orange-800",
-                "bg-neutral-400",
-            );
-            elements.triggers[targetIndexZero]?.classList.replace(
-                "bg-neutral-400",
-                "bg-orange-800",
-            );
+      // Update elements using cached references
+      elements.images[currentIndex]?.classList.add("hide");
+      elements.images[targetIndexZero]?.classList.remove("hide");
+      elements.comments[currentIndex]?.classList.add("hide");
+      elements.comments[targetIndexZero]?.classList.remove("hide");
 
-            currentImg = targetIndex;
-        }
+      // Update trigger indicators
+      elements.triggers[currentIndex]?.classList.replace(
+        "bg-orange-800",
+        "bg-neutral-400"
+      );
+      elements.triggers[targetIndexZero]?.classList.replace(
+        "bg-neutral-400",
+        "bg-orange-800"
+      );
 
-        // Navigation helper function
-        function navigate(direction) {
-            const targetIndex =
-                direction === "next"
-                    ? currentImg >= TOTAL_SLIDES
-                        ? 1
-                        : currentImg + 1
-                    : currentImg <= 1
-                      ? TOTAL_SLIDES
-                      : currentImg - 1;
+      currentImg = targetIndex;
 
-            switchToSlide(targetIndex);
-        }
+      // Update container height for mobile
+      updateContainerHeight(targetIndex);
+    }
 
-        // Single optimized event listener with better logic
-        document.addEventListener("click", function (event) {
-            const { target } = event;
-            const targetId = target.id;
+    // Navigation helper function
+    function navigate(direction) {
+      const targetIndex =
+        direction === "next"
+          ? currentImg >= TOTAL_SLIDES
+            ? 1
+            : currentImg + 1
+          : currentImg <= 1
+            ? TOTAL_SLIDES
+            : currentImg - 1;
 
-            if (!targetId) return;
+      switchToSlide(targetIndex);
+    }
 
-            // Handle trigger buttons (dot indicators)
-            if (targetId.startsWith("trigger-")) {
-                const targetIndex = parseInt(targetId.slice(8)); // More efficient than split
-                switchToSlide(targetIndex);
-                return;
-            }
+    // Single optimized event listener with better logic
+    document.addEventListener("click", function (event) {
+      const { target } = event;
+      const targetId = target.id;
 
-            // Handle navigation buttons
-            if (targetId.startsWith("move-")) {
-                const direction = targetId.slice(5); // "next" or "prev"
-                navigate(direction);
-                return;
-            }
-        });
+      if (!targetId) return;
 
-        // Optional: Add keyboard navigation
-        document.addEventListener("keydown", function (event) {
-            if (event.target.matches("input, textarea")) return; // Don't interfere with form inputs
+      // Handle trigger buttons (dot indicators)
+      if (targetId.startsWith("trigger-")) {
+        const targetIndex = parseInt(targetId.slice(8)); // More efficient than split
+        switchToSlide(targetIndex);
+        return;
+      }
 
-            switch (event.key) {
-                case "ArrowLeft":
-                    event.preventDefault();
-                    navigate("prev");
-                    break;
-                case "ArrowRight":
-                    event.preventDefault();
-                    navigate("next");
-                    break;
-            }
-        });
-
-        // Optional: Auto-play functionality
-        let autoPlayInterval;
-
-        function startAutoPlay(interval = 5000) {
-            stopAutoPlay();
-            autoPlayInterval = setInterval(() => navigate("next"), interval);
-        }
-
-        function stopAutoPlay() {
-            if (autoPlayInterval) {
-                clearInterval(autoPlayInterval);
-                autoPlayInterval = null;
-            }
-        }
-
-        // Optional: Pause auto-play on hover
-        const carouselContainer = document.querySelector(
-            "[data-carousel-container]",
-        );
-        if (carouselContainer) {
-            carouselContainer.addEventListener("mouseenter", stopAutoPlay);
-            carouselContainer.addEventListener("mouseleave", () =>
-                startAutoPlay(5000),
-            );
-        }
-
-        console.log("Carousel ready with", elements.images.length, "slides");
+      // Handle navigation buttons
+      if (targetId.startsWith("move-")) {
+        const direction = targetId.slice(5); // "next" or "prev"
+        navigate(direction);
+        return;
+      }
     });
+
+    // Optional: Add keyboard navigation
+    document.addEventListener("keydown", function (event) {
+      if (event.target.matches("input, textarea")) return; // Don't interfere with form inputs
+
+      switch (event.key) {
+        case "ArrowLeft":
+          event.preventDefault();
+          navigate("prev");
+          break;
+        case "ArrowRight":
+          event.preventDefault();
+          navigate("next");
+          break;
+      }
+    });
+
+    // Optional: Auto-play functionality
+    let autoPlayInterval;
+
+    function startAutoPlay(interval = 5000) {
+      stopAutoPlay();
+      autoPlayInterval = setInterval(() => navigate("next"), interval);
+    }
+
+    function stopAutoPlay() {
+      if (autoPlayInterval) {
+        clearInterval(autoPlayInterval);
+        autoPlayInterval = null;
+      }
+    }
+
+    // Optional: Pause auto-play on hover
+    const carouselContainer = document.querySelector(
+      "[data-carousel-container]"
+    );
+    if (carouselContainer) {
+      carouselContainer.addEventListener("mouseenter", stopAutoPlay);
+      carouselContainer.addEventListener("mouseleave", () =>
+        startAutoPlay(5000)
+      );
+    }
+
+    console.log("Carousel ready with", elements.images.length, "slides");
+
+    // Initialize container height on page load
+    updateContainerHeight(currentImg);
+
+    // Update height on window resize
+    window.addEventListener("resize", () => {
+      updateContainerHeight(currentImg);
+    });
+  });
 </script>

@@ -3,42 +3,44 @@ import arrow from "../../assets/about/arrow.svg";
 import opportunities from "../../assets/career/opportunities.png";
 ---
 
-<div class="w-full px-6">
-    <section class="grid grid-cols-4 gap-6 mb-8 border border-neutral-800">
-        <div class="pt-4 col-span-1">
-            <h6 class="text-orange-500 text-xl">Opportunities</h6>
-            <h4 class="text-stone-50 text-4xl my-4">
-                Explore the career paths.
-            </h4>
-            <p class="text-neutral-400 text-lg">
-                Help us to solve the world’s problems through maps, and You.
-                Interested? Find your forte below!
-            </p>
-            <a
-                href="https://www.linkedin.com/company/braga-technology/"
-                target="_blank"
-                class="bg-orange-700 py-2 px-3 text-sm text-white rounded-sm flex space-x-2 w-42 my-4"
-                ><p class="grow">Visit Linkedin</p><img
-                    src={arrow.src}
-                    alt=""
-                /></a
-            >
-            <a
-                href="https://glints.com/id/companies/braga-technologies/1b0cbefb-61ce-4320-90a5-be0a36a8fcf2"
-                target="_blank"
-                class="bg-orange-700 py-2 px-3 text-sm text-white rounded-sm flex space-x-2 w-42"
-                ><p class="grow">Visit Glints</p><img
-                    src={arrow.src}
-                    alt=""
-                /></a
-            >
-        </div>
-        <div class="col-span-3 pt-9">
-            <img
-                src={opportunities.src}
-                alt=""
-                class="w-full h-full object-cover border-t border-neutral-800"
-            />
-        </div>
-    </section>
+<div class='w-full px-2 md:px-6'>
+  <section
+    class='grid grid-cols-1 md:grid-cols-4 gap-6 mb-8 lg:border border-neutral-800'
+  >
+    <div class='pt-4 px-2 md:px-0 md:col-span-1'>
+      <h6 class='text-orange-500 text-lg md:text-xl'>Opportunities</h6>
+      <h4 class='text-stone-50 text-3xl md:text-4xl my-4'>
+        Explore the career paths.
+      </h4>
+      <p class='text-neutral-400 text-base md:text-lg mb-6'>
+        Help us to solve the world's problems through maps, and You. Interested?
+        Find your forte below!
+      </p>
+      <div class='flex flex-col space-y-3'>
+        <a
+          href='https://www.linkedin.com/company/braga-technology/'
+          target='_blank'
+          class='bg-orange-700 hover:bg-orange-600 transition-colors py-2.5 px-4 text-sm text-white rounded flex items-center justify-between w-fit min-w-[160px]'
+        >
+          <span>Visit Linkedin</span>
+          <img src={arrow.src} alt='' class='ml-2 w-4 h-4' />
+        </a>
+        <a
+          href='https://glints.com/id/companies/braga-technologies/1b0cbefb-61ce-4320-90a5-be0a36a8fcf2'
+          target='_blank'
+          class='bg-orange-700 hover:bg-orange-600 transition-colors py-2.5 px-4 text-sm text-white rounded flex items-center justify-between w-fit min-w-[160px]'
+        >
+          <span>Visit Glints</span>
+          <img src={arrow.src} alt='' class='ml-2 w-4 h-4' />
+        </a>
+      </div>
+    </div>
+    <div class='md:col-span-3 md:pt-9 mt-6 md:mt-0'>
+      <img
+        src={opportunities.src}
+        alt='Career opportunities at Braga Technologies'
+        class='w-full h-[500px] md:h-full object-cover md:border-t border-neutral-800 rounded-lg md:rounded-none'
+      />
+    </div>
+  </section>
 </div>

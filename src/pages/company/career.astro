@@ -5,53 +5,53 @@ import Opportunities from "../../components/career/Opportunities.astro";
 import Layout from "../../layouts/Layout.astro";
 ---
 
-<Layout theme="dark" isBlack={true}
-    ><Hero /><LifeBraga /><Opportunities /></Layout
+<Layout theme='dark' isBlack={true} hideGridOnMobile={true}
+  ><Hero /><LifeBraga /><Opportunities /></Layout
 >
 
 <script is:inline client:load>
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("visible");
-                }
-            });
-        },
-        { threshold: 0.1 },
-    );
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
 
-    // Observe all animated elements
-    document
-        .querySelectorAll(".fade-in-up")
-        .forEach((el) => observer.observe(el));
+  // Observe all animated elements
+  document
+    .querySelectorAll(".fade-in-up")
+    .forEach((el) => observer.observe(el));
 </script>
 
 <style is:global>
-    .typo-poin h1,
-    .typo-poin h2,
-    .typo-poin h3,
-    .typo-poin h4,
-    .typo-poin h5,
-    .typo-poin h6 {
-        font-family: "Host-Grotesk", sans-serif;
-    }
+  .typo-poin h1,
+  .typo-poin h2,
+  .typo-poin h3,
+  .typo-poin h4,
+  .typo-poin h5,
+  .typo-poin h6 {
+    font-family: "Host-Grotesk", sans-serif;
+  }
 
-    /* Initial hidden state */
-    .fade-in-up {
-        opacity: 0;
-        transform: translateY(30px);
-    }
+  /* Initial hidden state */
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+  }
 
-    /* Animation when visible */
-    .fade-in-up.visible {
-        animation: fadeInUp 0.75s ease-out forwards;
-    }
+  /* Animation when visible */
+  .fade-in-up.visible {
+    animation: fadeInUp 0.75s ease-out forwards;
+  }
 
-    @keyframes fadeInUp {
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
+  }
 </style>

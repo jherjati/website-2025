@@ -15,109 +15,256 @@ import activity4 from "../../assets/career/act-4.png";
 import activity5 from "../../assets/career/act-5.png";
 import activity6 from "../../assets/career/act-6.png";
 
+import arrowLeft from "../../assets/career/arrow-left.svg";
+
 const benefits = [
-    {
-        number: "01/",
-        title: "Paid Leaves",
-        description:
-            "Leverage a planned absence to maintain a healthy work-life balance",
-        icon: benefit1,
-    },
-    {
-        number: "02/",
-        title: "Structured Flexible Hours",
-        description:
-            "Establish Optimal Work Schedules and Maintain Work-Life Balance through a Structured Approach.",
-        icon: benefit2,
-    },
-    {
-        number: "03/",
-        title: "Healthcare",
-        description:
-            "We prioritize your well-being by offering a self-directed health insurance program.",
-        icon: benefit3,
-    },
-    {
-        number: "04/",
-        title: "Office Lunch",
-        description:
-            "Focus on your work without interruption thanks to our on-site food service options available during weekdays.",
-        icon: benefit4,
-    },
-    {
-        number: "05/",
-        title: "Financial Security",
-        description:
-            "We offer a Flexible Repayment Loan Program with 0% interest, fees, and adjustable installment might help you in times of need.",
-        icon: benefit5,
-    },
-    {
-        number: "06/",
-        title: "Self Development",
-        description:
-            "Embark in career paths, learning materials, and our self-development activities.",
-        icon: benefit6,
-    },
-    {
-        number: "07/",
-        title: "Family Support Specialist",
-        description:
-            "Supporting you throughout your life journey, we offer targeted benefits for newlyweds, parents, and families.",
-        icon: benefit7,
-    },
-    {
-        number: "08/",
-        title: "Team Wellbeing",
-        description:
-            "Enhance your work-life balance with engaging recreational activities, including city exploration and games.",
-        icon: benefit8,
-    },
+  {
+    number: "01/",
+    title: "Paid Leaves",
+    description:
+      "Leverage a planned absence to maintain a healthy work-life balance",
+    icon: benefit1,
+  },
+  {
+    number: "02/",
+    title: "Structured Flexible Hours",
+    description:
+      "Establish Optimal Work Schedules and Maintain Work-Life Balance through a Structured Approach.",
+    icon: benefit2,
+  },
+  {
+    number: "03/",
+    title: "Healthcare",
+    description:
+      "We prioritize your well-being by offering a self-directed health insurance program.",
+    icon: benefit3,
+  },
+  {
+    number: "04/",
+    title: "Office Lunch",
+    description:
+      "Focus on your work without interruption thanks to our on-site food service options available during weekdays.",
+    icon: benefit4,
+  },
+  {
+    number: "05/",
+    title: "Financial Security",
+    description:
+      "We offer a Flexible Repayment Loan Program with 0% interest, fees, and adjustable installment might help you in times of need.",
+    icon: benefit5,
+  },
+  {
+    number: "06/",
+    title: "Self Development",
+    description:
+      "Embark in career paths, learning materials, and our self-development activities.",
+    icon: benefit6,
+  },
+  {
+    number: "07/",
+    title: "Family Support Specialist",
+    description:
+      "Supporting you throughout your life journey, we offer targeted benefits for newlyweds, parents, and families.",
+    icon: benefit7,
+  },
+  {
+    number: "08/",
+    title: "Team Wellbeing",
+    description:
+      "Enhance your work-life balance with engaging recreational activities, including city exploration and games.",
+    icon: benefit8,
+  },
 ];
 
 const activities = [
-    activity1,
-    activity2,
-    activity3,
-    activity4,
-    activity5,
-    activity6,
+  activity1,
+  activity2,
+  activity3,
+  activity4,
+  activity5,
+  activity6,
 ];
 ---
 
-<div class="w-full px-6">
-    <section
-        class="grid grid-cols-4 gap-x-6 mb-16 border-y border-neutral-800 pt-10"
+<div class='w-full px-4 md:px-6'>
+  <section
+    class='grid grid-cols-1 md:grid-cols-4 gap-x-6 mb-16 lg:border-y border-neutral-800 pt-10'
+  >
+    <div class='py-4 space-y-4'>
+      <h6 class='text-orange-500 text-lg md:text-xl'>Life at Braga</h6>
+      <h3 class='text-stone-200 text-3xl md:text-4xl'>
+        We’ve got your back, always.
+      </h3>
+    </div>
+    <div
+      class='grid md:col-span-3 grid-cols-2 md:grid-cols-3 gap-6 px-2 md:px-6 pb-20 md:pb-40 lg:border border-neutral-800 bg-black'
     >
-        <div class="py-4 space-y-4">
-            <h6 class="text-orange-500 text-xl">Life at Braga</h6>
-            <h3 class="text-stone-200 text-4xl">
-                We’ve got your back, always.
-            </h3>
+      {
+        benefits.map(({ number, title, description, icon }) => (
+          <div class='pt-6 space-y-3'>
+            <p class='text-neutral-500 border-b border-neutral-600 pb-1 mt-0'>
+              {number}
+            </p>
+            <h5 class='text-white text-xl md:text-2xl'>{title}</h5>
+            <img src={icon.src} alt='' class='' />
+            <p class='text-neutral-400 text-base md:text-xl'>{description}</p>
+          </div>
+        ))
+      }
+      <h2
+        class='col-span-2 md:col-span-3 pr-2 md:pr-6 text-stone-50 text-3xl md:text-6xl mt-12 md:mt-36 font-host'
+      >
+        Together, we’re leveraging technology to help fight some of the world’s
+        toughest challenges
+      </h2>
+    </div>
+    <div class='md:col-span-4 mb-6'>
+      <div class='relative h-[250px] md:h-auto md:overflow-x-scroll'>
+        <div class='md:flex md:space-x-4 h-full'>
+          {
+            activities.map((image, i) => (
+              <img
+                src={image.src}
+                alt=''
+                class={
+                  "md:relative absolute inset-0 w-full h-full object-cover activity-slide " +
+                  (i === 0
+                    ? ""
+                    : "hide-activity md:opacity-100 md:pointer-events-auto")
+                }
+                id={"activity-" + (i + 1)}
+              />
+            ))
+          }
         </div>
-        <div
-            class="grid col-span-3 grid-cols-3 gap-6 px-6 pb-40 border border-neutral-800 bg-black"
-        >
-            {
-                benefits.map(({ number, title, description, icon }) => (
-                    <div class="pt-6 space-y-3">
-                        <p class="text-neutral-500 border-b border-neutral-600 pb-1 mt-0">
-                            {number}
-                        </p>
-                        <h5 class="text-white text-2xl">{title}</h5>
-                        <img src={icon.src} alt="" class="" />
-                        <p class="text-neutral-400 text-xl">{description}</p>
-                    </div>
-                ))
-            }
-            <h2 class="col-span-3 pr-6 text-stone-50 text-6xl mt-36">
-                Together, we’re leveraging technology to help fight some of the
-                world’s toughest challenges
-            </h2>
+      </div>
+      <div class='flex justify-between items-center px-2 mt-4 md:hidden'>
+        <div class='flex space-x-2'>
+          {
+            [1, 2, 3, 4, 5, 6].map((e, i) => (
+              <button
+                id={"activity-trigger-" + e}
+                class={
+                  "rounded-full w-2 h-2 cursor-pointer " +
+                  (i === 0 ? "bg-orange-800" : "bg-neutral-400")
+                }
+              />
+            ))
+          }
         </div>
-        <div class="col-span-4 overflow-x-scroll mb-6">
-            <div class="flex space-x-4">
-                {activities.map((image) => <img src={image.src} alt="" />)}
-            </div>
+        <div class='flex space-x-2'>
+          <button
+            id='activity-prev'
+            class='border border-stone-100 rounded-full w-9 h-9 flex items-center justify-center cursor-pointer hover:bg-stone-700'
+          >
+            <img src={arrowLeft.src} alt='Previous' id='activity-prev' />
+          </button>
+          <button
+            id='activity-next'
+            class='border border-stone-100 rounded-full w-9 h-9 flex items-center justify-center cursor-pointer hover:bg-stone-700'
+          >
+            <img
+              src={arrowLeft.src}
+              alt='Next'
+              class='-scale-x-90'
+              id='activity-next'
+            />
+          </button>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 </div>
+
+<style>
+  .activity-slide {
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
+  }
+
+  .activity-slide.hide-activity {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  @media (min-width: 768px) {
+    .activity-slide {
+      position: relative !important;
+      opacity: 1 !important;
+      pointer-events: auto !important;
+    }
+  }
+</style>
+
+<script client:load>
+  document.addEventListener("DOMContentLoaded", function () {
+    const TOTAL_ACTIVITIES = 6;
+    let currentActivity = 1;
+
+    const activityElements = {
+      slides: document.querySelectorAll('[id^="activity-"]'),
+      triggers: document.querySelectorAll('[id^="activity-trigger-"]'),
+    };
+
+    function switchActivity(targetIndex) {
+      if (
+        targetIndex === currentActivity ||
+        targetIndex < 1 ||
+        targetIndex > TOTAL_ACTIVITIES
+      ) {
+        return;
+      }
+
+      const currentIndex = currentActivity - 1;
+      const targetIndexZero = targetIndex - 1;
+
+      activityElements.slides[currentIndex]?.classList.add("hide-activity");
+      activityElements.slides[targetIndexZero]?.classList.remove(
+        "hide-activity"
+      );
+
+      activityElements.triggers[currentIndex]?.classList.replace(
+        "bg-orange-800",
+        "bg-neutral-400"
+      );
+      activityElements.triggers[targetIndexZero]?.classList.replace(
+        "bg-neutral-400",
+        "bg-orange-800"
+      );
+
+      currentActivity = targetIndex;
+    }
+
+    function navigateActivity(direction) {
+      const targetIndex =
+        direction === "next"
+          ? currentActivity >= TOTAL_ACTIVITIES
+            ? 1
+            : currentActivity + 1
+          : currentActivity <= 1
+            ? TOTAL_ACTIVITIES
+            : currentActivity - 1;
+
+      switchActivity(targetIndex);
+    }
+
+    document.addEventListener("click", function (event) {
+      const { target } = event;
+      const targetId = target.id;
+
+      if (!targetId) return;
+
+      if (targetId.startsWith("activity-trigger-")) {
+        const targetIndex = parseInt(targetId.slice(17));
+        switchActivity(targetIndex);
+        return;
+      }
+
+      if (targetId === "activity-prev") {
+        navigateActivity("prev");
+      } else if (targetId === "activity-next") {
+        navigateActivity("next");
+      }
+    });
+  });
+</script>
