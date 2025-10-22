@@ -176,12 +176,12 @@ const navs = [
 					class="border p-2 border-stone-200 dark:border-neutral-800 rounded-sm flex items-center space-x-2 text-xs"
 				>
 					<div class="hidden lg:block">
-						<button class="text-orange-500 ml-1">EN</button>
+						<button class={`ml-1 ${currentPath === "/products/poin" || currentPath === "/products/poin/" ? "text-[#EA374C]" : "text-orange-500"}`}>EN</button>
 						<button class="text-black dark:text-white">ID</button>
 					</div>
 					<a
 						href="/contact/"
-						class={`rounded-sm text-white py-1.5 px-3 ${currentPath === "/products/poin" || currentPath === "/products/poin/" ? "bg-[#EA434C]" : "bg-[#CD541B] dark:bg-orange-700"}`}
+						class={`rounded-sm text-white py-1.5 px-3 ${currentPath === "/products/poin" || currentPath === "/products/poin/" ? "bg-[#EA374C]" : "bg-[#CD541B] dark:bg-orange-700"}`}
 						>Contact</a
 					>
 					<button id="burger-menu" class="lg:hidden">
@@ -308,7 +308,7 @@ const navs = [
 						style="animation-delay: 0.7s"
 					>
 						<div class="flex justify-center space-x-4 text-sm">
-							<button class="text-orange-500">EN</button>
+							<button id="mobile-lang-en" class="text-orange-500">EN</button>
 							<button class="text-white">ID</button>
 						</div>
 					</div>
@@ -384,6 +384,15 @@ const navs = [
 		const mobileMenuContent = document.getElementById(
 			"mobile-menu-content",
 		);
+		const mobileLangEn = document.getElementById("mobile-lang-en");
+
+		// Update mobile language button color based on current path
+		if (mobileLangEn) {
+			const currentPath = window.location.pathname;
+			if (currentPath === "/products/poin" || currentPath === "/products/poin/") {
+				mobileLangEn.style.color = "#EA374C";
+			}
+		}
 
 		const openMenu = () => {
 			if (mobileMenu && mobileMenuContent) {
