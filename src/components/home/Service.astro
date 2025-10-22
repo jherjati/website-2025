@@ -15,6 +15,16 @@ interface Props {
 const { sectionTag, headline, description, services } = Astro.props;
 ---
 
+<style>
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+</style>
+
 <section class="mx-6 pt-12 pb-24 border-t border-neutral-700">
     <h6
         class="text-orange-500 text-xl mb-2 fade-in"
@@ -34,7 +44,7 @@ const { sectionTag, headline, description, services } = Astro.props;
         </p>
     </div>
     <div
-        class="w-full overflow-x-scroll grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 mt-12 fade-in-up"
+        class="w-full overflow-x-scroll grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 mt-12 fade-in-up scrollbar-hide"
         style="animation-delay: 1500ms;"
     >
         {
