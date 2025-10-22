@@ -6,7 +6,7 @@ import Layout from "../../layouts/Layout.astro";
 ---
 
 <Layout theme='dark' isBlack={true} hideGridOnMobile={true}>
-  <div class="w-full max-w-full overflow-x-hidden">
+  <div class='w-full max-w-full overflow-x-hidden'>
     <Hero /><Main /><CTA />
   </div>
 </Layout>
@@ -22,7 +22,7 @@ import Layout from "../../layouts/Layout.astro";
       canvasContainer.style.maxWidth = "100%";
       canvasContainer.style.overflow = "hidden";
     }
-    
+
     const animation = window.lottie.loadAnimation({
       container: canvasContainer,
       renderer: "canvas",
@@ -30,21 +30,22 @@ import Layout from "../../layouts/Layout.astro";
       autoplay: true,
       path: "/animation/culture.json",
       rendererSettings: {
-        preserveAspectRatio: 'xMidYMid slice',
+        preserveAspectRatio: "xMidYMid slice",
         clearCanvas: true,
         progressiveLoad: false,
         hideOnTransparent: true,
-        context: canvasContainer
-      }
+        context: canvasContainer,
+      },
     });
-    
-    // Force canvas element to be constrained
-    animation.addEventListener('DOMLoaded', function() {
-      const canvas = canvasContainer.querySelector('canvas');
+
+    // Force canvas element to fill the height
+    animation.addEventListener("DOMLoaded", function () {
+      const canvas = canvasContainer.querySelector("canvas");
       if (canvas) {
         canvas.style.width = "100%";
+        canvas.style.height = "100%";
         canvas.style.maxWidth = "100%";
-        canvas.style.height = "auto";
+        canvas.style.objectFit = "cover";
       }
     });
   };
@@ -69,23 +70,31 @@ import Layout from "../../layouts/Layout.astro";
 
 <style is:global>
   /* Prevent horizontal scroll */
-  html, body {
+  html,
+  body {
     overflow-x: hidden;
     max-width: 100vw;
     width: 100%;
   }
-  
+
   * {
     box-sizing: border-box;
   }
 
   /* Constrain lottie canvas */
-  #canvas-1,
-  #canvas-1 canvas,
-  #canvas-1 svg {
+  #canvas-1 {
     width: 100% !important;
     max-width: 100% !important;
     overflow: hidden !important;
+  }
+  
+  #canvas-1 canvas,
+  #canvas-1 svg {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    object-fit: cover !important;
   }
 
   /* Smooth horizontal scroll for mobile cards */
@@ -95,7 +104,7 @@ import Layout from "../../layouts/Layout.astro";
       scrollbar-width: none; /* Firefox */
       -ms-overflow-style: none; /* IE and Edge */
     }
-    
+
     .overflow-x-auto::-webkit-scrollbar {
       display: none; /* Chrome, Safari, Opera */
     }
