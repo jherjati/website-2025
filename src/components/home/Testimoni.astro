@@ -18,6 +18,16 @@ const { sectionTag, headline, description, industries } = Astro.props;
 const testimonials = await fetchTestimonials();
 ---
 
+<style>
+    .scrollbar-hide-y {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .scrollbar-hide-y::-webkit-scrollbar {
+        display: none;
+    }
+</style>
+
 <section
     class="sm:grid grid-cols-2 gap-x-6 mx-4 md:mx-6 py-12 border-t border-neutral-700 mt-12 overflow-x-hidden"
 >
@@ -48,7 +58,7 @@ const testimonials = await fetchTestimonials();
         </div>
     </div>
     <div
-        class="space-y-12 md:space-y-16 mt-12 sm:-mt-6 max-h-[75vh] overflow-y-scroll mb-12 py-6 fadeout-vertical fade-in-left"
+        class="space-y-12 md:space-y-16 mt-12 sm:-mt-6 max-h-[75vh] overflow-y-scroll mb-12 py-6 fadeout-vertical fade-in-left scrollbar-hide-y"
         style="animation-delay: 750ms;"
     >
         {
