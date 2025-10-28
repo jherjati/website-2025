@@ -19,7 +19,7 @@ export function createBlogHeroData(allWorks, allPosts, directusToken) {
                     date_created: new Date(work.date_created).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }),
                     title: work.work_title,
                     desc: work.synopsis,
-                    href: '/blog/case-study/' + work.slug,
+                    href: '/blog/case-study/' + work.slug + '/',
                     type: 'work'
                 }));
                 const searchPosts = this.searchResults.posts.map(post => ({
@@ -28,7 +28,7 @@ export function createBlogHeroData(allWorks, allPosts, directusToken) {
                     date_created: new Date(post.date_created).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }),
                     title: post.title,
                     desc: post.synopsis,
-                    href: '/blog/post/' + post.slug,
+                    href: '/blog/post/' + post.slug + '/',
                     type: 'post'
                 }));
 

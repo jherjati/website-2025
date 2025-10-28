@@ -12,7 +12,7 @@ const allWorks = works.slice(0, 6).map((work) => ({
     date_created: formatDate(work.date_created),
     title: work.title,
     desc: work.synopsis,
-    href: "/blog/case-study/" + work.slug,
+    href: "/blog/case-study/" + work.slug + "/",
     type: "work",
 }));
 
@@ -22,7 +22,7 @@ const allPosts = posts.slice(0, 6).map((post) => ({
     date_created: formatDate(post.date_created),
     title: post.title,
     desc: post.synopsis,
-    href: "/blog/post/" + post.slug,
+    href: "/blog/post/" + post.slug + "/",
     type: "post",
 }));
 
