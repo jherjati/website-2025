@@ -4,41 +4,40 @@ import heroPattern from "../../assets/poin/hero-pattern.svg";
 ---
 
 <section
-    class="bg-orange-900 sm:grid grid-cols-2 mx-6 mt-3 rounded-lg relative text-stone-50 px-6 py-9 sm:p-9 overflow-hidden fade-in-up"
-    style="animation-delay: 1400ms;"
+  class='bg-orange-900 sm:grid grid-cols-2 mx-6 mt-3 rounded-lg relative text-stone-50 px-6 py-9 sm:p-9 overflow-hidden fade-in-up'
+  style='animation-delay: 1400ms;'
 >
-    <div
-        id={"canvas-0"}
-        class="absolute h-1/2 sm:h-full top-0 -right-[90%] sm:-right-[75%] md:-right-[60%] lg:-right-[45%] xl:-right-[30%] scale-[200%] sm:scale-125 lg:scale-150"
-    >
+  <div
+    id={"canvas-0"}
+    class='absolute h-1/2 sm:h-full top-0 -right-[90%] sm:-right-[75%] md:-right-[60%] lg:-right-[65%] xl:-right-[35%] 2xl:-right-[25%] scale-[180%] lg:scale-[130%] xl:scale-[180%]'
+  >
+  </div>
+  <img
+    src={heroPattern.src}
+    alt=''
+    class='absolute h-full w-auto sm:h-auto sm:w-full top-0 left-0'
+  />
+  <div>
+    <div class='mb-64'>
+      <span class='text-yellow-950 bg-stone-50 px-3 py-2 rounded-lg text-xs'
+        >Service</span
+      ><span
+        class='border border-stone-50 text-stone-50 px-3 py-2 rounded-lg text-xs'
+        >Software</span
+      >
     </div>
-    <img
-        src={heroPattern.src}
-        alt=""
-        class="absolute h-full w-auto sm:h-auto sm:w-full top-0 left-0"
-    />
-    <div>
-        <div class="mb-64">
-            <span
-                class="text-yellow-950 bg-stone-50 px-3 py-2 rounded-lg text-xs"
-                >Service</span
-            ><span
-                class="border border-stone-50 text-stone-50 px-3 py-2 rounded-lg text-xs"
-                >Software</span
-            >
-        </div>
-        <div class="space-y-6">
-            <h3 class="text-4xl sm:text-7xl w-1/2 sm:w-auto">
-                Custom Software Solutions
-            </h3>
-            <p class="text-xl sm:text-3xl w-5/6">
-                Elevating Your Digital Vision with Expertise and Excellence
-            </p>
-        </div>
+    <div class='space-y-6'>
+      <h3 class='text-4xl sm:text-7xl w-1/2 sm:w-auto'>
+        Custom Software Solutions
+      </h3>
+      <p class='text-xl sm:text-3xl w-5/6'>
+        Elevating Your Digital Vision with Expertise and Excellence
+      </p>
+    </div>
 
-        <button
-            class="border border-stone-50 px-3 py-2 rounded-sm text-sm mt-12 flex space-x-6"
-            ><p>Explore Below</p><img src={heroArrow.src} alt="" /></button
-        >
-    </div>
+    <button
+      class='border border-stone-50 px-3 py-2 rounded-sm text-sm mt-12 flex space-x-6'
+      ><p>Explore Below</p><img src={heroArrow.src} alt='' /></button
+    >
+  </div>
 </section>
