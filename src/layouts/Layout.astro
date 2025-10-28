@@ -110,7 +110,7 @@ const navs = [
 									<button class="cursor-pointer w-20 dark:hover:text-neutral-200 hover:border border-stone-200 dark:border-neutral-700 rounded-sm h-9 flex justify-center items-center">
 										{label}
 									</button>
-									<div class="content p-3 space-x-3 bg-stone-100 dark:bg-neutral-900/50 shadow-md rounded-lg border border-stone-300 dark:border-neutral-700 absolute left-0 top-9">
+									<div class="content dropdown-products p-3 space-x-3 bg-stone-100 dark:bg-neutral-900/50 shadow-md rounded-lg border border-stone-300 dark:border-neutral-700 absolute left-0 top-9">
 										{dropdowns.map(
 											({
 												image,
@@ -442,6 +442,12 @@ const navs = [
 	}
 	.dropdown:hover .content {
 		display: flex;
+	}
+
+	@media (min-width: 1024px) and (max-width: 1279px) {
+		.dropdown-products a {
+			width: 180px !important;
+		}
 	}
 
 	@keyframes fadeInDown {
